@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- CSP meta tag -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; navigate-to 'none'; block-all-mixed-content">
+    <meta http-equiv="Content-Security-Policy" content="style-src 'self' 'unsafe-inline'; default-src 'self'; base-uri 'none'; navigate-to 'none'; block-all-mixed-content">
     
     <!-- site title -->
     <title>Simple Password Manager</title>
@@ -22,18 +22,39 @@
         <!-- authentication screen to enter master password and open password vault, or create one -->
         <div class="auth">
             <!-- form for entering vault (vault already created) -->
-            <div class="form enter_vault">
+            <div class="form enter_vault" style="display: none;">
                 <h1>Enter Vault</h1>
-                <input type="password" placeholder="Enter Password...">
-                <input type="submit" class="Enter Vault">
+
+                <!-- container for input and button/icon enclosed within input -->
+                <div class="input_container">
+                    <!-- enter password for vault -->
+                    <input type="password" placeholder="Enter Password...">
+
+                    <!-- enter vault button -->
+                    <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/></svg>
+                    </button>
+                </div>
             </div>
 
             <!-- form for creating vault (vault not created yet) -->
             <div class="form create_vault">
                 <h1>Create Vault</h1>
+                
+                <!-- enter password for vault -->
                 <input type="password" placeholder="Enter Password...">
-                <input type="password" placeholder="Confirm Password...">
-                <input type="submit" value="Create Vault">
+
+                <!-- container for input and button/icon enclosed within input -->
+                <div class="input_container">
+                    <!-- confirm password -->
+                    <input type="password" placeholder="Confirm Password...">
+
+                    <!-- create vault (or display 'X' icon if passwords do not match) -->
+                    <button>
+                        <svg class="no_match" style="fill: var(--red-color) !important;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z"/></svg>
+                        <svg class="match" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/></svg>
+                    </button>
+                </div>
             </div>
         </div>
 
