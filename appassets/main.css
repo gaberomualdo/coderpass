@@ -3,3 +3,15 @@
 /* import fontfaces.css, which imports all fonts for the app */
 @import "fontfaces.css";
 
+/* style container */
+body > div.container {
+    display: inline-block;
+    width: 700px;
+    height: 100vh;
+    text-align: left;
+}
+
+/* center container within window */
+body {
+    text-align: center;
+}
