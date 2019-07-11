@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- charset meta tag -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
+    <!-- viewport meta tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- CSP meta tag -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; navigate-to 'none'; block-all-mixed-content">
+    
+    <!-- site title -->
     <title>Simple Password Manager</title>
 
     <!-- stylesheets -->
     <link rel="stylesheet" href="appassets/main.css">
 </head>
 <body>
+    <!-- container DIV — contains entire app -->
     <div class="container">
         <!-- authentication screen to enter master password and open password vault, or create one -->
         <div class="auth">
@@ -46,6 +53,6 @@
     </div>
 
     <!-- scripts -->
-    <script src="app.js"></script>
+    <script src="appassets/app.js"></script>
 </body>
 </html>

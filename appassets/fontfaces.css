@@ -46,13 +46,13 @@
 @font-face {
     font-family: 'Source Sans Pro';
     src: url('fonts/SourceSansPro/SourceSansPro-Regular.otf');
-    font-weight: 600;
+    font-weight: 500;
     font-style: normal;
 }
 @font-face {
     font-family: 'Source Sans Pro';
     src: url('fonts/SourceSansPro/SourceSansPro-It.otf');
-    font-weight: 600;
+    font-weight: 500;
     font-style: italic;
 }
 
@@ -60,13 +60,13 @@
 @font-face {
     font-family: 'Source Sans Pro';
     src: url('fonts/SourceSansPro/SourceSansPro-Light.otf');
-    font-weight: 600;
+    font-weight: 300;
     font-style: normal;
 }
 @font-face {
     font-family: 'Source Sans Pro';
     src: url('fonts/SourceSansPro/SourceSansPro-LightIt.otf');
-    font-weight: 600;
+    font-weight: 300;
     font-style: italic;
 }
 
@@ -74,12 +74,12 @@
 @font-face {
     font-family: 'Source Sans Pro';
     src: url('fonts/SourceSansPro/SourceSansPro-ExtraLight.otf');
-    font-weight: 600;
+    font-weight: 200;
     font-style: normal;
 }
 @font-face {
     font-family: 'Source Sans Pro';
     src: url('fonts/SourceSansPro/SourceSansPro-ExtraLightIt.otf');
-    font-weight: 600;
+    font-weight: 200;
     font-style: italic;
 }
