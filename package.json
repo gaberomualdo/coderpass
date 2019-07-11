@@ -1,0 +1,26 @@
+{
+  "name": "simple-password-manager",
+  "version": "1.0.0",
+  "description": "The simplest password manager app built with Electron.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xtrp/Simple-Password-Manager.git"
+  },
+  "keywords": [
+    "Password",
+    "Manager"
+  ],
+  "author": "Fred Adams",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xtrp/Simple-Password-Manager/issues"
+  },
+  "homepage": "https://github.com/xtrp/Simple-Password-Manager#readme",
+  "devDependencies": {
+    "electron": "^5.0.6"
+  }
+}
