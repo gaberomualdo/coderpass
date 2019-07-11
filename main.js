@@ -1,3 +1,4 @@
+// get required modules from electron
 const { app, BrowserWindow, ipcMain } = require('electron');
 
 // global object window
@@ -7,8 +8,10 @@ function createWindow () {
   
   // create window
   window = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 900,
+    height: 700,
+    minWidth: 700,
+    minHeight: 600,
     webPreferences: {
       nodeIntegration: true
     }
@@ -29,9 +32,10 @@ app.on('window-all-closed', function () {
     }
 });
 
+// on macOS re-create app window when app icon is clicked
 app.on('activate', function () {
-    // on macOS re-create app window when app icon is clicked
     if (window === null){
         createWindow();
     }
 });
+
