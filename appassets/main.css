@@ -1,1 +1,5 @@
 /* NOTE: Electron apps run on the same CSS engine on all devices, so no need to code for cross-platform compatibility */
+
+/* import fontfaces.css, which imports all fonts for the app */
+@import "fontfaces.css";
+

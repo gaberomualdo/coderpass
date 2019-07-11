@@ -1,0 +1,85 @@
+/* import fonts for app using @font-face CSS rule */
+
+/* Source Sans Pro Black */
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('fonts/SourceSansPro/SourceSansPro-Black.otf');
+    font-weight: 900;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('fonts/SourceSansPro/SourceSansPro-BlackIt.otf');
+    font-weight: 900;
+    font-style: italic;
+}
+
+/* Source Sans Pro Bold */
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('fonts/SourceSansPro/SourceSansPro-Bold.otf');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('fonts/SourceSansPro/SourceSansPro-BoldIt.otf');
+    font-weight: 700;
+    font-style: italic;
+}
+
+/* Source Sans Pro Semi-Bold */
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('fonts/SourceSansPro/SourceSansPro-Semibold.otf');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('fonts/SourceSansPro/SourceSansPro-SemiboldIt.otf');
+    font-weight: 600;
+    font-style: italic;
+}
+
+/* Source Sans Pro Regular */
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('fonts/SourceSansPro/SourceSansPro-Regular.otf');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('fonts/SourceSansPro/SourceSansPro-It.otf');
+    font-weight: 600;
+    font-style: italic;
+}
+
+/* Source Sans Pro Light */
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('fonts/SourceSansPro/SourceSansPro-Light.otf');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('fonts/SourceSansPro/SourceSansPro-LightIt.otf');
+    font-weight: 600;
+    font-style: italic;
+}
+
+/* Source Sans Pro ExtraLight */
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('fonts/SourceSansPro/SourceSansPro-ExtraLight.otf');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('fonts/SourceSansPro/SourceSansPro-ExtraLightIt.otf');
+    font-weight: 600;
+    font-style: italic;
+}
