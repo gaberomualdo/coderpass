@@ -1,2 +1,2 @@
-# Simple-Password-Manager
-The simplest password manager app built in Python.
+# Simple Password Manager
+The simplest password manager app built with Electron.
