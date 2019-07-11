@@ -9,6 +9,7 @@
     --light-color: #ECEFF1;
     --medium-color: #B0BEC5;
     --red-color: #E74C3C;
+    --red-medium-color: #F5B6AF;
 }
 
 /* global styles */
@@ -101,7 +102,7 @@ body > div.container > div.auth > div.form > div.input_container > button {
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
+    cursor: default;
 }
 body > div.container > div.auth > div.form > div.input_container > button > svg {
     width: 1.25rem;
@@ -109,6 +110,9 @@ body > div.container > div.auth > div.form > div.input_container > button > svg 
     fill: var(--dark-color);
     transition: opacity 0.25s ease-in-out 0.25s, fill 0.25s ease-in-out;
     opacity: 0;
+}
+body > div.container > div.auth > div.form input:not(:placeholder-shown) ~ button {
+    cursor: pointer;
 }
 body > div.container > div.auth > div.form input:not(:placeholder-shown) ~ button > svg {
     opacity: 1;
@@ -143,8 +147,16 @@ body > div.container > div.auth > div.form > input, body > div.container > div.a
     margin-top: 1rem;
 }
 
+/* make color of "X" icon red */
+body > div.container > div.auth > div.form.create_vault > div.input_container:nth-child(3) > button > svg.no_match {
+    fill: var(--red-color);
+}
+body > div.container > div.auth > div.form > div.input_container:nth-child(3) > input:not(:focus) ~ button > svg.no_match {
+    fill: var(--red-medium-color);
+}
+
 /* display correct icon within confirm password field in vault creation form
-  (either an "X" if passwords don't match, or an arrow for creating new vault) */
+   (either an "X" if passwords don't match, or an arrow for creating new vault) */
 
 body > div.container > div.auth > div.form.create_vault > div.input_container:nth-child(3) > button:disabled > svg.match {
     display: none;
