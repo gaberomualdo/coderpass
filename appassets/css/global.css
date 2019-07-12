@@ -1,0 +1,44 @@
+/*
+    This file includes all global styles for the app;
+    for example, CSS variables and styles for the main
+    container.
+*/
+
+/* root CSS variables */
+:root {
+    --dark-color: #37474F;
+    --light-color: #ECEFF1;
+    --medium-color: #B0BEC5;
+    --red-color: #E74C3C;
+    --red-medium-color: #F5B6AF;
+}
+
+/* global styles */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body, input, button {
+    font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: var(--dark-color);
+    outline: none;
+}
+body {
+    background-color: var(--light-color);
+    font-size: 20px;
+}
+
+/* style container */
+body > div.container {
+    display: block;
+    width: 700px;
+    height: 100vh;
+}
+
+/* center container within window */
+body {
+    display: flex;
+    justify-content: center;
+}

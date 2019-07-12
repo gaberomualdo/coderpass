@@ -1,166 +1,20 @@
-/* NOTE: Electron apps run on the same CSS engine on all devices, so no need to code for cross-platform compatibility */
+/*
+    This is the main CSS file for the app. It imports all other necessary
+    stylesheets in the most effective order.
+
+    Also note that Electron apps run on the same CSS engine on all devices,
+    so there's no need to write code for cross-platform compatibility (or use
+    a CSS parser like SASS).
+*/
 
 /* import fontfaces.css, which imports all fonts for the app */
-@import "fontfaces.css";
+@import "css/fontfaces.css";
 
-/* root CSS variables */
-:root {
-    --dark-color: #37474F;
-    --light-color: #ECEFF1;
-    --medium-color: #B0BEC5;
-    --red-color: #E74C3C;
-    --red-medium-color: #F5B6AF;
-}
+/* import global.css, which includes global styles for the app (e.g. CSS variables, etc.) */
+@import "css/global.css";
 
-/* global styles */
+/* import authscreen.css, which includes styles for the authentication (enter/create vault) screen */
+@import "css/authscreen.css";
 
-* {
-    margin: 0;
-    padding: 0;
-}
-
-body, input, button {
-    font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: var(--dark-color);
-    outline: none;
-}
-body {
-    background-color: var(--light-color);
-    font-size: 20px;
-}
-
-/* style container */
-body > div.container {
-    display: block;
-    width: 700px;
-    height: 100vh;
-}
-
-/* center container within window */
-body {
-    display: flex;
-    justify-content: center;
-}
-
-/* auth screen and auth screen forms */
-
-body > div.container > div.auth {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-}
-
-body > div.container > div.auth > div.form {
-    background-color: #fff;
-    padding: 2.5rem;
-    box-shadow: 0 0 2rem rgba(55, 71, 79, 0.225);
-    width: 350px;
-}
-
-/* form header */
-body > div.container > div.auth > div.form > h1 {
-    font-size: 3rem;
-    line-height: 1.25;
-    text-align: center;
-    margin-bottom: 0.5rem;
-}
-
-/* form input and button */
-body > div.container > div.auth > div.form input, body > div.container > div.auth > div.form > div.input_container > button {
-    box-sizing: border-box;
-    border: 2px solid var(--light-color);
-    display: block;
-    float: left;
-    height: 3rem;
-    transition: border-color 0.25s ease-in-out;
-}
-
-/* input */
-body > div.container > div.auth > div.form input {
-    font-size: 1.125rem;
-    line-height: 1.5rem;
-    padding: 0.75rem calc(0.9375rem - 2px);
-}
-body > div.container > div.auth > div.form input, body > div.container > div.auth > div.form input::placeholder {
-    transition: border-color 0.25s ease-in-out, color 0.25s ease-in-out;
-}
-body > div.container > div.auth > div.form input:not(:focus), body > div.container > div.auth > div.form input::placeholder {
-    color: var(--medium-color);
-}
-body > div.container > div.auth > div.form input:focus::placeholder {
-    color: #90A4AE;
-}
-body > div.container > div.auth > div.form input:focus, body > div.container > div.auth > div.form input:focus ~ button {
-    border-color: var(--dark-color);
-}
-
-/* button */
-body > div.container > div.auth > div.form > div.input_container > button {
-    width: 2.5rem;
-    border-left: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: default;
-}
-body > div.container > div.auth > div.form > div.input_container > button > svg {
-    width: 1.25rem;
-    height: 1.25rem;
-    fill: var(--dark-color);
-    transition: opacity 0.25s ease-in-out 0.25s, fill 0.25s ease-in-out;
-    opacity: 0;
-}
-body > div.container > div.auth > div.form input:not(:placeholder-shown) ~ button {
-    cursor: pointer;
-}
-body > div.container > div.auth > div.form input:not(:placeholder-shown) ~ button > svg {
-    opacity: 1;
-}
-body > div.container > div.auth > div.form input:not(:focus) ~ button > svg {
-    fill: var(--medium-color);
-}
-body > div.container > div.auth > div.form > div.input_container > button:disabled {
-    cursor: default;
-}
-
-/* input with button attached on right side */
-body > div.container > div.auth > div.form > div.input_container > input {
-    border-right: none;
-    width: calc(100% - 2.5rem);
-    padding-right: 0.5rem;
-}
-
-/* input with no button attached */
-body > div.container > div.auth > div.form > input {
-    width: 100%;
-}
-
-/* input and button container */
-body > div.container > div.auth > div.form > div.input_container {
-    width: 100%;
-    float: left;
-}
-
-/* add space between inputs */
-body > div.container > div.auth > div.form > input, body > div.container > div.auth > div.form > div.input_container {
-    margin-top: 1rem;
-}
-
-/* make color of "X" icon red */
-body > div.container > div.auth > div.form.create_vault > div.input_container:nth-child(3) > button > svg.no_match {
-    fill: var(--red-color);
-}
-body > div.container > div.auth > div.form > div.input_container:nth-child(3) > input:not(:focus) ~ button > svg.no_match {
-    fill: var(--red-medium-color);
-}
-
-/* display correct icon within confirm password field in vault creation form
-   (either an "X" if passwords don't match, or an arrow for creating new vault) */
-
-body > div.container > div.auth > div.form.create_vault > div.input_container:nth-child(3) > button:disabled > svg.match {
-    display: none;
-}
-body > div.container > div.auth > div.form.create_vault > div.input_container:nth-child(3) > button:not(:disabled) > svg.no_match {
-    display: none;
-}
+/* import app.css, which includes styles for the app (main) screen */
+@import "css/appscreen.css";

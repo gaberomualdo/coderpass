@@ -1,2 +1,6 @@
+# ignores all files within the node_modules folder,
+# as well as all .DS_Store files (files automatically
+# created by macOS that are innocuous yet very annoying.
+
 node_modules
 .DS_Store

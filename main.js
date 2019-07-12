@@ -1,3 +1,9 @@
+/*
+    This is the JS entry point file for the application.
+    It handles the Node.js and server-side parts of the app,
+    such as creation of app windows, and file system actions.
+*/
+
 // get required modules from electron
 const { app, BrowserWindow, ipcMain } = require('electron');
 
