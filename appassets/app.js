@@ -7,30 +7,36 @@
 const { ipcRenderer } = require('electron');
 
 // display app container once window is fully loaded
-window.addEventListener("load", function(event){
+window.addEventListener("load", (event) => {
     document.querySelector("body > div.container").removeAttribute("style");
 });
 
-/*  check if passwords match within create vault form (check each time either
-    input is changed), and change input button icon accordingly in real-time */
-[document.querySelector("body > div.container > div.auth > div.form.create_vault > div.input_container:nth-child(3) > input"), document.querySelector("body > div.container > div.auth > div.form.create_vault > input:nth-child(2)")].forEach(function(input){
-    input.addEventListener("input", function(event){
-        // value of original (first) password input field
-        var inputedPassword = document.querySelector("body > div.container > div.auth > div.form.create_vault > input:nth-child(2)").value;
+// in auth screen, decide whether to show "Create Vault" form or "Enter Vault" form;
+// use IIFE to prevent creation of global variables
+(() => {
+    var vaultEncryptedText = ipcRenderer.sendSync('readFile', 'vault/data.txt');
+})();
+
+// check if passwords match within create vault form (check each time either
+// input is changed), and change input button icon accordingly in real-time
+(() => {
+    // var for list of password input HTML elements
+    var passwordInputElements = [document.querySelector("body > div.container > div.auth > div.form.create_vault > div.input_container:nth-child(3) > input"), document.querySelector("body > div.container > div.auth > div.form.create_vault > input:nth-child(2)")];
     
-        // value of second password input field ("Confirm Password...")
-        var secondInputtedPassword = document.querySelector("body > div.container > div.auth > div.form.create_vault > div.input_container:nth-child(3) > input").value;
-    
-        // variable for HTML element of button that includes the icons that are to be changed
-        var buttonIconContainerHTML = document.querySelector("body > div.container > div.auth > div.form.create_vault > div.input_container:nth-child(3) > button");
-    
-        // check if two inputted passwords match and change icon accordingly
-        if(inputedPassword == secondInputtedPassword) {
-            // passwords match — therefore, enable button to show arrow icon
-            buttonIconContainerHTML.disabled = false
-        }else {
-            // passwords do not match — therefore, disable button to show "X" icon
-            buttonIconContainerHTML.disabled = true;
-        }
+    // loop through each, and add oninput event to check if input values match whenever
+    passwordInputElements.forEach((inputBox) => {
+        inputBox.addEventListener("input", (event) => {
+            // variable for HTML element of button that includes the icons that are to be changed
+            var buttonIconContainerHTML = document.querySelector("body > div.container > div.auth > div.form.create_vault > div.input_container:nth-child(3) > button");
+            
+            // check if two inputted passwords match and change icon accordingly
+            if(passwordInputElements[0].value == passwordInputElements[1].value) {
+                // passwords match — therefore, enable button to show arrow icon
+                buttonIconContainerHTML.disabled = false
+            }else {
+                // passwords do not match — therefore, disable button to show "X" icon
+                buttonIconContainerHTML.disabled = true;
+            }
+        });
     });
-});
+})();
