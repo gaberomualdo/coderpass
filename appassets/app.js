@@ -30,13 +30,7 @@ window.addEventListener("load", (event) => {
             var buttonIconContainerHTML = document.querySelector("body > div.container > div.auth > div.form.create_vault > div.input_container:nth-child(3) > button");
             
             // check if two inputted passwords match and change icon accordingly
-            if(passwordInputElements[0].value == passwordInputElements[1].value) {
-                // passwords match — therefore, enable button to show arrow icon
-                buttonIconContainerHTML.disabled = false
-            }else {
-                // passwords do not match — therefore, disable button to show "X" icon
-                buttonIconContainerHTML.disabled = true;
-            }
+            buttonIconContainerHTML.disabled = !(passwordInputElements[0].value == passwordInputElements[1].value);
         });
     });
 })();
