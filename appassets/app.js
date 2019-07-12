@@ -6,6 +6,11 @@
 // get IPC renderer module for communication with main process
 const { ipcRenderer } = require('electron');
 
+// display app container once window is fully loaded
+window.addEventListener("load", function(event){
+    document.querySelector("body > div.container").removeAttribute("style");
+});
+
 /*  check if passwords match within create vault form (check each time either
     input is changed), and change input button icon accordingly in real-time */
 [document.querySelector("body > div.container > div.auth > div.form.create_vault > div.input_container:nth-child(3) > input"), document.querySelector("body > div.container > div.auth > div.form.create_vault > input:nth-child(2)")].forEach(function(input){

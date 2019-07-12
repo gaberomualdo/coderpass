@@ -28,6 +28,8 @@ body, input, button {
 body {
     background-color: var(--light-color);
     font-size: 20px;
+    min-width: 100%;
+    min-height: 100vh;
 }
 
 /* style container */
