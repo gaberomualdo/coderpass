@@ -48,8 +48,25 @@ app.on("activate", () => {
 });
 
 // receive and handle synchronous IPC messages
+
+// read file IPC message
 ipcMain.on("readFile", (event, argument) => {
-    fs.readFile(argument, (err, data) => {
+    // read file (included as "argument" variable) using Node.js fs module
+    fs.readFile(argument, "UTF-8", (err, data) => {
+        // log error if error exists
+        if(err) console.error(err);
+
+        // respond to IPC message with read file data
         event.returnValue = data;
     });
+});
+
+// write file IPC message
+ipcMain.on("writeFile", (event, argument) => {
+    // write file using Node.js fs module
+    fs.writeFile(argument.file, argument.data, "UTF-8", (err) => {
+        // log error if error exists
+        if(err) console.error(err);
+    });
+    event.returnValue = true;
 });

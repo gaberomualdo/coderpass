@@ -1,20 +1,15 @@
-/*
-    This file contains all client-side JavaScript functions
-    and actions for the app.
-*/
-
-// get IPC renderer module for communication with main process
-const { ipcRenderer } = require('electron');
-
-// display app container once window is fully loaded
-window.addEventListener("load", (event) => {
-    document.querySelector("body > div.container").removeAttribute("style");
-});
-
 // in auth screen, decide whether to show "Create Vault" form or "Enter Vault" form;
 // use IIFE to prevent creation of global variables
 (() => {
-    const vaultEncryptedText = ipcRenderer.sendSync('readFile', 'vault/data.txt');
+    // variable for contents of vault file
+    const vaultEncryptedText = readFile("vault/data.txt");
+
+    // if vault file is empty, show form to create vault; else, show form to enter existing vault
+    if(vaultEncryptedText.length > 0) {
+        document.querySelector("body > div.container > div.auth > div.form.create_vault").setAttribute("style", "display: none;");
+    }else{
+        document.querySelector("body > div.container > div.auth > div.form.enter_vault").setAttribute("style", "display: none;");
+    }
 })();
 
 // check if passwords match within create vault form (check each time either
