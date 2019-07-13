@@ -19,8 +19,25 @@
     <!-- site title -->
     <title>Simple Password Manager</title>
 
-    <!-- stylesheet (main.css imports other necessary stylesheets automatically) -->
-    <link rel="stylesheet" href="appassets/main.css">
+    <!-- stylesheets -->
+
+    <!--
+        Note that Electron apps run on the same CSS engine on all devices,
+        so there's no need to write code for cross-platform compatibility (or use
+        a CSS parser like SASS).
+    -->
+
+    <!-- fontfaces.css, which imports all fonts for the app -->
+    <link rel="stylesheet" href="appassets/css/fontfaces.css">
+
+    <!-- global.css, which includes global styles for the app (e.g. CSS variables, etc.) -->
+    <link rel="stylesheet" href="appassets/css/global.css">
+
+    <!-- import authscreen.css, which includes styles for the authentication (enter/create vault) screen -->
+    <link rel="stylesheet" href="appassets/css/authscreen.css">
+
+    <!-- import app.css, which includes styles for the app (main) screen -->
+    <link rel="stylesheet" href="appassets/css/appscreen.css">
 </head>
 <body>
     <!-- container DIV — contains entire app (doesn't display until document is fully loaded and JavaScript is working) -->
