@@ -24,6 +24,7 @@
     "electron": "^5.0.6"
   },
   "dependencies": {
-    "aes-js": "^3.1.2"
+    "aes-js": "^3.1.2",
+    "pbkdf2": "^3.0.17"
   }
 }
