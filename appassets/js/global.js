@@ -122,6 +122,37 @@ const decryptText = (password, cipherText) => {
     return decryptedText;
 };
 
+// functions to encrypt and decrypt JSON objects
+
+// encrypt JSON
+const encryptJSON = (password, obj) => encryptText(password, JSON.stringify(obj));
+
+// decrypt JSON
+const decryptJSON = (password, cipherText) => JSON.parse(decryptText(password, cipherText));
+
+// functions to get decrypted JSON from file, and to encrypt and write JSON to file
+
+// encrypt
+const encryptJSONToFile = (filename, password, obj) => {
+    // variable for encrypted text
+    const encryptedText = encryptJSON(password, obj);
+
+    // write encrypted text to filename
+    writeFile(filename, encryptedText);
+}
+
+// decrypt
+const decryptJSONInFile = (filename, password) => {
+    // get encrypted text from file and store in variable
+    const encryptedText = readFile(filename);
+    
+    // variable for decrypted JSON
+    const decryptedJSON = decryptJSON(password, encryptedText);
+
+    // return decryptedJSON
+    return decryptedJSON;
+}
+
 // display app container once window is fully loaded
 window.addEventListener("load", (event) => {
     document.querySelector("body > div.container").removeAttribute("style");
