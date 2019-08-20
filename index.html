@@ -58,6 +58,9 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/></svg>
                     </button>
                 </div>
+
+                <!-- or create new vault -->
+                <p>Or <a class="create_new_vault_button">Create New Vault</a></p>
             </div>
 
             <!-- form for creating vault (vault not created yet) -->
@@ -74,19 +77,27 @@
 
                     <!-- create vault (or display 'X' icon if passwords do not match) -->
                     <button>
-                        <svg class="no_match" data-tooltip-animate-function="scalein" data-tooltip="hiiii" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z"/></svg>
+                        <svg class="no_match" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z"/></svg>
                         <svg class="match" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/></svg>
                     </button>
                 </div>
+
+                <!-- or upload password data file -->
+                <p>Or <a class="upload_password_datafile_button">Upload Password Datafile</a></p>
             </div>
         </div>
 
         <!-- app screen to view, edit, and save passwords in password vault -->
-        <div class="app">
+        <div class="app" style="display: none;">
             <!-- navbar — top area with description and search bar -->
             <nav>
                 <h1 class="title">All Accounts</h1>
-                <input type="text" class="search" placeholder="Search Accounts...">
+                <div class="row">
+                    <input type="text" class="search" placeholder="Search Accounts...">
+                    <button class="add_account">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 9h-9v-9h-6v9h-9v6h9v9h6v-9h9z"/></svg>
+                    </button>
+                </div>
             </nav>
             
             <!-- list of all accounts or search results -->

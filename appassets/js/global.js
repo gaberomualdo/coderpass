@@ -4,8 +4,10 @@
 */
 
 // get IPC renderer module for communication with main process, and get remote
-// module for direct usage of main process functions within render process.
+// module for direct usage of main process functions within render process,
+// and get dialog for using dialogs.
 const { ipcRenderer, remote } = require('electron');
+const { dialog } = remote;
 
 // get fs module from remote module to read and write from filesystem
 const fs = remote.require("fs");
@@ -96,8 +98,6 @@ const decryptText = (password, cipherText) => {
     // store parts of splitCipherText variable into corresponding separate variables
     const ivInHex = splitCipherText[0];
     const encryptedHex = splitCipherText[1];
-
-    
 
     // convert IV and encrypted Hex to bytes and store in variable
     const iv = aesjs.utils.hex.toBytes(ivInHex);

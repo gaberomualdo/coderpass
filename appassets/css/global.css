@@ -6,11 +6,13 @@
 
 /* root CSS variables */
 :root {
+    --regular-color: #78909C;
     --dark-color: #37474F;
     --light-color: #ECEFF1;
     --medium-color: #B0BEC5;
     --red-color: #E74C3C;
     --red-medium-color: #F5B6AF;
+    --blue-color: #28f;
 }
 
 /* global styles */
@@ -18,6 +20,7 @@
 * {
     margin: 0;
     padding: 0;
+    user-select: none;
 }
 
 body, input, button {

@@ -122,3 +122,28 @@ body > div.container > div.auth > div.form.create_vault > div.input_container:nt
 body > div.container > div.auth > div.form.create_vault > div.input_container:nth-child(3) > button:not(:disabled) > svg.no_match {
     display: none;
 }
+
+/* text under inputs */
+body > div.container > div.auth > div.form > p:last-child {
+    font-size: 1rem;
+    line-height: 1;
+    margin-top: 1.5rem;
+    float: left;
+    clear: both;
+    color: var(--medium-color);
+
+}
+
+/* text links */
+body > div.container > div.auth > div.form > p:last-child > a {
+    color: var(--regular-color);
+    text-decoration: none;
+    cursor: pointer;
+    border-bottom: 1px solid var(--light-color);
+}
+
+/* hover */
+body > div.container > div.auth > div.form > p:last-child > a:hover {
+    color: var(--blue-color);
+    border-color: var(--blue-color);
+}
