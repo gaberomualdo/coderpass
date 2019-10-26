@@ -182,5 +182,3 @@ document.querySelector("body > div.container > div.app > nav:first-child > div.r
 
 // map download password datafile button onclick to event function
 document.querySelector("body > div.container > div.app > nav:first-child > div.row:nth-child(2) > button.download_datafile").addEventListener("click", eventDownloadPasswordDatafileBtn);
-
-openAppScreen("test");

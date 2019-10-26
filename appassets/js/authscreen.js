@@ -63,37 +63,59 @@ document.querySelector("body > div.container > div.auth > div.form.enter_vault >
 })();
 
 // functionality for create vault button
-document.querySelector("body > div.container > div.auth > div.form.create_vault > div.input_container:nth-child(3) > button:nth-child(2)").addEventListener("click", () => {
-    // value of password input
-    const password = document.querySelector("body > div.container > div.auth > div.form.create_vault > div.input_container:nth-child(3) > input:first-child").value;
+const createVaultBtnElement = document.querySelector("body > div.container > div.auth > div.form.create_vault > div.input_container:nth-child(3) > button:nth-child(2)");
 
-    // encrypt empty JSON object into vault file
-    encryptJSONToFile("vault/data.txt", password, { accounts: {} });
+const eventCreateVaultBtn = () => {
+    if(!createVaultBtnElement.disabled){
+        // value of password input
+        const password = document.querySelector("body > div.container > div.auth > div.form.create_vault > div.input_container:nth-child(3) > input:first-child").value;
 
-    // simulate enter vault with password
-    
-    // set enter vault password input value to password
-    document.querySelector("body > div.container > div.auth > div.form.enter_vault > div.input_container:nth-child(2) > input:first-child").value = password;
-    
-    // trigger enter vault button event
-    (() => {
-        const clickEvent = new CustomEvent("click");
-        document.querySelector("body > div.container > div.auth > div.form.enter_vault > div.input_container:nth-child(2) > button:nth-child(2)").dispatchEvent(clickEvent);
-    })();
-});
+        // encrypt empty JSON object into vault file
+        encryptJSONToFile("vault/data.txt", password, { accounts: {} });
 
-// functionality for enter vault button
-document.querySelector("body > div.container > div.auth > div.form.enter_vault > div.input_container:nth-child(2) > button:nth-child(2)").addEventListener("click", () => {
-    // value of password input
-    const password = document.querySelector("body > div.container > div.auth > div.form.enter_vault > div.input_container:nth-child(2) > input:first-child").value;
-
-    // try to decrypt vault, if doesn't work, then password is incorrect or data is malformed
-    try {
-        decryptJSONInFile("vault/data.txt", password);
+        // simulate enter vault with password
         
-        // trigger opening of app screen
-        openAppScreen(password);
-    } catch (err) {
-        alert("Incorrect Password or Malformed Data");
+        // set enter vault password input value to password
+        document.querySelector("body > div.container > div.auth > div.form.enter_vault > div.input_container:nth-child(2) > input:first-child").value = password;
+        
+        // trigger enter vault button event
+        (() => {
+            const clickEvent = new CustomEvent("click");
+            document.querySelector("body > div.container > div.auth > div.form.enter_vault > div.input_container:nth-child(2) > button:nth-child(2)").dispatchEvent(clickEvent);
+        })();
+    }
+};
+
+document.querySelector("body > div.container > div.auth > div.form.create_vault > input:nth-child(2)").addEventListener("keydown", (e) => {
+    if(e.keyCode == 13) {
+        eventEnterVaultBtn();
     }
 });
+createVaultBtnElement.addEventListener("click", eventCreateVaultBtn);
+
+// functionality for enter vault button
+const enterVaultBtnElement = document.querySelector("body > div.container > div.auth > div.form.enter_vault > div.input_container:nth-child(2) > button:nth-child(2)");
+
+const eventEnterVaultBtn = () => {
+    if(!enterVaultBtnElement.disabled){
+        // value of password input
+        const password = document.querySelector("body > div.container > div.auth > div.form.enter_vault > div.input_container:nth-child(2) > input:first-child").value;
+
+        // try to decrypt vault, if doesn't work, then password is incorrect or data is malformed
+        try {
+            decryptJSONInFile("vault/data.txt", password);
+            
+            // trigger opening of app screen
+            openAppScreen(password);
+        } catch (err) {
+            alert("Incorrect Password or Malformed Data");
+        }
+    }
+};
+
+document.querySelector("body > div.container > div.auth > div.form.enter_vault > div.input_container:nth-child(2) > input:first-child").addEventListener("keydown", (e) => {
+    if(e.keyCode == 13) {
+        eventEnterVaultBtn();
+    }
+});
+enterVaultBtnElement.addEventListener("click", eventEnterVaultBtn);
