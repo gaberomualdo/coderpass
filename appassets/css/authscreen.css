@@ -12,7 +12,7 @@ body > div.container > div.auth {
 body > div.container > div.auth > div.form {
     background-color: #fff;
     padding: 2.5rem;
-    box-shadow: 0 0 2rem rgba(55, 71, 79, 0.225);
+    box-shadow: 0 0 2rem var(--shadow-color);
     width: 350px;
 }
 
