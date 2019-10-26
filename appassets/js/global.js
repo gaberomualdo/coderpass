@@ -164,6 +164,17 @@ const generateRandomID = (length) => {
     return result;
 }
 
+// function to check for valid JSON
+// some code taken from user Gumbo on https://stackoverflow.com/questions/3710204/how-to-check-if-a-string-is-a-valid-json-string-in-javascript-without-using-try/3710226
+const isValidJSONString = (str) => {
+    try {
+        JSON.parse(str);
+    }catch(e) {
+        return false;
+    }
+    return true;
+}
+
 // display app container once window is fully loaded
 window.addEventListener("load", (event) => {
     document.querySelector("body > div.container").removeAttribute("style");

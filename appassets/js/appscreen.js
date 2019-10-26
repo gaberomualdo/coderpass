@@ -25,10 +25,15 @@ const getHTMLOfAccountBlock = (accountID) => {
                 <svg class="done_editing" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
             </button>
         </div>
-        <h1 class="account_name">${accountObj.name}</h1>
-        <ul class="account_properties">
-            ${propertiesHTML}
-        </ul>
+        <section class="display">
+            <h1 class="account_name">${accountObj.name}</h1>
+            <ul class="account_properties">
+                ${propertiesHTML}
+            </ul>
+        </section>
+        <section class="edit">
+            <textarea></textarea>
+        </section>
     </div>
     `;
 };
@@ -99,7 +104,31 @@ const openAppScreen = (passedVaultPassword) => {
 
 // edit btn on account blocks
 const eventEditBtn = (accountID) => {
+    // toggle "editing" class on account element of given account ID
+    const accountElement = document.querySelector("body > div.container > div.app > ul.accounts > div.account#accountid_" + accountID);
+    accountElement.classList.toggle("editing");
 
+    if(accountElement.classList.contains("editing")) {
+        // if editing, make sure textarea has correct contents
+        accountElement.querySelector("section.edit textarea").value = JSON.stringify(vaultContents.accounts[accountID], null, 4);
+    }else {
+        // if not editing, save new value of account JSON from textarea
+        const newAccountContentInJSON = accountElement.querySelector("section.edit textarea").value;
+        if(isValidJSONString(newAccountContentInJSON)) {
+            // save new value in vault
+            vaultContents.accounts[accountID] = JSON.parse(newAccountContentInJSON);
+
+            // refresh database
+            refreshVaultDatabase();
+            
+            // refresh account block
+            refreshAccountBlock(accountID);
+        }else {
+            // throw error and revert back to editing
+            alert("Invalid JSON");
+            accountElement.classList.toggle("editing");
+        }
+    }
 }
 
 // remove btn on account blocks
@@ -145,7 +174,7 @@ const eventDownloadPasswordDatafileBtn = () => {
         delete link;
     }
 
-    // download psasword datafile
+    // download password datafile
     downloadURI("vault/data.txt", "password_datafile.txt");
 }
 // map add account button onclick to event function
