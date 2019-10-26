@@ -2,6 +2,7 @@
     This file contains styles for the app (main) screen.
 */
 
+/* appscreen main area */
 body > div.container > div.app {
     background-color: #fff;
     padding: 2.5rem;
@@ -11,3 +12,10 @@ body > div.container > div.app {
     min-height: 100vh;
 }
 
+/* nav/top bar */
+body > div.container > div.app > nav:first-child {
+    border-bottom: 1px solid var(--light-color);
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    user-select: none;
+}
