@@ -153,6 +153,17 @@ const decryptJSONInFile = (filename, password) => {
     return decryptedJSON;
 }
 
+// function to generate random ID
+// some code taken from user csharptest.net on https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript
+const generateRandomID = (length) => {
+    let result = "";
+    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    for (let i = 0; i < length; i++ ) {
+        result += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    return result;
+}
+
 // display app container once window is fully loaded
 window.addEventListener("load", (event) => {
     document.querySelector("body > div.container").removeAttribute("style");

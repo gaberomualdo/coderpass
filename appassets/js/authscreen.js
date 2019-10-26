@@ -68,7 +68,7 @@ document.querySelector("body > div.container > div.auth > div.form.create_vault 
     const password = document.querySelector("body > div.container > div.auth > div.form.create_vault > div.input_container:nth-child(3) > input:first-child").value;
 
     // encrypt empty JSON object into vault file
-    encryptJSONToFile("vault/data.txt", password, { accounts: [] });
+    encryptJSONToFile("vault/data.txt", password, { accounts: {} });
 
     // simulate enter vault with password
     
