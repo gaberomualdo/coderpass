@@ -109,6 +109,7 @@ const eventEnterVaultBtn = () => {
             openAppScreen(password);
         } catch (err) {
             alert("Incorrect Password or Malformed Data");
+            document.querySelector("body > div.container > div.auth > div.form.enter_vault > div.input_container:nth-child(2) > input:first-child").focus();
         }
     }
 };

@@ -115,14 +115,31 @@ const eventEditBtn = (accountID) => {
         // if not editing, save new value of account JSON from textarea
         const newAccountContentInJSON = accountElement.querySelector("section.edit textarea").value;
         if(isValidJSONString(newAccountContentInJSON)) {
-            // save new value in vault
-            vaultContents.accounts[accountID] = JSON.parse(newAccountContentInJSON);
+            // new value
+            const newAccountContent = JSON.parse(newAccountContentInJSON);
 
-            // refresh database
-            refreshVaultDatabase();
-            
-            // refresh account block
-            refreshAccountBlock(accountID);
+            if(newAccountContent.name != undefined && newAccountContent.properties != undefined && typeof newAccountContent.name == "string" && typeof newAccountContent.properties == "object") {
+                // save new value in vault
+                vaultContents.accounts[accountID] = newAccountContent;
+
+                // refresh database
+                refreshVaultDatabase();
+                
+                // refresh account block
+                refreshAccountBlock(accountID);
+            }else {
+                // throw error, and revert back to editing
+                if(newAccountContent.name == undefined) {
+                    alert("Include property \"name\" of type String in JSON");
+                }else if(!newAccountContent.properties == undefined) {
+                    alert("Include property \"properties\" of type Object in JSON");
+                }else if(!(typeof newAccountContent.name == "string")) {
+                    alert("Property \"name\" must be of type String");
+                }else if(!(typeof newAccountContent.properties == "object")) {
+                    alert("Property \"properties\" must be of type Object");
+                }
+                accountElement.classList.toggle("editing");
+            }
         }else {
             // throw error and revert back to editing
             alert("Invalid JSON");
