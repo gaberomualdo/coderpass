@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- CSP meta tag -->
-    <meta http-equiv="Content-Security-Policy" content="style-src 'self' 'unsafe-inline'; default-src 'self'; base-uri 'none'; navigate-to 'none'; block-all-mixed-content">
+    <meta http-equiv="Content-Security-Policy" content="style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; default-src 'self'; base-uri 'none'; navigate-to 'none'; block-all-mixed-content">
     
     <!-- site title -->
     <title>Simple Password Manager</title>
@@ -96,6 +96,10 @@
                     <input type="text" class="search" placeholder="Search Accounts...">
                     <button class="add_account">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 9h-9v-9h-6v9h-9v6h9v9h6v-9h9z"/></svg>
+                    </button>
+                    <button class="download_datafile">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M17 13h6l-11 11-11-11h6v-13h10z"/></svg>
+                        <p>Download Password Datafile</p>
                     </button>
                 </div>
             </nav>
