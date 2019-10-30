@@ -10,7 +10,7 @@ const getHTMLOfAccountBlock = (accountID, justDisplayHTML) => {
     let propertiesHTML = "";
     Object.keys(accountObj.properties).forEach((propertyName) => {
         const propertyValue = accountObj.properties[propertyName];
-        propertiesHTML += "<li><p class='name'>" + propertyName + "</p><p class='value'>" + propertyValue + "</p></li>";
+        propertiesHTML += "<li><p class='name'>" + propertyName + ":</p><p class='value default_style_code'>" + propertyValue + "</p></li>";
     });
 
     // display HTML
@@ -32,17 +32,17 @@ const getHTMLOfAccountBlock = (accountID, justDisplayHTML) => {
     return `
     <div class="account" id="accountid_${accountID}">
         <div class="buttons">
-            <button class="remove default_style_button with_hover with_icon" onclick="eventRemoveBtn('${accountID}')">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 6v18h18v-18h-18zm5 14c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm4-18v2h-20v-2h5.711c.9 0 1.631-1.099 1.631-2h5.315c0 .901.73 2 1.631 2h5.712z"/></svg>
-            </button>
             <button class="edit default_style_button with_icon" onclick="eventEditBtn('${accountID}')">
                 <svg class="edit" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M14.078 4.232l-12.64 12.639-1.438 7.129 7.127-1.438 12.641-12.64-5.69-5.69zm-10.369 14.893l-.85-.85 11.141-11.125.849.849-11.14 11.126zm2.008 2.008l-.85-.85 11.141-11.125.85.85-11.141 11.125zm18.283-15.444l-2.816 2.818-5.691-5.691 2.816-2.816 5.691 5.689z"/></svg>
                 <svg class="done_editing" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
             </button>
+            <button class="remove default_style_button with_hover with_icon" onclick="eventRemoveBtn('${accountID}')" aria-label="Delete Account" data-balloon-pos="down">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 6v18h18v-18h-18zm5 14c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm4-18v2h-20v-2h5.711c.9 0 1.631-1.099 1.631-2h5.315c0 .901.73 2 1.631 2h5.712z"/></svg>
+            </button>
         </div>
         ${displayHTML}
-        <section class="edit">
-            <textarea></textarea>
+        <section class="edit default_style_code_container">
+            <textarea oninput="autoResizeTextarea(this);" class="default_style_code"></textarea>
         </section>
     </div>
     `;
@@ -119,8 +119,10 @@ const eventEditBtn = (accountID) => {
     accountElement.classList.toggle("editing");
 
     if(accountElement.classList.contains("editing")) {
-        // if editing, make sure textarea has correct contents
+        // if editing, make sure textarea has correct contents and resize textarea
         accountElement.querySelector("section.edit textarea").value = JSON.stringify(vaultContents.accounts[accountID], null, 4);
+        
+        autoResizeTextarea(accountElement.querySelector("section.edit textarea"));
     }else {
         // if not editing, save new value of account JSON from textarea
         const newAccountContentInJSON = accountElement.querySelector("section.edit textarea").value;
@@ -279,4 +281,10 @@ searchBarInputElement.addEventListener("blur", () => {
     document.querySelector("body > div.container > div.app").classList.remove("searching");
 });
 
-openAppScreen("test");
+/* auto resize edit textarea */
+const autoResizeTextarea = (textareaElement) => {
+    textareaElement.style.height = "auto";
+    textareaElement.style.height = textareaElement.scrollHeight + 'px';
+}
+
+//openAppScreen("test");
