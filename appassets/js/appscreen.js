@@ -194,10 +194,66 @@ const eventDownloadPasswordDatafileBtn = () => {
     // download password datafile
     downloadURI("vault/data.txt", "password_datafile.txt");
 }
+
 // map add account button onclick to event function
 document.querySelector("body > div.container > div.app > nav:first-child > div.row:nth-child(2) > button.add_account").addEventListener("click", eventAddAccountBtn);
 
 // map download password datafile button onclick to event function
 document.querySelector("body > div.container > div.app > nav:first-child > div.row:nth-child(2) > button.download_datafile").addEventListener("click", eventDownloadPasswordDatafileBtn);
+
+// search bar functionality
+const searchBarInputElement = document.querySelector("body > div.container > div.app > nav:first-child > div.row:nth-child(2) > input[type=text]");
+searchBarInputElement.addEventListener("input", () => {
+    // element vars
+    const appContainerElement = document.querySelector("body > div.container > div.app");
+
+    // search query
+    const searchQuery = (event.target || event.srcElement).value;
+    
+    if(searchQuery.split(" ").join("").length <= 0) {
+        // if search is just whitespace, then go back to all accounts
+        appContainerElement.classList.remove("searching");
+    } else {
+        // add search class to app and only show accounts that match search query
+        appContainerElement.classList.add("searching");
+
+        Object.keys(vaultContents.accounts).forEach((accountID) => {
+            // element vars
+            const accountElement = document.querySelector("body > div.container > div.app > ul.accounts > div.account#accountid_" + accountID);
+
+            const val = vaultContents.accounts[accountID];
+            let isSearchResult = false;
+
+            if(val.name.indexOf(searchQuery) > -1) {
+                isSearchResult = true;
+            }else {
+                Object.keys(val.properties).forEach((propName) => {
+                    if(propName.indexOf(searchQuery) > -1) {
+                        isSearchResult = true;
+                    }else if(val.properties[propName].indexOf(searchQuery) > -1) {
+                        isSearchResult = true;
+                    }
+                });
+            }
+
+            if(isSearchResult) {
+                accountElement.classList.add("displayed");
+            }else {
+                accountElement.classList.remove("displayed");
+            }
+        });
+
+        if((document.querySelectorAll("body > div.container > div.app > ul.accounts > div.account.displayed")).length <= 0) {
+            document.querySelector("body > div.container > div.app").classList.add("no_results");
+        }else {
+            document.querySelector("body > div.container > div.app").classList.remove("no_results");
+        }
+    }
+});
+searchBarInputElement.addEventListener("keydown", (e) => {
+    if(e.keyCode == 27) {
+        (event.target || event.srcElement).blur();
+    }
+});
 
 openAppScreen("test");

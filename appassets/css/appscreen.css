@@ -18,12 +18,10 @@ body > div.container > div.app > nav:first-child {
     padding-bottom: 1rem;
     margin-bottom: 2rem;
     user-select: none;
-    overflow: hidden;
-    height: auto;
     height: 3rem;
 }
 
-body > div.container > div.app > nav:first-child > h1:first-child {
+body > div.container > div.app > nav:first-child > h1.title:first-child {
     font-size: 2.65rem;
     line-height: 3rem;
     font-weight: 700;
@@ -89,4 +87,24 @@ body > div.container > div.app > nav:first-child > div.row:nth-child(2) > input[
     width: 12.5rem;
     cursor: text;
     border-color: var(--text-color);
+}
+
+/* search functionality */
+body > div.container > div.app > nav:first-child > h1.title > span {
+    display: none;
+}
+body > div.container > div.app.searching > nav:first-child > h1.title > span.searching {
+    display: inline;
+}
+body > div.container > div.app:not(.searching) > nav:first-child > h1.title > span.all {
+    display: inline;
+}
+body > div.container > div.app.searching > ul.accounts > div.account:not(.displayed) {
+    display: none;
+}
+body > div.container > div.app > p.no_results_found {
+    display: none;
+}
+body > div.container > div.app.searching.no_results > p.no_results_found {
+    display: block;
 }
