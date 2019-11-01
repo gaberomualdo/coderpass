@@ -62,21 +62,41 @@ body > div.container > div.app {
     height: 100%;
 }
 
+/* exit vault btn */
+body > div.container > div.app > button.exit_vault {
+    display: block;
+    clear: both;
+    float: none;
+    margin: 0;
+    width: 3.5rem;
+    margin-bottom: 1rem;
+}
+body > div.container > div.app > button.exit_vault > svg {
+    transform: scale(1.25);
+}
+
 /* nav/top bar */
-body > div.container > div.app > nav:first-child {
+body > div.container > div.app > nav {
     border-bottom: 1px solid var(--light-color);
     padding-bottom: 1rem;
     user-select: none;
     height: 3rem;
+    position: sticky;
+    width: 100%;
+    top: 0;
+    background-color: #fff;
+    z-index: 9999;
+    padding-top: 1rem;
+    /*box-shadow: 0 0 0.5rem var(--shadow-color);*/
 }
 
-body > div.container > div.app > nav:first-child > h1.title:first-child {
+body > div.container > div.app > nav > h1.title {
     font-size: 2.65rem;
     line-height: 3rem;
     font-weight: 700;
     float: left;
 }
-body > div.container > div.app > nav:first-child > div.row:nth-child(2) {
+body > div.container > div.app > nav > div.row {
     float: right;
     padding: 0.25rem 0;
     box-sizing: border-box;
@@ -84,15 +104,15 @@ body > div.container > div.app > nav:first-child > div.row:nth-child(2) {
 }
 
 /* input */
-body > div.container > div.app > nav:first-child > div.row:nth-child(2) > input[type=text] {
+body > div.container > div.app > nav > div.row > input[type=text] {
     font-size: 0.95rem;
     box-sizing: border-box;
     transition: width 0.375s, padding-left 0.375s, padding-right 0.375s, border-color 0.375s ease-in-out, background-image 0.375s;
 }
-body > div.container > div.app > nav:first-child > div.row:nth-child(2) > input[type=text]::placeholder, body > div.container > div.app > nav:first-child > div.row:nth-child(2) > input[type=text]:not(:focus) {
+body > div.container > div.app > nav > div.row > input[type=text]::placeholder, body > div.container > div.app > nav > div.row > input[type=text]:not(:focus) {
     color: var(--medium-color);
 }
-body > div.container > div.app > nav:first-child > div.row:nth-child(2) > input[type=text]:not(:focus) {
+body > div.container > div.app > nav > div.row > input[type=text]:not(:focus) {
     padding-right: 0;
     padding-left: 2.5rem;
     background-image: url(../img/search_icon.png);
@@ -100,10 +120,10 @@ body > div.container > div.app > nav:first-child > div.row:nth-child(2) > input[
     background-position: 0.65rem;
     background-repeat: no-repeat;
 }
-body > div.container > div.app > nav:first-child > div.row:nth-child(2) > input[type=text]:focus::placeholder {
+body > div.container > div.app > nav > div.row > input[type=text]:focus::placeholder {
     color: var(--supermedium-color);
 }
-body > div.container > div.app > nav:first-child > div.row:nth-child(2) > input[type=text]:focus {
+body > div.container > div.app > nav > div.row > input[type=text]:focus {
     padding-left: 0.7rem;
     padding-right: 0.7rem;
     width: 12.5rem;
@@ -112,13 +132,13 @@ body > div.container > div.app > nav:first-child > div.row:nth-child(2) > input[
 }
 
 /* search functionality */
-body > div.container > div.app > nav:first-child > h1.title > span {
+body > div.container > div.app > nav > h1.title > span {
     display: none;
 }
-body > div.container > div.app.searching > nav:first-child > h1.title > span.searching {
+body > div.container > div.app.searching > nav > h1.title > span.searching {
     display: inline;
 }
-body > div.container > div.app:not(.searching) > nav:first-child > h1.title > span.all {
+body > div.container > div.app:not(.searching) > nav > h1.title > span.all {
     display: inline;
 }
 body > div.container > div.app.searching > ul.accounts > div.account:not(.displayed) {
@@ -196,7 +216,8 @@ body > div.container > div.app > ul.accounts > div.account > section.display > h
 }
 body > div.container > div.app > ul.accounts > div.account > section.display > ul.account_properties > li {
     width: 100%;
-    min-height: 3rem;
+    min-height: 2rem;
+    padding: 0.375rem 0;
 }
 body > div.container > div.app > ul.accounts > div.account > section.display > ul.account_properties > li > p {
     display: block;
@@ -208,9 +229,12 @@ body > div.container > div.app > ul.accounts > div.account > section.display > u
     box-sizing: border-box;
     text-align: right;
     vertical-align: text-bottom;
+    line-height: 2rem;
 }
 body > div.container > div.app > ul.accounts > div.account > section.display > ul.account_properties > li > p.value {
-
+    line-height: 2rem;
+    min-height: 2rem;
+    padding: 0 .5rem;
 }
 
 /* edit section */

@@ -212,15 +212,15 @@ const eventDownloadPasswordDatafileBtn = () => {
 }
 
 // map add account button onclick to event function
-const addAccountBtnElement = document.querySelector("body > div.container > div.app > nav:first-child > div.row:nth-child(2) > button.add_account");
+const addAccountBtnElement = document.querySelector("body > div.container > div.app > nav > div.row > button.add_account");
 addAccountBtnElement.addEventListener("click", eventAddAccountBtn);
 
 // map download password datafile button onclick to event function
-const downloadPswdDatafileBtnElement = document.querySelector("body > div.container > div.app > nav:first-child > div.row:nth-child(2) > button.download_datafile");
+const downloadPswdDatafileBtnElement = document.querySelector("body > div.container > div.app > nav > div.row > button.download_datafile");
 downloadPswdDatafileBtnElement.addEventListener("click", eventDownloadPasswordDatafileBtn);
 
 // search bar functionality
-const searchBarInputElement = document.querySelector("body > div.container > div.app > nav:first-child > div.row:nth-child(2) > input[type=text]");
+const searchBarInputElement = document.querySelector("body > div.container > div.app > nav > div.row > input[type=text]");
 const searchBarInputInputEvent = () => {
     // element vars
     const appContainerElement = document.querySelector("body > div.container > div.app");
@@ -287,4 +287,4 @@ const autoResizeTextarea = (textareaElement) => {
     textareaElement.style.height = textareaElement.scrollHeight + 'px';
 }
 
-//openAppScreen("test");
+openAppScreen("test");

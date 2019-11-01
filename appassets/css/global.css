@@ -41,7 +41,7 @@ body {
 /* style container */
 body > div.container {
     display: block;
-    width: 700px;
+    width: 800px;
     height: 100vh;
 }
 
