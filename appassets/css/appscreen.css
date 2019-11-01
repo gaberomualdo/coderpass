@@ -85,7 +85,7 @@ body > div.container > div.app > nav {
     width: 100%;
     top: 0;
     background-color: #fff;
-    z-index: 9999;
+    z-index: 2;
     padding-top: 1rem;
     /*box-shadow: 0 0 0.5rem var(--shadow-color);*/
 }
