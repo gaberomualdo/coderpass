@@ -1,7 +1,7 @@
 {
-  "name": "simple-password-manager",
+  "name": "json-password-manager",
   "version": "1.0.0",
-  "description": "The simplest password manager app built with Electron.",
+  "description": "The password manager app based on JSON.",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
