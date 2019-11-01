@@ -4,7 +4,7 @@
     information that users could need or want.
 -->
 
-# [Simple Password Manager](#)
+# [JSON Password Manager](#)
 The password manager built for developers. Made with [Electron](https://electronjs.org/), and very well commented.
 
 ## Download

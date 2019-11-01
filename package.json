@@ -4,7 +4,10 @@
   "description": "The password manager built for developers, based on JSON.",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "postinstall": "install-app-deps",
+    "start": "electron .",
+    "pack": "build --dir",
+    "dist": "build"
   },
   "repository": {
     "type": "git",
@@ -12,9 +15,10 @@
   },
   "keywords": [
     "Password",
-    "Manager"
+    "Manager",
+    "JSON"
   ],
-  "author": "Fred Adams",
+  "author": "Fred Adams <xtrp@xtrp.io>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/xtrp/JSON-Password-Manager/issues"
