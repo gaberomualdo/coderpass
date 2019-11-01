@@ -18,6 +18,11 @@
     --shadow-color: rgba(55, 71, 79, 0.225);
 }
 
+/* selection */
+::selection {
+    background-color: var(--submedium-color);
+}
+
 /* global styles */
 
 * {

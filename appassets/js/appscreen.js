@@ -42,7 +42,7 @@ const getHTMLOfAccountBlock = (accountID, justDisplayHTML) => {
         </div>
         ${displayHTML}
         <section class="edit default_style_code_container">
-            <textarea oninput="autoResizeTextarea(this);" class="default_style_code"></textarea>
+            <textarea oninput="autoResizeTextarea(this);" onkeydown="checkTextareaForIndent(event, this);" class="default_style_code"></textarea>
         </section>
     </div>
     `;
@@ -287,4 +287,32 @@ const autoResizeTextarea = (textareaElement) => {
     textareaElement.style.height = textareaElement.scrollHeight + 'px';
 }
 
-openAppScreen("test");
+/* enable tabs in textarea */
+/* some code taken from user user1949974 and user Yaroslav Sivakov on https://stackoverflow.com/questions/6637341/use-tab-to-indent-in-textarea */
+const checkTextareaForIndent = (e, textareaElement) => {
+    if(e.keyCode==9){
+        e.preventDefault();
+        var s = textareaElement.selectionStart;
+        textareaElement.value = textareaElement.value.substring(0,textareaElement.selectionStart) + "\t" + textareaElement.value.substring(textareaElement.selectionEnd);
+        textareaElement.selectionEnd = s+1; 
+    }
+}
+
+/* add "not_top" class to nav if scrolled */
+window.addEventListener("scroll", () => {
+    const scrollPixelsFromTop = window.pageYOffset;
+    const navPixelsFromTop = document.querySelector("nav").getBoundingClientRect().top;
+    const navHasNotTopClass = document.querySelector("body > div.container > div.app > nav").classList.contains("not_top");
+    if(scrollPixelsFromTop > navPixelsFromTop) {
+        if(!navHasNotTopClass) {
+            document.querySelector("body > div.container > div.app > nav").classList.add("not_top");
+        }
+    } else if (navHasNotTopClass) {
+        document.querySelector("body > div.container > div.app > nav").classList.remove("not_top");
+    }
+});
+window.addEventListener("load", () => {
+    window.dispatchEvent(new Event("scroll"));
+});
+
+//openAppScreen("test");

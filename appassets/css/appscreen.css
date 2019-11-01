@@ -78,7 +78,6 @@ body > div.container > div.app > button.exit_vault > svg {
 /* nav/top bar */
 body > div.container > div.app > nav {
     border-bottom: 1px solid var(--light-color);
-    padding-bottom: 1rem;
     user-select: none;
     height: 3rem;
     position: sticky;
@@ -86,8 +85,14 @@ body > div.container > div.app > nav {
     top: 0;
     background-color: #fff;
     z-index: 2;
-    padding-top: 1rem;
+    padding: 1rem 0;
+    transition: padding 0.25s, margin-bottom 0.25s;
+    margin-bottom: 0;
     /*box-shadow: 0 0 0.5rem var(--shadow-color);*/
+}
+body > div.container > div.app > nav.not_top {
+    padding: 0.25rem 0;
+    margin-bottom: 0.5rem;
 }
 
 body > div.container > div.app > nav > h1.title {
@@ -95,7 +100,13 @@ body > div.container > div.app > nav > h1.title {
     line-height: 3rem;
     font-weight: 700;
     float: left;
+    transition: font-size 0.25s;
 }
+body > div.container > div.app > nav.not_top > h1.title {
+    font-size: 2rem;
+}
+
+
 body > div.container > div.app > nav > div.row {
     float: right;
     padding: 0.25rem 0;
@@ -230,6 +241,7 @@ body > div.container > div.app > ul.accounts > div.account > section.display > u
     text-align: right;
     vertical-align: text-bottom;
     line-height: 2rem;
+    user-select: none;
 }
 body > div.container > div.app > ul.accounts > div.account > section.display > ul.account_properties > li > p.value {
     line-height: 2rem;
