@@ -1,14 +1,14 @@
 {
   "name": "json-password-manager",
   "version": "1.0.0",
-  "description": "The password manager app based on JSON.",
+  "description": "The password manager built for developers, based on JSON.",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xtrp/Simple-Password-Manager.git"
+    "url": "git+https://github.com/xtrp/JSON-Password-Manager.git"
   },
   "keywords": [
     "Password",
@@ -17,9 +17,9 @@
   "author": "Fred Adams",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/xtrp/Simple-Password-Manager/issues"
+    "url": "https://github.com/xtrp/JSON-Password-Manager/issues"
   },
-  "homepage": "https://github.com/xtrp/Simple-Password-Manager#readme",
+  "homepage": "https://github.com/xtrp/JSON-Password-Manager#readme",
   "devDependencies": {
     "electron": "^5.0.6"
   },
