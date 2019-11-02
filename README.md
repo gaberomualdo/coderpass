@@ -40,7 +40,7 @@ We use the modern encryption standards of today: AES 256 for encryption, and PBK
  - PBKDF2 for key derivation
  - All passwords are stored locally
 
-## 🐼 Why? &mdash; Security, Customizability, and Versatility
+## Why? &mdash; Security, Customizability, and Versatility
 
 There are already a lot of popular password managers out there, with cool features like autofill Chrome Extensions, mobile apps, and more. They have really nice UIs, and some even have extra features like a built-in VPN and encrypted file storage.
 
@@ -54,7 +54,9 @@ But what do we really want in a password manager? It's simple. We want **securit
 
 We are not security experts. JSON Password Manager is provided on an "as-is" basis and makes no warranties regarding the security of user data, and disclaims liability for damages resulting from using JSON Password Manager. If you are concerned about password security, it's always best to consult with a security professional. More information can be seen at LICENSE.txt.
 
-## ✌️ Development
+## 🦄️ Development and Contributing
+
+Contributions, issues and feature requests are welcome!<br />Feel free to check the [issues page](https://github.com/xtrp/JSON-Password-Manager/issues). To contribute:
 
 1. Clone the repo:
 
@@ -70,10 +72,6 @@ cd JSON-Password-Manager && npm install
 
 3. Run ```npm start``` to start up the Electron app!
 
-## ⚡️ Contributing
-
-Contributions, issues and feature requests are welcome!<br />Feel free to check the [issues page](https://github.com/xtrp/JSON-Password-Manager/issues).
-
-## 👍 Show your support
+## Show your support
 
 Give a ⭐️ if you like this project!
