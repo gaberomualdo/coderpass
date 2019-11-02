@@ -13,7 +13,7 @@
 
 The password manager built for developers, based on JSON.
 
-![appassets/img/site_demo.gif]
+![Site Demo](appassets/img/site_demo.gif)
 
 Written in Electron with plain HTML, CSS, and JavaScript. No frameworks, no CSS preprocessor: nothing. Which means anyone, even beginners that only know plain HTML and CSS can contribute.
 
