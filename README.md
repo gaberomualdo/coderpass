@@ -16,7 +16,7 @@ The password manager built for developers, based on JSON.
 
 <div align="center">
 
-![Site Demo](appassets/img/site_demo.gif)
+![Site Demo](appassets/img/site_demo.png)
 
 </div>
 
