@@ -26,11 +26,15 @@ Check out the download page at [🏠 Here](https://xtrp.github.io/JSON-Password-
 
 ## Written in the Basic Languages of the Web
 
+We use the most basic languages of the web: HTML, CSS, and JavaScript. All our code is written to be easy read, simple, and well commented, which means even beginners can contribute. We don't use any extra JS frameworks or CSS preprocessors. We only what we need, which makes JSON Password Manager not only lightweight, but also a really great project to contribute to because the codebase is so easy to understand.
+
  - Electron
  - Plain HTML, CSS, and JavaScript
  - **No frameworks, no CSS preprocessor: nothing.** Which means anyone, even beginners that only know plain HTML and CSS can contribute.
 
 ## Using World-Class Encryption Tools
+
+We use the modern encryption standards of today: AES 256 for encryption, and PBKDF2 for key derivation. All passwords are stored locally, removing the major possibility of remote attacks or server breaches, because there really is simply no server.
 
  - AES 256 bit
  - PBKDF2 for key derivation
