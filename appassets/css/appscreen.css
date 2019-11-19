@@ -248,6 +248,13 @@ body > div.container > div.app > ul.accounts > div.account > section.display > u
     min-height: 2rem;
     padding: 0 .5rem;
 }
+/* copy btn */
+body > div.container > div.app > ul.accounts > div.account > section.display > ul.account_properties > li > button.copy_property_btn {
+
+}
+body > div.container > div.app > ul.accounts > div.account > section.display > ul.account_properties > li > button.copy_property_btn:not(.active_tooltip):before, body > div.container > div.app > ul.accounts > div.account > section.display > ul.account_properties > li > button.copy_property_btn:not(.active_tooltip):after {
+    opacity: 0;
+}
 
 /* edit section */
 body > div.container > div.app > ul.accounts > div.account > section.edit > textarea {
