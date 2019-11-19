@@ -221,7 +221,7 @@ const eventCopyPropertyValueBtn = (btn) => {
     btn.classList.add("active_tooltip");
     btn.setAttribute("data-balloon-visible", "true");
     
-    // add random ID to copy btn, so that active tooltip can be turned off if that ID is the same in 650 ms
+    // add random ID to copy btn, so that active tooltip can be turned off if that ID is the same in 600 ms
     const btnID = generateRandomID(32);
     
     btn.setAttribute("active_tooltip_id", btnID);
@@ -230,7 +230,7 @@ const eventCopyPropertyValueBtn = (btn) => {
             btn.classList.remove("active_tooltip");
             btn.removeAttribute("data-balloon-visible");
         }
-    }, 650);
+    }, 600);
 }
 
 // map add account button onclick to event function

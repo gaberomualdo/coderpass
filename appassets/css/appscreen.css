@@ -250,7 +250,20 @@ body > div.container > div.app > ul.accounts > div.account > section.display > u
 }
 /* copy btn */
 body > div.container > div.app > ul.accounts > div.account > section.display > ul.account_properties > li > button.copy_property_btn {
-
+    height: 1rem;
+    margin: 0.5rem;
+    width: 1rem;
+    border: none;
+    background-color: transparent;
+    fill: var(--medium-color);
+    transition: fill 0.1s ease-in-out;
+}
+body > div.container > div.app > ul.accounts > div.account > section.display > ul.account_properties > li > button.copy_property_btn:hover {
+    fill: var(--regular-color);
+}
+body > div.container > div.app > ul.accounts > div.account > section.display > ul.account_properties > li > button.copy_property_btn > svg {
+    width: 100%;
+    height: 100%;
 }
 body > div.container > div.app > ul.accounts > div.account > section.display > ul.account_properties > li > button.copy_property_btn:not(.active_tooltip):before, body > div.container > div.app > ul.accounts > div.account > section.display > ul.account_properties > li > button.copy_property_btn:not(.active_tooltip):after {
     opacity: 0;
