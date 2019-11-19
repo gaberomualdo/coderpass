@@ -1,25 +1,41 @@
 let vaultContents;
 let vaultPassword;
 
+// function for getting properties HTML for a given properties object
+const getHTMLOfPropertiesSection = (properties) => {
+    let propertiesHTML = "";
+
+    const addPropertyToPropertiesHTML = (propertyName, propertyValue) => {
+        propertiesHTML += "<li><p class='name'>" + propertyName + ":</p><p class='value default_style_code'>" + propertyValue + "</p><button class='copy_property_btn' onclick='eventCopyPropertyValueBtn(this);' aria-label='Copied!' data-balloon-pos='right'>" + copyClipboardSVG + "</button></li>";
+    }
+
+    let copyClipboardSVG = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M21 2h-19v19h-2v-21h21v2zm3 2v20h-20v-20h20zm-2 2h-1.93c-.669 0-1.293.334-1.664.891l-1.406 2.109h-6l-1.406-2.109c-.371-.557-.995-.891-1.664-.891h-1.93v16h16v-16zm-3 6h-10v1h10v-1zm0 3h-10v1h10v-1zm0 3h-10v1h10v-1z"/></svg>';
+    Object.keys(properties).forEach((propertyName) => {
+        const propertyValue = properties[propertyName];
+        if(typeof propertyValue == "object") {
+            propertiesHTML += "<li class='subobj_label'><p class='name'>" + propertyName + ":</p></li>";
+            propertiesHTML += "<ul>";
+            propertiesHTML += getHTMLOfPropertiesSection(propertyValue);
+            propertiesHTML += "</ul>";
+        }else {
+            addPropertyToPropertiesHTML(propertyName, propertyValue);
+        }
+    });
+
+    return propertiesHTML;
+}
+
 // function for getting the HTML for the block of a given account object
 const getHTMLOfAccountBlock = (accountID, justDisplayHTML) => {
     // account obj
     const accountObj = vaultContents.accounts[accountID];
-
-    // create properties HTML
-    let propertiesHTML = "";
-    let copyClipboardSVG = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M21 2h-19v19h-2v-21h21v2zm3 2v20h-20v-20h20zm-2 2h-1.93c-.669 0-1.293.334-1.664.891l-1.406 2.109h-6l-1.406-2.109c-.371-.557-.995-.891-1.664-.891h-1.93v16h16v-16zm-3 6h-10v1h10v-1zm0 3h-10v1h10v-1zm0 3h-10v1h10v-1z"/></svg>';
-    Object.keys(accountObj.properties).forEach((propertyName) => {
-        const propertyValue = accountObj.properties[propertyName];
-        propertiesHTML += "<li><p class='name'>" + propertyName + ":</p><p class='value default_style_code'>" + propertyValue + "</p><button class='copy_property_btn' onclick='eventCopyPropertyValueBtn(this);' aria-label='Copied!' data-balloon-pos='right'>" + copyClipboardSVG + "</button></li>";
-    });
 
     // display HTML
     const displayHTML = `
     <section class="display">
         <h1 class="account_name">${accountObj.name}</h1>
         <ul class="account_properties">
-            ${propertiesHTML}
+            ${getHTMLOfPropertiesSection(accountObj.properties)}
         </ul>
     </section>
     `;
@@ -315,8 +331,18 @@ const checkTextareaForIndent = (e, textareaElement) => {
     if(e.keyCode==9){
         e.preventDefault();
         var s = textareaElement.selectionStart;
-        textareaElement.value = textareaElement.value.substring(0,textareaElement.selectionStart) + "\t" + textareaElement.value.substring(textareaElement.selectionEnd);
-        textareaElement.selectionEnd = s+1; 
+        textareaElement.value = textareaElement.value.substring(0,textareaElement.selectionStart) + "    " + textareaElement.value.substring(textareaElement.selectionEnd);
+        textareaElement.selectionEnd = s+4; 
+    }
+
+    // also check for backspace indent
+    else if(e.keyCode==8){
+        if(textareaElement.value.substring(textareaElement.selectionStart - 3, textareaElement.selectionStart).split(" ").join("") == "") {
+            e.preventDefault();
+            var s = textareaElement.selectionStart;
+            textareaElement.value = textareaElement.value.substring(0,textareaElement.selectionStart - 4) + textareaElement.value.substring(textareaElement.selectionEnd);
+            textareaElement.selectionEnd = s-4; 
+        }
     }
 }
 

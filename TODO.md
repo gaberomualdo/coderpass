@@ -1,6 +1,5 @@
 # JSON Password Manager TODO
 
- - Support for nested JSON keys and values and objects
  - More featured JSON editor textarea and functionality
  - Add toolbar functions
  - Create Download Page/Website
