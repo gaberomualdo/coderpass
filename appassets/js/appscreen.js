@@ -286,7 +286,7 @@ const searchBarInputInputEvent = () => {
             }else {
                 getListOfObjValsRecursive(val.properties).forEach((propObj) => {
                     const propName = propObj.key;
-                    const propVal = propObj.eventCopyPropertyValueBtn;
+                    const propVal = propObj.value;
                     if(propName.toLowerCase().indexOf(searchQuery.toLowerCase()) > -1) {
                         isSearchResult = true;
                     }else if(propVal.toLowerCase().indexOf(searchQuery.toLowerCase()) > -1) {
