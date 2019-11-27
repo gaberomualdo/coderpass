@@ -251,7 +251,8 @@ body > div.container > div.app > ul.accounts > div.account > section.display ul 
     user-select: none;
 }
 body > div.container > div.app > ul.accounts > div.account > section.display ul > li.subobj_label > p.name {
-    font-weight: 600;
+    /*font-weight: 600;*/
+    text-decoration: underline;
 }
 body > div.container > div.app > ul.accounts > div.account > section.display ul > li > p.value {
     line-height: 2rem;
@@ -268,9 +269,13 @@ body > div.container > div.app > ul.accounts > div.account > section.display ul 
     background-color: transparent;
     fill: var(--medium-color);
     transition: fill 0.1s ease-in-out;
+    user-select: none;
 }
 body > div.container > div.app > ul.accounts > div.account > section.display ul > li > button.copy_property_btn:hover {
     fill: var(--regular-color);
+}
+body > div.container > div.app > ul.accounts > div.account > section.display ul > li > button.copy_property_btn:active {
+    fill: var(--dark-color);
 }
 body > div.container > div.app > ul.accounts > div.account > section.display ul > li > button.copy_property_btn > svg {
     width: 100%;
@@ -287,6 +292,7 @@ body > div.container > div.app > ul.accounts > div.account > section.edit > text
     resize: none;
     transition: border-color 0.25s ease-in-out;
     overflow-y: hidden;
+    tab-size: 4;
 }
 body > div.container > div.app > ul.accounts > div.account > section.edit > textarea:focus {
     border-color: var(--text-color);

@@ -137,7 +137,7 @@ const eventEditBtn = (accountID) => {
 
     if(accountElement.classList.contains("editing")) {
         // if editing, make sure textarea has correct contents and resize textarea
-        accountElement.querySelector("section.edit textarea").value = JSON.stringify(vaultContents.accounts[accountID], null, 4);
+        accountElement.querySelector("section.edit textarea").value = JSON.stringify(vaultContents.accounts[accountID], null, "\t");
         
         autoResizeTextarea(accountElement.querySelector("section.edit textarea"));
     }else {
@@ -283,12 +283,13 @@ const searchBarInputInputEvent = () => {
 
             if(val.name.toLowerCase().indexOf(searchQuery.toLowerCase()) > -1) {
                 isSearchResult = true;
-                console.log("test");
             }else {
-                Object.keys(val.properties).forEach((propName) => {
+                getListOfObjValsRecursive(val.properties).forEach((propObj) => {
+                    const propName = propObj.key;
+                    const propVal = propObj.eventCopyPropertyValueBtn;
                     if(propName.toLowerCase().indexOf(searchQuery.toLowerCase()) > -1) {
                         isSearchResult = true;
-                    }else if(val.properties[propName].indexOf(searchQuery) > -1) {
+                    }else if(propVal.toLowerCase().indexOf(searchQuery.toLowerCase()) > -1) {
                         isSearchResult = true;
                     }
                 });
@@ -331,11 +332,11 @@ const checkTextareaForIndent = (e, textareaElement) => {
     if(e.keyCode==9){
         e.preventDefault();
         var s = textareaElement.selectionStart;
-        textareaElement.value = textareaElement.value.substring(0,textareaElement.selectionStart) + "    " + textareaElement.value.substring(textareaElement.selectionEnd);
-        textareaElement.selectionEnd = s+4; 
+        textareaElement.value = textareaElement.value.substring(0,textareaElement.selectionStart) + "\t" + textareaElement.value.substring(textareaElement.selectionEnd);
+        textareaElement.selectionEnd = s+1;
     }
 
-    // also check for backspace indent
+/*    // also check for backspace indent
     else if(e.keyCode==8){
         if(textareaElement.value.substring(textareaElement.selectionStart - 3, textareaElement.selectionStart).split(" ").join("") == "") {
             e.preventDefault();
@@ -343,7 +344,7 @@ const checkTextareaForIndent = (e, textareaElement) => {
             textareaElement.value = textareaElement.value.substring(0,textareaElement.selectionStart - 4) + textareaElement.value.substring(textareaElement.selectionEnd);
             textareaElement.selectionEnd = s-4; 
         }
-    }
+    }*/
 }
 
 /* add "not_top" class to nav if scrolled */
@@ -363,4 +364,4 @@ window.addEventListener("load", () => {
     window.dispatchEvent(new Event("scroll"));
 });
 
-openAppScreen("test");
+//openAppScreen("test");

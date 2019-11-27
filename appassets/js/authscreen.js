@@ -86,9 +86,9 @@ const eventCreateVaultBtn = () => {
     }
 };
 
-document.querySelector("body > div.container > div.auth > div.form.create_vault > input:nth-child(2)").addEventListener("keydown", (e) => {
+document.querySelector("body > div.container > div.auth > div.form.create_vault > div.input_container:nth-child(3) > input").addEventListener("keydown", (e) => {
     if(e.keyCode == 13) {
-        eventEnterVaultBtn();
+        eventCreateVaultBtn();
     }
 });
 createVaultBtnElement.addEventListener("click", eventCreateVaultBtn);

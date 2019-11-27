@@ -179,3 +179,22 @@ const isValidJSONString = (str) => {
 window.addEventListener("load", (event) => {
     document.querySelector("body > div.container").removeAttribute("style");
 });
+
+/* function to get a list of all object keys and vals (recursively); for example:
+
+given the object: { "prop1": "val1", "prop2": {"test": "test_val"} }
+the func would yield: [{key: "prop1", val: "val1"}, {key: "test", val: "test_val"}]
+*/
+const getListOfObjValsRecursive = (obj) => {
+    let listOfObjVals = [];
+    Object.keys(obj).forEach((key) => {
+        const value = obj[key];
+        if(typeof value == "object") {
+            listOfObjVals = listOfObjVals.concat(getListOfObjValsRecursive(value));
+        }else {
+            listOfObjVals.push({key, value});
+        }
+    });
+
+    return listOfObjVals;
+}
