@@ -1,6 +1,9 @@
 let vaultContents;
 let vaultPassword;
 
+// ACE object of editors
+const aceeditors = {};
+
 // function for getting properties HTML for a given properties object
 const getHTMLOfPropertiesSection = (properties) => {
     let propertiesHTML = "";
@@ -58,12 +61,27 @@ const getHTMLOfAccountBlock = (accountID, justDisplayHTML) => {
             </button>
         </div>
         ${displayHTML}
-        <section class="edit default_style_code_container">
-            <textarea oninput="autoResizeTextarea(this);" onkeydown="checkTextareaForIndent(event, this);" class="default_style_code"></textarea>
+        <section class="edit">
+            <div class="editor_container">
+                <div class="editor" id='aceeditor__${accountID}'>
+                test values
+                </div>
+            </div>
         </section>
     </div>
     `;
 };
+
+// function for refreshing Ace Editor
+const refreshAceEditor = (accountID) => {
+    // initialize ACE editor
+    aceeditors[accountID] = ace.edit("aceeditor__" + accountID);
+    aceeditors[accountID].setTheme("ace/theme/chrome");
+    aceeditors[accountID].session.setMode("ace/mode/javascript");
+    aceeditors[accountID].setOptions({
+        fontSize: "12pt"
+    });
+}
 
 // function for refreshing a given account block
 const refreshAccountBlock = (accountID) => {
@@ -73,6 +91,7 @@ const refreshAccountBlock = (accountID) => {
     // refresh HTML of account element
     if(vaultContents.accounts[accountID]) {
         accountElement.querySelector("section.display").outerHTML = getHTMLOfAccountBlock(accountID, true);
+        refreshAceEditor(accountID);
     }else {
         accountElement.outerHTML = "";
     }
@@ -85,6 +104,7 @@ const addAccountBlock = (accountID) => {
 
     // add HTML of account block to accounts list element HTML
     accountsListElement.innerHTML = getHTMLOfAccountBlock(accountID) + accountsListElement.innerHTML;
+    refreshAceEditor(accountID);
 };
 
 // add account to database
