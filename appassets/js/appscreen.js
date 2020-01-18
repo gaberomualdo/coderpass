@@ -16,7 +16,7 @@ const getHTMLOfPropertiesSection = (properties) => {
     Object.keys(properties).forEach((propertyName) => {
         const propertyValue = properties[propertyName];
         if(typeof propertyValue == "object") {
-            propertiesHTML += "<li class='subobj_label'><p class='name'>" + propertyName + ":</p></li>";
+            propertiesHTML += "<li class='subobj_label' onclick='this.classList.toggle(\"open\"); this.nextSibling.classList.toggle(\"open\");'><p class='name'>" + propertyName + ":</p></li>";
             propertiesHTML += "<ul>";
             propertiesHTML += getHTMLOfPropertiesSection(propertyValue);
             propertiesHTML += "</ul>";
@@ -36,8 +36,8 @@ const getHTMLOfAccountBlock = (accountID, justDisplayHTML) => {
     // display HTML
     const displayHTML = `
     <section class="display">
-        <h1 class="account_name">${accountObj.name}</h1>
-        <ul class="account_properties">
+        <h1 class="account_name open" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open');">${accountObj.name}</h1>
+        <ul class="account_properties open">
             ${getHTMLOfPropertiesSection(accountObj.properties)}
         </ul>
     </section>
@@ -56,7 +56,7 @@ const getHTMLOfAccountBlock = (accountID, justDisplayHTML) => {
                 <svg class="edit" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M14.078 4.232l-12.64 12.639-1.438 7.129 7.127-1.438 12.641-12.64-5.69-5.69zm-10.369 14.893l-.85-.85 11.141-11.125.849.849-11.14 11.126zm2.008 2.008l-.85-.85 11.141-11.125.85.85-11.141 11.125zm18.283-15.444l-2.816 2.818-5.691-5.691 2.816-2.816 5.691 5.689z"/></svg>
                 <svg class="done_editing" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
             </button>
-            <button class="remove default_style_button with_hover with_icon" onclick="eventRemoveBtn('${accountID}')" aria-label="Delete Account" data-balloon-pos="down">
+            <button class="remove default_style_button with_hover with_icon" onclick="eventRemoveBtn('${accountID}', this)" aria-label="Delete Account" data-balloon-pos="down">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 6v18h18v-18h-18zm5 14c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm4-18v2h-20v-2h5.711c.9 0 1.631-1.099 1.631-2h5.315c0 .901.73 2 1.631 2h5.712z"/></svg>
             </button>
         </div>
@@ -204,35 +204,48 @@ const eventEditBtn = (accountID) => {
 }
 
 // remove btn on account blocks
-const eventRemoveBtn = (accountID) => {
+const eventRemoveBtn = (accountID, button) => {
     if(confirm("Delete account: \"" + vaultContents.accounts[accountID].name + "\"?")) {
         delete vaultContents.accounts[accountID];
         refreshVaultDatabase();
         refreshAccountBlock(accountID);
     }
+    button.blur();
 }
 
 // add account btn
 const eventAddAccountBtn = () => {
     addAccountBtnElement.blur();
 
-    // when button is clicked, add semi-empty account
-    const newAccountID = addAccountToDatabase({
-        name: "Account Name",
-        properties: {
-            "Username": "undefined",
-            "Password": "undefined"
+    // only allow adding accounts if nothing is being edited
+    let accountsBeingEdited = false;
+    Array.from(document.querySelectorAll("body > div.container > div.app > ul.accounts > div.account")).forEach(accountEl => {
+        if(accountEl.classList.contains("editing")) {
+            accountsBeingEdited = true;
         }
     });
 
-    // refresh database
-    refreshVaultDatabase();
+    if(!accountsBeingEdited) {
+        // when button is clicked, add semi-empty account
+        const newAccountID = addAccountToDatabase({
+            name: "Account Name",
+            properties: {
+                "Username": "undefined",
+                "Password": "undefined"
+            }
+        });
 
-    // add block
-    addAccountBlock(newAccountID);
+        // refresh database
+        refreshVaultDatabase();
 
-    // edit added block
-    eventEditBtn(newAccountID);
+        // add block
+        addAccountBlock(newAccountID);
+
+        // edit added block
+        eventEditBtn(newAccountID);
+    }else {
+        alert("Please Finish Editing Accounts Before Adding New Ones")
+    }
 }
 
 // hide/show passwords button
@@ -272,7 +285,7 @@ const eventDownloadPasswordDatafileBtn = () => {
 // copy property btn
 const eventCopyPropertyValueBtn = (btn) => {
     // copy to clipboard
-    navigator.clipboard.writeText(btn.previousSibling.querySelector("span.password").innerText);
+    navigator.clipboard.writeText(btn.previousElementSibling.querySelector("span.password").innerText);
 
     // show tooltip
     btn.classList.add("active_tooltip");

@@ -84,7 +84,7 @@ body > div.container > div.app > nav {
     width: 100%;
     top: 0;
     background-color: #fff;
-    z-index: 2;
+    z-index: 9999;
     padding: 1rem 0;
     transition: padding 0.25s, margin-bottom 0.25s;
     margin-bottom: 0;
@@ -233,24 +233,52 @@ body > div.container > div.app > ul.accounts > div.account > section.display > h
     font-size: 1.75rem;
     font-weight: 600;
     line-height: 1.5;
-    margin-bottom: 0.5rem;
     width: calc(100% - 6rem);
+    user-select: none;
+    cursor: pointer;
+    padding-left: 2rem;
+    background-image: url("../img/arrowright.png"), url("../img/arrowdown.png");
+    background-position: 0 center;
+    background-repeat: no-repeat;
+}
+body > div.container > div.app > ul.accounts > div.account > section.display > h1.account_name.open {
+    background-size: 0, 1.25rem;
+    margin-bottom: 0.5rem;
+}
+body > div.container > div.app > ul.accounts > div.account > section.display > h1.account_name:not(.open) {
+    background-size: 1.25rem, 0;
 }
 body > div.container > div.app > ul.accounts > div.account > section.display ul {
     list-style: none;
-    margin-left: 4rem;
+    margin-left: .625rem;
+    padding-left: 2.5rem;
+    overflow: hidden;
+    clear: both;
 }
-/*body > div.container > div.app > ul.accounts > div.account > section.display ul ul {
-    margin-left: 2.5rem;
-}*/
+body > div.container > div.app > ul.accounts > div.account > section.display ul:not(.open) {
+    display: none;
+}
+body > div.container > div.app > ul.accounts > div.account > section.display ul ul {
+    border-left: 1px solid #E1E1E1;
+}
 body > div.container > div.app > ul.accounts > div.account > section.display ul > li {
-    width: 100%;
+    display: block;
+    clear: both;
+    float: left;
     min-height: 2rem;
     padding: 0.375rem 0;
-    /*border-left: 1px solid var(--light-color);*/
 }
-body > div.container > div.app > ul.accounts > div.account > section.display ul > li::before {
-    content: url("test.png");
+
+/* subobj label */
+body > div.container > div.app > ul.accounts > div.account > section.display ul > li.subobj_label {
+    cursor: pointer;
+    background-image: url("../img/arrowright.png"), url("../img/arrowdown.png");
+    background-size: 1.25rem, 0;
+    background-position: 0 center;
+    background-repeat: no-repeat;
+}
+body > div.container > div.app > ul.accounts > div.account > section.display ul > li.subobj_label.open {
+    background-size: 0, 1.25rem;
 }
 body > div.container > div.app > ul.accounts > div.account > section.display ul > li > p {
     display: block;
@@ -258,15 +286,12 @@ body > div.container > div.app > ul.accounts > div.account > section.display ul 
 }
 body > div.container > div.app > ul.accounts > div.account > section.display ul > li > p.name {
     padding: 0 1rem;
+    padding-left: 1.75rem;
     box-sizing: border-box;
     text-align: right;
     vertical-align: text-bottom;
     line-height: 2rem;
     user-select: none;
-}
-body > div.container > div.app > ul.accounts > div.account > section.display ul > li.subobj_label > p.name {
-    /*font-weight: 600;
-    text-decoration: underline;*/
 }
 body > div.container > div.app > ul.accounts > div.account > section.display ul > li > p.value {
     line-height: 2rem;
@@ -309,20 +334,9 @@ body > div.container > div.app > ul.accounts > div.account > section.display ul 
 }
 
 /* edit section */
-body > div.container > div.app > ul.accounts > div.account > section.edit > textarea {
-    width: calc(100% - 6rem);
-    max-width: calc(100% - 6rem);
-    resize: none;
-    transition: border-color 0.25s ease-in-out;
-    overflow-y: hidden;
-    tab-size: 4;
-}
-body > div.container > div.app > ul.accounts > div.account > section.edit > textarea:focus {
-    border-color: var(--text-color);
-}
 body > div.container > div.app > ul.accounts > div.account > section.edit > div.editor_container {
     width: 100%;
-    height: 20rem;
+    height: 25rem;
     padding: 2rem;
     box-sizing: border-box;
     position: relative;
@@ -331,6 +345,7 @@ body > div.container > div.app > ul.accounts > div.account > section.edit > div.
     width: calc(100% - 6.5rem);
     max-width: calc(100% - 6.5rem);
     border: 1px solid #E1E1E1;
+    border-radius: 4px;
     font-size: 1.5rem;
 }
 
