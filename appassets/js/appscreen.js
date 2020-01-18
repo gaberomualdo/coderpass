@@ -63,9 +63,7 @@ const getHTMLOfAccountBlock = (accountID, justDisplayHTML) => {
         ${displayHTML}
         <section class="edit">
             <div class="editor_container">
-                <div class="editor" id='aceeditor__${accountID}'>
-                test values
-                </div>
+                <div class="editor" id='aceeditor__${accountID}'></div>
             </div>
         </section>
     </div>
@@ -73,14 +71,24 @@ const getHTMLOfAccountBlock = (accountID, justDisplayHTML) => {
 };
 
 // function for refreshing Ace Editor
-const refreshAceEditor = (accountID) => {
-    // initialize ACE editor
-    aceeditors[accountID] = ace.edit("aceeditor__" + accountID);
-    aceeditors[accountID].setTheme("ace/theme/chrome");
-    aceeditors[accountID].session.setMode("ace/mode/javascript");
-    aceeditors[accountID].setOptions({
-        fontSize: "12pt"
-    });
+const refreshAceEditor = (accountID, value) => {
+    // set value of editor to given value
+    const editorElement = document.querySelector("#aceeditor__" + accountID);
+    if(editorElement.classList.contains("ace_editor")) {
+        aceeditors[accountID].setValue(value, -1);
+        aceeditors[accountID].setValue(value, 1);
+    }else {
+        // set value of editor to given value (passed as argument)
+        editorElement.innerHTML = value;
+
+        // initialize ace editor within that element
+        aceeditors[accountID] = ace.edit("aceeditor__" + accountID);
+        aceeditors[accountID].setTheme("ace/theme/chrome");
+        aceeditors[accountID].session.setMode("ace/mode/javascript");
+        aceeditors[accountID].setOptions({
+            fontSize: "12pt"
+        });
+    }
 }
 
 // function for refreshing a given account block
@@ -91,8 +99,7 @@ const refreshAccountBlock = (accountID) => {
     // refresh HTML of account element
     if(vaultContents.accounts[accountID]) {
         accountElement.querySelector("section.display").outerHTML = getHTMLOfAccountBlock(accountID, true);
-        refreshAceEditor(accountID);
-    }else {
+    } else {
         accountElement.outerHTML = "";
     }
 }
@@ -104,7 +111,6 @@ const addAccountBlock = (accountID) => {
 
     // add HTML of account block to accounts list element HTML
     accountsListElement.innerHTML = getHTMLOfAccountBlock(accountID) + accountsListElement.innerHTML;
-    refreshAceEditor(accountID);
 };
 
 // add account to database
@@ -156,13 +162,13 @@ const eventEditBtn = (accountID) => {
     accountElement.classList.toggle("editing");
 
     if(accountElement.classList.contains("editing")) {
-        // if editing, make sure textarea has correct contents and resize textarea
-        accountElement.querySelector("section.edit textarea").value = JSON.stringify(vaultContents.accounts[accountID], null, "\t");
+        const JSONAsString = JSON.stringify(vaultContents.accounts[accountID], null, "\t");
+        refreshAceEditor(accountID, JSONAsString);
         
-        autoResizeTextarea(accountElement.querySelector("section.edit textarea"));
+        //autoResizeTextarea(accountElement.querySelector("section.edit textarea"));
     }else {
         // if not editing, save new value of account JSON from textarea
-        const newAccountContentInJSON = accountElement.querySelector("section.edit textarea").value;
+        const newAccountContentInJSON = aceeditors[accountID].getValue();
         if(isValidJSONString(newAccountContentInJSON)) {
             // new value
             const newAccountContent = JSON.parse(newAccountContentInJSON);
@@ -359,14 +365,14 @@ searchBarInputElement.addEventListener("blur", () => {
     document.querySelector("body > div.container > div.app").classList.remove("searching");
 });
 
-/* auto resize edit textarea */
+/* auto resize edit textarea 
 const autoResizeTextarea = (textareaElement) => {
     textareaElement.style.height = "auto";
     textareaElement.style.height = textareaElement.scrollHeight + 'px';
 }
 
-/* enable tabs in textarea */
-/* some code taken from user user1949974 and user Yaroslav Sivakov on https://stackoverflow.com/questions/6637341/use-tab-to-indent-in-textarea */
+/* enable tabs in textarea 
+/* some code taken from user user1949974 and user Yaroslav Sivakov on https://stackoverflow.com/questions/6637341/use-tab-to-indent-in-textarea 
 const checkTextareaForIndent = (e, textareaElement) => {
     if(e.keyCode==9){
         e.preventDefault();
@@ -383,8 +389,8 @@ const checkTextareaForIndent = (e, textareaElement) => {
             textareaElement.value = textareaElement.value.substring(0,textareaElement.selectionStart - 4) + textareaElement.value.substring(textareaElement.selectionEnd);
             textareaElement.selectionEnd = s-4; 
         }
-    }*/
-}
+    }
+}*/
 
 /* add "not_top" class to nav if scrolled */
 window.addEventListener("scroll", () => {
