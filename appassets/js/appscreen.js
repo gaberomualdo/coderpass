@@ -6,7 +6,7 @@ const getHTMLOfPropertiesSection = (properties) => {
     let propertiesHTML = "";
 
     const addPropertyToPropertiesHTML = (propertyName, propertyValue) => {
-        propertiesHTML += "<li><p class='name'>" + propertyName + ":</p><p class='value default_style_code'>" + propertyValue + "</p><button class='copy_property_btn' onclick='eventCopyPropertyValueBtn(this);' aria-label='Copied!' data-balloon-pos='right'>" + copyClipboardSVG + "</button></li>";
+        propertiesHTML += "<li><p class='name'>" + propertyName + ":</p><p class='value default_style_code'><span class='password'>" + propertyValue + "</span><span class='hidden'>" + "&bull;".repeat(propertyValue.length) +  "</span></p><button class='copy_property_btn' onclick='eventCopyPropertyValueBtn(this);' aria-label='Copied!' data-balloon-pos='right'>" + copyClipboardSVG + "</button></li>";
     }
 
     let copyClipboardSVG = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M21 2h-19v19h-2v-21h21v2zm3 2v20h-20v-20h20zm-2 2h-1.93c-.669 0-1.293.334-1.664.891l-1.406 2.109h-6l-1.406-2.109c-.371-.557-.995-.891-1.664-.891h-1.93v16h16v-16zm-3 6h-10v1h10v-1zm0 3h-10v1h10v-1zm0 3h-10v1h10v-1z"/></svg>';
@@ -209,6 +209,21 @@ const eventAddAccountBtn = () => {
     eventEditBtn(newAccountID);
 }
 
+// hide/show passwords button
+const eventHideShowPasswordBtn = () => {
+    hideShowPasswordBtnElement.blur();
+    hideShowPasswordBtnElement.classList.toggle("hidden");
+    document.querySelector("div.app").classList.toggle("passwords_hidden");
+    
+    if(hideShowPasswordBtnElement.classList.contains("hidden")) {
+        hideShowPasswordBtnElement.setAttribute("aria-label", "Show Passwords");
+    }else {
+        hideShowPasswordBtnElement.setAttribute("aria-label", "Hide Passwords");
+    }
+
+
+}
+
 // download password datafile button
 const eventDownloadPasswordDatafileBtn = () => {
     downloadPswdDatafileBtnElement.blur();
@@ -231,7 +246,7 @@ const eventDownloadPasswordDatafileBtn = () => {
 // copy property btn
 const eventCopyPropertyValueBtn = (btn) => {
     // copy to clipboard
-    navigator.clipboard.writeText(btn.previousSibling.innerText);
+    navigator.clipboard.writeText(btn.previousSibling.querySelector("span.password").innerText);
 
     // show tooltip
     btn.classList.add("active_tooltip");
@@ -252,6 +267,10 @@ const eventCopyPropertyValueBtn = (btn) => {
 // map add account button onclick to event function
 const addAccountBtnElement = document.querySelector("body > div.container > div.app > nav > div.row > button.add_account");
 addAccountBtnElement.addEventListener("click", eventAddAccountBtn);
+
+// map hide/show password button onclick to event function
+const hideShowPasswordBtnElement = document.querySelector("body > div.container > div.app > nav > div.row > button.hide_show_pwds");
+hideShowPasswordBtnElement.addEventListener("click", eventHideShowPasswordBtn);
 
 // map download password datafile button onclick to event function
 const downloadPswdDatafileBtnElement = document.querySelector("body > div.container > div.app > nav > div.row > button.download_datafile");
@@ -364,4 +383,4 @@ window.addEventListener("load", () => {
     window.dispatchEvent(new Event("scroll"));
 });
 
-//openAppScreen("test");
+openAppScreen("test");

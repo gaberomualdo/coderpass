@@ -114,6 +114,17 @@ body > div.container > div.app > nav > div.row {
     height: 3rem;
 }
 
+/* hide/show pwd btn */
+body > div.container > div.app > nav > div.row > button.hide_show_pwds > svg {
+    transform: scale(1.15);
+}
+
+/* hide/show pwd btn functionality */
+body > div.container > div.app > nav > div.row > button.hide_show_pwds.hidden > svg.hide_pwd,
+body > div.container > div.app > nav > div.row > button.hide_show_pwds:not(.hidden) > svg.show_pwd {
+    display: none;
+}
+
 /* input */
 body > div.container > div.app > nav > div.row > input[type=text] {
     font-size: 0.95rem;
@@ -227,23 +238,26 @@ body > div.container > div.app > ul.accounts > div.account > section.display > h
 }
 body > div.container > div.app > ul.accounts > div.account > section.display ul {
     list-style: none;
+    margin-left: 4rem;
 }
-body > div.container > div.app > ul.accounts > div.account > section.display ul ul {
+/*body > div.container > div.app > ul.accounts > div.account > section.display ul ul {
     margin-left: 2.5rem;
-}
+}*/
 body > div.container > div.app > ul.accounts > div.account > section.display ul > li {
     width: 100%;
     min-height: 2rem;
     padding: 0.375rem 0;
-    border-left: 1px solid var(--light-color);
+    /*border-left: 1px solid var(--light-color);*/
+}
+body > div.container > div.app > ul.accounts > div.account > section.display ul > li::before {
+    content: url("test.png");
 }
 body > div.container > div.app > ul.accounts > div.account > section.display ul > li > p {
     display: block;
     float: left;
 }
 body > div.container > div.app > ul.accounts > div.account > section.display ul > li > p.name {
-    width: 10rem;
-    padding-right: 1rem;
+    padding: 0 1rem;
     box-sizing: border-box;
     text-align: right;
     vertical-align: text-bottom;
@@ -251,14 +265,23 @@ body > div.container > div.app > ul.accounts > div.account > section.display ul 
     user-select: none;
 }
 body > div.container > div.app > ul.accounts > div.account > section.display ul > li.subobj_label > p.name {
-    /*font-weight: 600;*/
-    text-decoration: underline;
+    /*font-weight: 600;
+    text-decoration: underline;*/
 }
 body > div.container > div.app > ul.accounts > div.account > section.display ul > li > p.value {
     line-height: 2rem;
     min-height: 2rem;
     padding: 0 .5rem;
 }
+
+/* hide/show password functionality within display */
+body > div.container > div.app.passwords_hidden > ul.accounts > div.account > section.display ul > li > p.value > span.password {
+    display: none;
+}
+body > div.container > div.app:not(.passwords_hidden) > ul.accounts > div.account > section.display ul > li > p.value > span.hidden {
+    display: none;
+}
+
 /* copy btn */
 body > div.container > div.app > ul.accounts > div.account > section.display ul > li > button.copy_property_btn {
     height: 1rem;
