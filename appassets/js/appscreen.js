@@ -73,7 +73,7 @@ const getHTMLOfAccountBlock = (accountID, justDisplayHTML) => {
 // function for refreshing Ace Editor
 const refreshAceEditor = (accountID, value) => {
     // set value of editor to given value
-    const editorElement = document.querySelector("#aceeditor__" + accountID);
+    const editorElement = document.getElementById("aceeditor__" + accountID);
     if(editorElement.classList.contains("ace_editor")) {
         aceeditors[accountID].setValue(value, -1);
         aceeditors[accountID].setValue(value, 1);
@@ -100,6 +100,7 @@ const refreshAccountBlock = (accountID) => {
     if(vaultContents.accounts[accountID]) {
         accountElement.querySelector("section.display").outerHTML = getHTMLOfAccountBlock(accountID, true);
     } else {
+        delete aceeditors[accountID];
         accountElement.outerHTML = "";
     }
 }
@@ -378,33 +379,6 @@ searchBarInputElement.addEventListener("blur", () => {
     document.querySelector("body > div.container > div.app").classList.remove("searching");
 });
 
-/* auto resize edit textarea 
-const autoResizeTextarea = (textareaElement) => {
-    textareaElement.style.height = "auto";
-    textareaElement.style.height = textareaElement.scrollHeight + 'px';
-}
-
-/* enable tabs in textarea 
-/* some code taken from user user1949974 and user Yaroslav Sivakov on https://stackoverflow.com/questions/6637341/use-tab-to-indent-in-textarea 
-const checkTextareaForIndent = (e, textareaElement) => {
-    if(e.keyCode==9){
-        e.preventDefault();
-        var s = textareaElement.selectionStart;
-        textareaElement.value = textareaElement.value.substring(0,textareaElement.selectionStart) + "\t" + textareaElement.value.substring(textareaElement.selectionEnd);
-        textareaElement.selectionEnd = s+1;
-    }
-
-/*    // also check for backspace indent
-    else if(e.keyCode==8){
-        if(textareaElement.value.substring(textareaElement.selectionStart - 3, textareaElement.selectionStart).split(" ").join("") == "") {
-            e.preventDefault();
-            var s = textareaElement.selectionStart;
-            textareaElement.value = textareaElement.value.substring(0,textareaElement.selectionStart - 4) + textareaElement.value.substring(textareaElement.selectionEnd);
-            textareaElement.selectionEnd = s-4; 
-        }
-    }
-}*/
-
 /* add "not_top" class to nav if scrolled */
 window.addEventListener("scroll", () => {
     const scrollPixelsFromTop = window.pageYOffset;
@@ -421,5 +395,16 @@ window.addEventListener("scroll", () => {
 window.addEventListener("load", () => {
     window.dispatchEvent(new Event("scroll"));
 });
+
+// every 16ms, check if editors are focused and add/remove focused attribute accordingly
+setInterval(() => {
+    Object.keys(aceeditors).forEach((accountID, editor) => {
+        if(aceeditors[accountID].isFocused()) {
+            document.getElementById("accountid_" + accountID).querySelector("section.edit > div.editor_container").classList.add("focused");
+        }else {
+            document.getElementById("accountid_" + accountID).querySelector("section.edit > div.editor_container").classList.remove("focused");
+        }
+    });
+}, 16);
 
 openAppScreen("test");

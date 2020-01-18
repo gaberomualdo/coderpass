@@ -347,6 +347,10 @@ body > div.container > div.app > ul.accounts > div.account > section.edit > div.
     border: 1px solid #E1E1E1;
     border-radius: 4px;
     font-size: 1.5rem;
+    overflow: hidden;
+}
+body > div.container > div.app > ul.accounts > div.account > section.edit > div.editor_container.focused {
+    border-color: var(--dark-color);
 }
 
 body > div.container > div.app > ul.accounts > div.account > section.edit > div.editor_container > div.editor {
@@ -357,4 +361,5 @@ body > div.container > div.app > ul.accounts > div.account > section.edit > div.
     right: 0;
     bottom: 0;
     left: 0;
+    border-radius: 4px;
 }
