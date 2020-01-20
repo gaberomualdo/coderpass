@@ -1,0 +1,23 @@
+/* text under inputs */
+div.auth > div.form > p:last-child {
+    font-size: 1rem;
+    line-height: 1;
+    margin-top: 1.5rem;
+    float: left;
+    clear: both;
+    color: var(--medium-color);
+}
+
+/* text under inputs links */
+div.auth > div.form > p:last-child > a {
+    color: var(--regular-color);
+    text-decoration: none;
+    cursor: pointer;
+    border-bottom: 1px solid var(--light-color);
+}
+
+/* text under inputs hover */
+div.auth > div.form > p:last-child > a:hover {
+    color: var(--blue-color);
+    border-color: var(--blue-color);
+}

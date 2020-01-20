@@ -12,37 +12,34 @@
     
     <!-- viewport meta tag -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- CSP meta tag -->
-    <!--<meta http-equiv="Content-Security-Policy" content="style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; img-src 'self' 'unsafe-inline' data: blob:; default-src 'self'; base-uri 'none'; navigate-to 'none'; block-all-mixed-content">-->
-    
+        
     <!-- site title -->
     <title>JSON Password Manager</title>
 
-    <!-- stylesheets -->
+    <!-- stylesheet -->
 
     <!--
-        Note that Electron apps run on the same CSS engine on all devices,
-        so there's no need to write code for cross-platform compatibility (or use
-        a CSS parser like SASS).
+    Note that Electron apps run on the same CSS engine on all devices,
+    so there's no need to write code for cross-platform compatibility
+    with prefixes, etc.
     -->
 
-    <!-- fontfaces.css, which imports all fonts for the app -->
-    <link rel="stylesheet" href="appassets/css/fontfaces.css">
-
-    <!-- import balloon.css, which is a CSS tooltip library -->
-    <link rel="stylesheet" href="appassets/css/balloon.css">
-
-    <!-- global.css, which includes global styles for the app (e.g. CSS variables, etc.) -->
-    <link rel="stylesheet" href="appassets/css/global.css">
-
-    <!-- import authscreen.css, which includes styles for the authentication (enter/create vault) screen -->
-    <link rel="stylesheet" href="appassets/css/authscreen.css">
-
-    <!-- import app.css, which includes styles for the app (main) screen -->
-    <link rel="stylesheet" href="appassets/css/appscreen.css">
+    <link rel="stylesheet" href="appassets/css/main.css">
 </head>
 <body>
+    <!-- topbar, draggable area (for macOS/darwin ONLY) -->
+    <script>
+    
+    if(process.platform === "darwin") {
+
+    }
+
+    </script>
+
+    <div class="topbar">
+        
+    </div>
+
     <!-- container DIV — contains entire app (doesn't display until document is fully loaded and JavaScript is working) -->
     <div class="container" style="display: none;">
         <!-- authentication screen to enter master password and open password vault, or create one -->
@@ -92,34 +89,84 @@
 
         <!-- app screen to view, edit, and save passwords in password vault -->
         <div class="app" style="display: none;">
-            <!-- exit vault top btn -->
-            <button class="exit_vault default_style_button with_hover with_icon" aria-label="Exit Vault" data-balloon-pos="right" onclick="window.location.reload();">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 12l9-8v6h15v4h-15v6z"/></svg>
-            </button>
+            <!-- tab select btns -->
+            <ul class="tab_select">
+                <!-- exit vault button -->
+                <button class="exit_vault default_style_button with_hover with_icon" aria-label="Exit Vault" data-balloon-pos="right" onclick="window.location.reload();">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 12l9-8v6h15v4h-15v6z"/></svg>
+                </button>
 
-            <!-- navbar — top area with description and search bar -->
-            <nav>
-                <h1 class="title"><span class="all">All Accounts</span><span class="searching">Search Results</span></h1>
-                <div class="row">
-                    <input type="text" class="search default_style_button" placeholder="Search Accounts...">
-                    <button class="add_account default_style_button with_hover with_icon" aria-label="Add Account" data-balloon-pos="down">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 9h-9v-9h-6v9h-9v6h9v9h6v-9h9z"/></svg>
-                    </button>
-                    <button class="download_datafile default_style_button with_hover with_icon" aria-label="Download Password Datafile" data-balloon-pos="down">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M17 13h6l-11 11-11-11h6v-13h10z"/></svg>
-                    </button>
-                    <button class="hide_show_pwds default_style_button with_hover with_icon" aria-label="Hide Passwords" data-balloon-pos="down">
-                        <svg class="hide_pwd" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12.015 7c4.751 0 8.063 3.012 9.504 4.636-1.401 1.837-4.713 5.364-9.504 5.364-4.42 0-7.93-3.536-9.478-5.407 1.493-1.647 4.817-4.593 9.478-4.593zm0-2c-7.569 0-12.015 6.551-12.015 6.551s4.835 7.449 12.015 7.449c7.733 0 11.985-7.449 11.985-7.449s-4.291-6.551-11.985-6.551zm-.015 3c-2.209 0-4 1.792-4 4 0 2.209 1.791 4 4 4s4-1.791 4-4c0-2.208-1.791-4-4-4z"/></svg>
-                        <svg class="show_pwd" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19.604 2.562l-3.346 3.137c-1.27-.428-2.686-.699-4.243-.699-7.569 0-12.015 6.551-12.015 6.551s1.928 2.951 5.146 5.138l-2.911 2.909 1.414 1.414 17.37-17.035-1.415-1.415zm-6.016 5.779c-3.288-1.453-6.681 1.908-5.265 5.206l-1.726 1.707c-1.814-1.16-3.225-2.65-4.06-3.66 1.493-1.648 4.817-4.594 9.478-4.594.927 0 1.796.119 2.61.315l-1.037 1.026zm-2.883 7.431l5.09-4.993c1.017 3.111-2.003 6.067-5.09 4.993zm13.295-4.221s-4.252 7.449-11.985 7.449c-1.379 0-2.662-.291-3.851-.737l1.614-1.583c.715.193 1.458.32 2.237.32 4.791 0 8.104-3.527 9.504-5.364-.729-.822-1.956-1.99-3.587-2.952l1.489-1.46c2.982 1.9 4.579 4.327 4.579 4.327z"/></svg>
-                    </button>
-                </div>
-            </nav>
-            
-            <!-- list of all accounts or search results -->
-            <ul class="accounts">
-                
+                <!-- tab buttons -->
+                <li class="tab_btn all_accounts">
+                    <div class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M4 22h-4v-4h4v4zm0-12h-4v4h4v-4zm0-8h-4v4h4v-4zm3 0v4h17v-4h-17zm0 12h17v-4h-17v4zm0 8h17v-4h-17v4z"/></svg>
+                    </div>
+                    <h2>All Accounts</h2>
+                </li>
+                <li class="tab_btn raw_json">
+                    <div class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M22 6v16h-20v-16h20zm2-6h-24v24h24v-24zm-11 11v1.649l3.229 1.351-3.229 1.347v1.653l5-2.201v-1.599l-5-2.2zm-7 2.201v1.599l5 2.2v-1.653l-3.229-1.347 3.229-1.351v-1.649l-5 2.201z"/></svg>
+                    </div>
+                    <h2>Edit Raw JSON</h2>
+                </li>
+                <li class="tab_btn pwd_generator">
+                    <div class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12.451 17.337l-2.451 2.663h-2v2h-2v2h-6v-5l6.865-6.949c1.08 2.424 3.095 4.336 5.586 5.286zm11.549-9.337c0 4.418-3.582 8-8 8s-8-3.582-8-8 3.582-8 8-8 8 3.582 8 8zm-3-3c0-1.104-.896-2-2-2s-2 .896-2 2 .896 2 2 2 2-.896 2-2z"/></svg>
+                    </div>
+                    <h2>Strong Password Generator</h2>
+                </li>
+                <li class="tab_btn settings">
+                    <div class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 13.616v-3.232c-1.651-.587-2.694-.752-3.219-2.019v-.001c-.527-1.271.1-2.134.847-3.707l-2.285-2.285c-1.561.742-2.433 1.375-3.707.847h-.001c-1.269-.526-1.435-1.576-2.019-3.219h-3.232c-.582 1.635-.749 2.692-2.019 3.219h-.001c-1.271.528-2.132-.098-3.707-.847l-2.285 2.285c.745 1.568 1.375 2.434.847 3.707-.527 1.271-1.584 1.438-3.219 2.02v3.232c1.632.58 2.692.749 3.219 2.019.53 1.282-.114 2.166-.847 3.707l2.285 2.286c1.562-.743 2.434-1.375 3.707-.847h.001c1.27.526 1.436 1.579 2.019 3.219h3.232c.582-1.636.75-2.69 2.027-3.222h.001c1.262-.524 2.12.101 3.698.851l2.285-2.286c-.744-1.563-1.375-2.433-.848-3.706.527-1.271 1.588-1.44 3.221-2.021zm-12 2.384c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4z"/></svg>
+                    </div>
+                    <h2>Settings</h2>
+                </li>
             </ul>
-            <p class="no_results_found">No Results Found</p>
+
+            <!-- tabs -->
+            <div class="tabs">
+                <!-- all accounts tab -->
+                <div class="tab all_accounts">
+                    <!-- navbar — top area with description and search bar -->
+                    <nav>
+                        <h1 class="title"><span class="all">All Accounts</span><span class="searching">Search Results</span></h1>
+                        <div class="row">
+                            <button class="add_account default_style_button with_hover with_icon" aria-label="Add Account" data-balloon-pos="down">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 9h-9v-9h-6v9h-9v6h9v9h6v-9h9z"/></svg>
+                            </button>
+                            <button class="download_datafile default_style_button with_hover with_icon" aria-label="Download Password Datafile" data-balloon-pos="down">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M17 13h6l-11 11-11-11h6v-13h10z"/></svg>
+                            </button>
+                            <button class="hide_show_pwds default_style_button with_hover with_icon" aria-label="Hide Passwords" data-balloon-pos="down">
+                                <svg class="hide_pwd" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12.015 7c4.751 0 8.063 3.012 9.504 4.636-1.401 1.837-4.713 5.364-9.504 5.364-4.42 0-7.93-3.536-9.478-5.407 1.493-1.647 4.817-4.593 9.478-4.593zm0-2c-7.569 0-12.015 6.551-12.015 6.551s4.835 7.449 12.015 7.449c7.733 0 11.985-7.449 11.985-7.449s-4.291-6.551-11.985-6.551zm-.015 3c-2.209 0-4 1.792-4 4 0 2.209 1.791 4 4 4s4-1.791 4-4c0-2.208-1.791-4-4-4z"/></svg>
+                                <svg class="show_pwd" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19.604 2.562l-3.346 3.137c-1.27-.428-2.686-.699-4.243-.699-7.569 0-12.015 6.551-12.015 6.551s1.928 2.951 5.146 5.138l-2.911 2.909 1.414 1.414 17.37-17.035-1.415-1.415zm-6.016 5.779c-3.288-1.453-6.681 1.908-5.265 5.206l-1.726 1.707c-1.814-1.16-3.225-2.65-4.06-3.66 1.493-1.648 4.817-4.594 9.478-4.594.927 0 1.796.119 2.61.315l-1.037 1.026zm-2.883 7.431l5.09-4.993c1.017 3.111-2.003 6.067-5.09 4.993zm13.295-4.221s-4.252 7.449-11.985 7.449c-1.379 0-2.662-.291-3.851-.737l1.614-1.583c.715.193 1.458.32 2.237.32 4.791 0 8.104-3.527 9.504-5.364-.729-.822-1.956-1.99-3.587-2.952l1.489-1.46c2.982 1.9 4.579 4.327 4.579 4.327z"/></svg>
+                            </button>
+                            <input type="text" class="search default_style_button" placeholder="Search Accounts...">
+                        </div>
+                    </nav>
+                    
+                    <!-- list of all accounts or search results -->
+                    <ul class="accounts">
+                        
+                    </ul>
+                    <p class="no_results_found">No Results Found</p>
+                </div>
+
+                <!-- raw json tab, where user can edit entire json of all accounts -->
+                <div class="tab raw_json">
+
+                </div>
+
+                <!-- password generator tab, where user can create random strong pwds with customizable settings -->
+                <div class="tab pwd_generator">
+
+                </div>
+
+                <!-- settings tab -->
+                <div class="tab settings">
+
+                </div>
+            </div>
         </div>
     </div>
 
@@ -129,6 +176,6 @@
     <!-- scripts -->
     <script src="appassets/js/global.js"></script>
     <script src="appassets/js/authscreen.js"></script>
-    <script src="appassets/js/appscreen.js"></script>
+    <!--<script src="appassets/js/appscreen.js"></script>-->
 </body>
 </html>

@@ -1,0 +1,18 @@
+/* form styles */
+
+/* form */
+div.auth > div.form {
+    background-color: #fff;
+    padding: 2.5rem;
+    box-shadow: 0 0.75rem 2rem var(--shadow-color);
+    width: 350px;
+    border-radius: 4px;
+}
+
+/* form header */
+div.auth > div.form > h1 {
+    font-size: 3rem;
+    line-height: 1.25;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}

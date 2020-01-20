@@ -227,6 +227,10 @@ const eventAddAccountBtn = () => {
     });
 
     if(!accountsBeingEdited) {
+        // scroll to top
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+
         // when button is clicked, add semi-empty account
         const newAccountID = addAccountToDatabase({
             name: "Account Name",
@@ -379,12 +383,12 @@ searchBarInputElement.addEventListener("blur", () => {
     document.querySelector("body > div.container > div.app").classList.remove("searching");
 });
 
+let initialNavPixelsFromTop;
 /* add "not_top" class to nav if scrolled */
 window.addEventListener("scroll", () => {
     const scrollPixelsFromTop = window.pageYOffset;
-    const navPixelsFromTop = document.querySelector("nav").getBoundingClientRect().top;
     const navHasNotTopClass = document.querySelector("body > div.container > div.app > nav").classList.contains("not_top");
-    if(scrollPixelsFromTop > navPixelsFromTop) {
+    if(scrollPixelsFromTop > initialNavPixelsFromTop) {
         if(!navHasNotTopClass) {
             document.querySelector("body > div.container > div.app > nav").classList.add("not_top");
         }
@@ -393,6 +397,7 @@ window.addEventListener("scroll", () => {
     }
 });
 window.addEventListener("load", () => {
+    initialNavPixelsFromTop = document.querySelector("nav").getBoundingClientRect().top;
     window.dispatchEvent(new Event("scroll"));
 });
 

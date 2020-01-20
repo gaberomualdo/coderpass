@@ -1,0 +1,20 @@
+/* input styles */
+div.auth > div.form input {
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+    padding: 0.75rem calc(0.9375rem - 2px);
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+div.auth > div.form input, div.auth > div.form input::placeholder {
+    transition: border-color 0.25s ease-in-out, color 0.25s ease-in-out;
+}
+div.auth > div.form input:not(:focus), div.auth > div.form input::placeholder {
+    color: var(--medium-color);
+}
+div.auth > div.form input:focus::placeholder {
+    color: var(--supermedium-color);
+}
+div.auth > div.form input:focus, div.auth > div.form input:focus ~ button {
+    border-color: var(--dark-color);
+}

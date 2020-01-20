@@ -1,0 +1,14 @@
+/* root CSS variables */
+
+:root {
+    --regular-color: #78909C;
+    --dark-color: #37474F;
+    --light-color: #ECEFF1;
+    --medium-color: #B0BEC5;
+    --submedium-color:#dde3e6;
+    --supermedium-color: #90A4AE;
+    --red-color: #E74C3C;
+    --red-medium-color: #F5B6AF;
+    --blue-color: #28f;
+    --shadow-color: rgba(55, 71, 79, 0.225);
+}

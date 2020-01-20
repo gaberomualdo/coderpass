@@ -1,0 +1,9 @@
+/* Includes stylesheets for the authentication (enter/create vault) screen. */
+
+@import "styles/button.css";
+@import "styles/button_and_input.css";
+@import "styles/form.css";
+@import "styles/form_functionality.css";
+@import "styles/input.css";
+@import "styles/misc.css";
+@import "styles/text_under_inputs.css";

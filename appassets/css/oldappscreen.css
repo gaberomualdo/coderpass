@@ -92,7 +92,7 @@ body > div.container > div.app > nav {
 }
 body > div.container > div.app > nav.not_top {
     padding: 0.25rem 0;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
 }
 
 body > div.container > div.app > nav > h1.title {
@@ -100,10 +100,11 @@ body > div.container > div.app > nav > h1.title {
     line-height: 3rem;
     font-weight: 700;
     float: left;
-    transition: font-size 0.25s;
+    transition: transform 0.25s;
+    transform-origin: 0 center;
 }
 body > div.container > div.app > nav.not_top > h1.title {
-    font-size: 2rem;
+    transform: scale(0.7);
 }
 
 
@@ -348,6 +349,7 @@ body > div.container > div.app > ul.accounts > div.account > section.edit > div.
     border-radius: 4px;
     font-size: 1.5rem;
     overflow: hidden;
+    transition: border-color .15s;
 }
 body > div.container > div.app > ul.accounts > div.account > section.edit > div.editor_container.focused {
     border-color: var(--dark-color);

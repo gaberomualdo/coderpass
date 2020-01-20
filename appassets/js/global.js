@@ -3,10 +3,12 @@
     JavaScript functions and actions for the app.
 */
 
+require("./test.js");
+
 // get IPC renderer module for communication with main process, and get remote
 // module for direct usage of main process functions within render process,
 // and get dialog for using dialogs.
-const { remote } = require('electron');
+const { remote } = require("electron");
 const { dialog } = remote;
 
 // get fs module from remote module to read and write from filesystem

@@ -14,18 +14,25 @@ const fs = require("fs");
 let window;
 
 function createWindow () {
-    // create window
-    window = new BrowserWindow({
+    // window options
+    let windowOptions = {
         width: 1000,
         height: 700,
         minWidth: 800,
         minHeight: 600,
         webPreferences: {
             nodeIntegration: true
-        }
-    });
+        },
+    };
 
-    // load main HTML file into window
+    if(process.platform === "darwin") {
+        windowOptions.titleBarStyle = 'hiddenInset';
+    }
+
+    // create window with options
+    window = new BrowserWindow(windowOptions);
+
+    // load main HTML file into window with platform info
     window.loadFile("index.html");
 }
 
