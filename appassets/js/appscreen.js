@@ -1,9 +1,6 @@
 let vaultContents;
 let vaultPassword;
 
-// ACE object of editors
-const aceeditors = {};
-
 // function for getting properties HTML for a given properties object
 const getHTMLOfPropertiesSection = (properties) => {
     let propertiesHTML = "";
@@ -135,18 +132,8 @@ const refreshVaultDatabase = () => {
     encryptJSONToFile("vault/data.txt", vaultPassword, vaultContents);
 };
 
-// function when app is opened
-const openAppScreen = (passedVaultPassword) => {
-    // display app screen and hide auth screen
-    document.querySelector("body > div.container > div.auth").style.display = "none";
-    document.querySelector("body > div.container > div.app").style.display = "block";
-
-    // put vault password into global variable
-    vaultPassword = passedVaultPassword;
-
-    // get vault contents and put in variable
-    vaultContents = decryptJSONInFile("vault/data.txt", vaultPassword);
-
+// function when all accounts tab is opened
+const allAccounts__openTab = (passedVaultPassword) => {
     // loop through each account and display
     Object.keys(vaultContents.accounts).forEach((accountID) => {
         // add current account block
@@ -411,5 +398,3 @@ setInterval(() => {
         }
     });
 }, 16);
-
-openAppScreen("test");
