@@ -3,7 +3,7 @@
 */
 
 /* appscreen main area */
-body > div.container > div.app {
+div.tab.all_accounts {
     background-color: #fff;
     padding: 2.5rem;
     box-shadow: 0 0 2rem var(--shadow-color);
@@ -63,7 +63,7 @@ body > div.container > div.app {
 }
 
 /* exit vault btn */
-body > div.container > div.app > button.exit_vault {
+div.tab.all_accounts > button.exit_vault {
     display: block;
     clear: both;
     float: none;
@@ -71,12 +71,12 @@ body > div.container > div.app > button.exit_vault {
     width: 3.5rem;
     margin-bottom: 1rem;
 }
-body > div.container > div.app > button.exit_vault > svg {
+div.tab.all_accounts > button.exit_vault > svg {
     transform: scale(1.25);
 }
 
 /* nav/top bar */
-body > div.container > div.app > nav {
+div.tab.all_accounts > nav {
     border-bottom: 1px solid var(--light-color);
     user-select: none;
     height: 3rem;
@@ -90,12 +90,12 @@ body > div.container > div.app > nav {
     margin-bottom: 0;
     /*box-shadow: 0 0 0.5rem var(--shadow-color);*/
 }
-body > div.container > div.app > nav.not_top {
+div.tab.all_accounts > nav.not_top {
     padding: 0.25rem 0;
     margin-bottom: 1.5rem;
 }
 
-body > div.container > div.app > nav > h1.title {
+div.tab.all_accounts > nav > h1.title {
     font-size: 2.65rem;
     line-height: 3rem;
     font-weight: 700;
@@ -103,12 +103,12 @@ body > div.container > div.app > nav > h1.title {
     transition: transform 0.25s;
     transform-origin: 0 center;
 }
-body > div.container > div.app > nav.not_top > h1.title {
+div.tab.all_accounts > nav.not_top > h1.title {
     transform: scale(0.7);
 }
 
 
-body > div.container > div.app > nav > div.row {
+div.tab.all_accounts > nav > div.row {
     float: right;
     padding: 0.25rem 0;
     box-sizing: border-box;
@@ -116,26 +116,26 @@ body > div.container > div.app > nav > div.row {
 }
 
 /* hide/show pwd btn */
-body > div.container > div.app > nav > div.row > button.hide_show_pwds > svg {
+div.tab.all_accounts > nav > div.row > button.hide_show_pwds > svg {
     transform: scale(1.15);
 }
 
 /* hide/show pwd btn functionality */
-body > div.container > div.app > nav > div.row > button.hide_show_pwds.hidden > svg.hide_pwd,
-body > div.container > div.app > nav > div.row > button.hide_show_pwds:not(.hidden) > svg.show_pwd {
+div.tab.all_accounts > nav > div.row > button.hide_show_pwds.hidden > svg.hide_pwd,
+div.tab.all_accounts > nav > div.row > button.hide_show_pwds:not(.hidden) > svg.show_pwd {
     display: none;
 }
 
 /* input */
-body > div.container > div.app > nav > div.row > input[type=text] {
+div.tab.all_accounts > nav > div.row > input[type=text] {
     font-size: 0.95rem;
     box-sizing: border-box;
     transition: width 0.375s, padding-left 0.375s, padding-right 0.375s, border-color 0.375s ease-in-out, background-image 0.375s;
 }
-body > div.container > div.app > nav > div.row > input[type=text]::placeholder, body > div.container > div.app > nav > div.row > input[type=text]:not(:focus) {
+div.tab.all_accounts > nav > div.row > input[type=text]::placeholder, div.tab.all_accounts > nav > div.row > input[type=text]:not(:focus) {
     color: var(--medium-color);
 }
-body > div.container > div.app > nav > div.row > input[type=text]:not(:focus) {
+div.tab.all_accounts > nav > div.row > input[type=text]:not(:focus) {
     padding-right: 0;
     padding-left: 2.5rem;
     background-image: url(../img/search_icon.png);
@@ -143,10 +143,10 @@ body > div.container > div.app > nav > div.row > input[type=text]:not(:focus) {
     background-position: 0.65rem;
     background-repeat: no-repeat;
 }
-body > div.container > div.app > nav > div.row > input[type=text]:focus::placeholder {
+div.tab.all_accounts > nav > div.row > input[type=text]:focus::placeholder {
     color: var(--supermedium-color);
 }
-body > div.container > div.app > nav > div.row > input[type=text]:focus {
+div.tab.all_accounts > nav > div.row > input[type=text]:focus {
     padding-left: 0.7rem;
     padding-right: 0.7rem;
     width: 12.5rem;
@@ -155,51 +155,51 @@ body > div.container > div.app > nav > div.row > input[type=text]:focus {
 }
 
 /* search functionality */
-body > div.container > div.app > nav > h1.title > span {
+div.tab.all_accounts > nav > h1.title > span {
     display: none;
 }
-body > div.container > div.app.searching > nav > h1.title > span.searching {
+div.tab.all_accounts.searching > nav > h1.title > span.searching {
     display: inline;
 }
-body > div.container > div.app:not(.searching) > nav > h1.title > span.all {
+div.tab.all_accounts:not(.searching) > nav > h1.title > span.all {
     display: inline;
 }
-body > div.container > div.app.searching > ul.accounts > div.account:not(.displayed) {
+div.tab.all_accounts.searching > ul.accounts > div.account:not(.displayed) {
     display: none;
 }
-body > div.container > div.app > p.no_results_found {
+div.tab.all_accounts > p.no_results_found {
     display: none;
     margin-top: 2rem;
 }
-body > div.container > div.app.searching.no_results > p.no_results_found {
+div.tab.all_accounts.searching.no_results > p.no_results_found {
     display: block;
 }
 
 /* account blocks */
-body > div.container > div.app > ul.accounts {
+div.tab.all_accounts > ul.accounts {
     overflow: hidden;
     height: auto;
 }
-body > div.container > div.app > ul.accounts > div.account {
+div.tab.all_accounts > ul.accounts > div.account {
     padding: 2rem 0;
     position: relative;
     border-bottom: 1px solid var(--light-color);
 }
 
 /* btns */
-body > div.container > div.app > ul.accounts > div.account > div.buttons {
+div.tab.all_accounts > ul.accounts > div.account > div.buttons {
     position: absolute;
     right: 0;
     top: 2rem;
 }
-body > div.container > div.app > ul.accounts > div.account > div.buttons > button {
+div.tab.all_accounts > ul.accounts > div.account > div.buttons > button {
     padding: 0.5rem;
     position: relative;
 }
-body > div.container > div.app > ul.accounts > div.account > div.buttons > button.edit {
+div.tab.all_accounts > ul.accounts > div.account > div.buttons > button.edit {
     transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out, fill 0.2s ease-in-out;
 }
-body > div.container > div.app > ul.accounts > div.account > div.buttons > button.edit > svg {
+div.tab.all_accounts > ul.accounts > div.account > div.buttons > button.edit > svg {
     transition: opacity 0.2s ease-in-out;
     opacity: 1;
     position: absolute;
@@ -209,28 +209,28 @@ body > div.container > div.app > ul.accounts > div.account > div.buttons > butto
 }
 
 /* edit btn functionality */
-body > div.container > div.app > ul.accounts > div.account.editing > section.display {
+div.tab.all_accounts > ul.accounts > div.account.editing > section.display {
     display: none;
 }
-body > div.container > div.app > ul.accounts > div.account:not(.editing) > section.edit {
+div.tab.all_accounts > ul.accounts > div.account:not(.editing) > section.edit {
     display: none;
 }
 
-body > div.container > div.app > ul.accounts > div.account:not(.editing) > div.buttons > button.edit > svg.done_editing {
+div.tab.all_accounts > ul.accounts > div.account:not(.editing) > div.buttons > button.edit > svg.done_editing {
     opacity: 0;
 }
-body > div.container > div.app > ul.accounts > div.account.editing > div.buttons > button.edit > svg.edit {
+div.tab.all_accounts > ul.accounts > div.account.editing > div.buttons > button.edit > svg.edit {
     opacity: 0;
 }
 
-body > div.container > div.app > ul.accounts > div.account.editing > div.buttons > button.edit {
+div.tab.all_accounts > ul.accounts > div.account.editing > div.buttons > button.edit {
     fill: #fff;
     background-color: var(--dark-color);
     border-color: var(--dark-color);
 }
 
 /* display section */
-body > div.container > div.app > ul.accounts > div.account > section.display > h1.account_name {
+div.tab.all_accounts > ul.accounts > div.account > section.display > h1.account_name {
     font-size: 1.75rem;
     font-weight: 600;
     line-height: 1.5;
@@ -242,27 +242,27 @@ body > div.container > div.app > ul.accounts > div.account > section.display > h
     background-position: 0 center;
     background-repeat: no-repeat;
 }
-body > div.container > div.app > ul.accounts > div.account > section.display > h1.account_name.open {
+div.tab.all_accounts > ul.accounts > div.account > section.display > h1.account_name.open {
     background-size: 0, 1.25rem;
     margin-bottom: 0.5rem;
 }
-body > div.container > div.app > ul.accounts > div.account > section.display > h1.account_name:not(.open) {
+div.tab.all_accounts > ul.accounts > div.account > section.display > h1.account_name:not(.open) {
     background-size: 1.25rem, 0;
 }
-body > div.container > div.app > ul.accounts > div.account > section.display ul {
+div.tab.all_accounts > ul.accounts > div.account > section.display ul {
     list-style: none;
     margin-left: .625rem;
     padding-left: 2.5rem;
     overflow: hidden;
     clear: both;
 }
-body > div.container > div.app > ul.accounts > div.account > section.display ul:not(.open) {
+div.tab.all_accounts > ul.accounts > div.account > section.display ul:not(.open) {
     display: none;
 }
-body > div.container > div.app > ul.accounts > div.account > section.display ul ul {
+div.tab.all_accounts > ul.accounts > div.account > section.display ul ul {
     border-left: 1px solid #E1E1E1;
 }
-body > div.container > div.app > ul.accounts > div.account > section.display ul > li {
+div.tab.all_accounts > ul.accounts > div.account > section.display ul > li {
     display: block;
     clear: both;
     float: left;
@@ -271,21 +271,21 @@ body > div.container > div.app > ul.accounts > div.account > section.display ul 
 }
 
 /* subobj label */
-body > div.container > div.app > ul.accounts > div.account > section.display ul > li.subobj_label {
+div.tab.all_accounts > ul.accounts > div.account > section.display ul > li.subobj_label {
     cursor: pointer;
     background-image: url("../img/arrowright.png"), url("../img/arrowdown.png");
     background-size: 1.25rem, 0;
     background-position: 0 center;
     background-repeat: no-repeat;
 }
-body > div.container > div.app > ul.accounts > div.account > section.display ul > li.subobj_label.open {
+div.tab.all_accounts > ul.accounts > div.account > section.display ul > li.subobj_label.open {
     background-size: 0, 1.25rem;
 }
-body > div.container > div.app > ul.accounts > div.account > section.display ul > li > p {
+div.tab.all_accounts > ul.accounts > div.account > section.display ul > li > p {
     display: block;
     float: left;
 }
-body > div.container > div.app > ul.accounts > div.account > section.display ul > li > p.name {
+div.tab.all_accounts > ul.accounts > div.account > section.display ul > li > p.name {
     padding: 0 1rem;
     padding-left: 1.75rem;
     box-sizing: border-box;
@@ -294,22 +294,22 @@ body > div.container > div.app > ul.accounts > div.account > section.display ul 
     line-height: 2rem;
     user-select: none;
 }
-body > div.container > div.app > ul.accounts > div.account > section.display ul > li > p.value {
+div.tab.all_accounts > ul.accounts > div.account > section.display ul > li > p.value {
     line-height: 2rem;
     min-height: 2rem;
     padding: 0 .5rem;
 }
 
 /* hide/show password functionality within display */
-body > div.container > div.app.passwords_hidden > ul.accounts > div.account > section.display ul > li > p.value > span.password {
+div.tab.all_accounts.passwords_hidden > ul.accounts > div.account > section.display ul > li > p.value > span.password {
     display: none;
 }
-body > div.container > div.app:not(.passwords_hidden) > ul.accounts > div.account > section.display ul > li > p.value > span.hidden {
+div.tab.all_accounts:not(.passwords_hidden) > ul.accounts > div.account > section.display ul > li > p.value > span.hidden {
     display: none;
 }
 
 /* copy btn */
-body > div.container > div.app > ul.accounts > div.account > section.display ul > li > button.copy_property_btn {
+div.tab.all_accounts > ul.accounts > div.account > section.display ul > li > button.copy_property_btn {
     height: 1rem;
     margin: 0.5rem;
     margin-left: 0.75rem;
@@ -320,22 +320,22 @@ body > div.container > div.app > ul.accounts > div.account > section.display ul 
     transition: fill 0.1s ease-in-out;
     user-select: none;
 }
-body > div.container > div.app > ul.accounts > div.account > section.display ul > li > button.copy_property_btn:hover {
+div.tab.all_accounts > ul.accounts > div.account > section.display ul > li > button.copy_property_btn:hover {
     fill: var(--regular-color);
 }
-body > div.container > div.app > ul.accounts > div.account > section.display ul > li > button.copy_property_btn:active {
+div.tab.all_accounts > ul.accounts > div.account > section.display ul > li > button.copy_property_btn:active {
     fill: var(--dark-color);
 }
-body > div.container > div.app > ul.accounts > div.account > section.display ul > li > button.copy_property_btn > svg {
+div.tab.all_accounts > ul.accounts > div.account > section.display ul > li > button.copy_property_btn > svg {
     width: 100%;
     height: 100%;
 }
-body > div.container > div.app > ul.accounts > div.account > section.display ul > li > button.copy_property_btn:not(.active_tooltip):before, body > div.container > div.app > ul.accounts > div.account > section.display ul > li > button.copy_property_btn:not(.active_tooltip):after {
+div.tab.all_accounts > ul.accounts > div.account > section.display ul > li > button.copy_property_btn:not(.active_tooltip):before, div.tab.all_accounts > ul.accounts > div.account > section.display ul > li > button.copy_property_btn:not(.active_tooltip):after {
     opacity: 0;
 }
 
 /* edit section */
-body > div.container > div.app > ul.accounts > div.account > section.edit > div.editor_container {
+div.tab.all_accounts > ul.accounts > div.account > section.edit > div.editor_container {
     width: 100%;
     height: 25rem;
     padding: 2rem;
@@ -351,11 +351,11 @@ body > div.container > div.app > ul.accounts > div.account > section.edit > div.
     overflow: hidden;
     transition: border-color .15s;
 }
-body > div.container > div.app > ul.accounts > div.account > section.edit > div.editor_container.focused {
+div.tab.all_accounts > ul.accounts > div.account > section.edit > div.editor_container.focused {
     border-color: var(--dark-color);
 }
 
-body > div.container > div.app > ul.accounts > div.account > section.edit > div.editor_container > div.editor {
+div.tab.all_accounts > ul.accounts > div.account > section.edit > div.editor_container > div.editor {
     position: absolute;
     width: 100%;
     height: 100%;

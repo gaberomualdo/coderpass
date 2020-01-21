@@ -28,17 +28,7 @@
 </head>
 <body>
     <!-- topbar, draggable area (for macOS/darwin ONLY) -->
-    <script>
-    
-    if(process.platform === "darwin") {
-
-    }
-
-    </script>
-
-    <div class="topbar">
-        
-    </div>
+    <div class="topbar_draggable"></div>
 
     <!-- container DIV — contains entire app (doesn't display until document is fully loaded and JavaScript is working) -->
     <div class="container" style="display: none;">
@@ -192,6 +182,29 @@
         <script src="appassets/js/authscreen/enter_vault_btn.js"></script>
 
     <!-- appscreen -->
+        <script src="appassets/js/appscreen/abstracts/open_appscreen_dom.js"></script>
+
+        <!-- all accounts tab -->
+            <script src="appassets/js/appscreen/all_accounts/abstracts/allaccounts_tab.js"></script>
+            
+            <script src="appassets/js/appscreen/all_accounts/db_functionality/refresh_db.js"></script>
+            <script src="appassets/js/appscreen/all_accounts/db_functionality/add_account_to_db.js"></script>
+
+            <script src="appassets/js/appscreen/all_accounts/nav_components/add_account_btn.js"></script>
+            <script src="appassets/js/appscreen/all_accounts/nav_components/download_pwd_datafile_btn.js"></script>
+            <script src="appassets/js/appscreen/all_accounts/nav_components/hideshow_pwd_btn.js"></script>
+            <script src="appassets/js/appscreen/all_accounts/nav_components/searchbar_input.js"></script>
+            
+            <script src="appassets/js/appscreen/all_accounts/abstracts/nav_top_functionality.js"></script>
+
+            <script src="appassets/js/appscreen/all_accounts/account_block_abstracts/get_html_account_block.js"></script>
+            <script src="appassets/js/appscreen/all_accounts/account_block_abstracts/refresh_account_block.js"></script>
+            <script src="appassets/js/appscreen/all_accounts/account_block_abstracts/add_account_block.js"></script>
+            <script src="appassets/js/appscreen/all_accounts/account_block_abstracts/copy_property_btn.js"></script>
+            <script src="appassets/js/appscreen/all_accounts/account_block_abstracts/ace_editors.js"></script>
+            
+            <script src="appassets/js/appscreen/all_accounts/account_block_btns/account_edit_btn.js"></script>
+            <script src="appassets/js/appscreen/all_accounts/account_block_btns/account_remove_btn.js"></script>
     <!--<script src="appassets/js/appscreen.js"></script>-->
 </body>
 </html>
