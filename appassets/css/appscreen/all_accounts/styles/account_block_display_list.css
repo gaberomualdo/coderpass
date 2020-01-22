@@ -1,0 +1,63 @@
+/* account block display section list of keys+values */
+div.tab.all_accounts > ul.accounts > div.account > section.display ul {
+    list-style: none;
+    margin-left: .625rem;
+    padding-left: 2.5rem;
+    overflow: hidden;
+    clear: both;
+}
+
+/* expand/retract functionality */
+div.tab.all_accounts > ul.accounts > div.account > section.display ul:not(.open) {
+    display: none;
+}
+
+/* list within list styles */
+div.tab.all_accounts > ul.accounts > div.account > section.display ul ul {
+    border-left: 1px solid #E1E1E1;
+}
+
+/* key+value list item */
+div.tab.all_accounts > ul.accounts > div.account > section.display ul > li {
+    display: block;
+    clear: both;
+    float: left;
+    min-height: 2rem;
+    padding: 0.375rem 0;
+}
+
+/* sub-object label within list item and functionality */
+div.tab.all_accounts > ul.accounts > div.account > section.display ul > li.subobj_label {
+    cursor: pointer;
+    background-image: url("../img/arrowright.png"), url("../img/arrowdown.png");
+    background-size: 1.25rem, 0;
+    background-position: 0 center;
+    background-repeat: no-repeat;
+}
+div.tab.all_accounts > ul.accounts > div.account > section.display ul > li.subobj_label.open {
+    background-size: 0, 1.25rem;
+}
+
+/* both parts of list item */
+div.tab.all_accounts > ul.accounts > div.account > section.display ul > li > p {
+    display: block;
+    float: left;
+}
+
+/* list item name (key) */
+div.tab.all_accounts > ul.accounts > div.account > section.display ul > li > p.name {
+    padding: 0 1rem;
+    padding-left: 1.75rem;
+    box-sizing: border-box;
+    text-align: right;
+    vertical-align: text-bottom;
+    line-height: 2rem;
+    user-select: none;
+}
+
+/* list item value */
+div.tab.all_accounts > ul.accounts > div.account > section.display ul > li > p.value {
+    line-height: 2rem;
+    min-height: 2rem;
+    padding: 0 .5rem;
+}

@@ -1,0 +1,20 @@
+/* display section */
+div.tab.all_accounts > ul.accounts > div.account > section.display > h1.account_name {
+    font-size: 1.75rem;
+    font-weight: 600;
+    line-height: 1.5;
+    width: calc(100% - 6rem);
+    user-select: none;
+    cursor: pointer;
+    padding-left: 2rem;
+    background-image: url("../img/arrowright.png"), url("../img/arrowdown.png");
+    background-position: 0 center;
+    background-repeat: no-repeat;
+}
+div.tab.all_accounts > ul.accounts > div.account > section.display > h1.account_name.open {
+    background-size: 0, 1.25rem;
+    margin-bottom: 0.5rem;
+}
+div.tab.all_accounts > ul.accounts > div.account > section.display > h1.account_name:not(.open) {
+    background-size: 1.25rem, 0;
+}

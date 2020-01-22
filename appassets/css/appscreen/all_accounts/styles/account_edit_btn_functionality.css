@@ -1,0 +1,20 @@
+/* edit btn functionality */
+div.tab.all_accounts > ul.accounts > div.account.editing > section.display {
+    display: none;
+}
+div.tab.all_accounts > ul.accounts > div.account:not(.editing) > section.edit {
+    display: none;
+}
+
+div.tab.all_accounts > ul.accounts > div.account:not(.editing) > div.buttons > button.edit > svg.done_editing {
+    opacity: 0;
+}
+div.tab.all_accounts > ul.accounts > div.account.editing > div.buttons > button.edit > svg.edit {
+    opacity: 0;
+}
+
+div.tab.all_accounts > ul.accounts > div.account.editing > div.buttons > button.edit {
+    fill: #fff;
+    background-color: var(--dark-color);
+    border-color: var(--dark-color);
+}

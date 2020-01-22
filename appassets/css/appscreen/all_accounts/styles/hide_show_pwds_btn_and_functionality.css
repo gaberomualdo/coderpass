@@ -1,0 +1,18 @@
+/* hide/show pwd btn */
+div.tab.all_accounts > nav > div.row > button.hide_show_pwds > svg {
+    transform: scale(1.∂15);
+}
+
+/* hide/show pwd btn functionality (within btn itself) */
+div.tab.all_accounts > nav > div.row > button.hide_show_pwds.hidden > svg.hide_pwd,
+div.tab.all_accounts > nav > div.row > button.hide_show_pwds:not(.hidden) > svg.show_pwd {
+    display: none;
+}
+
+/* hide/show password functionality (within display) */
+div.tab.all_accounts.passwords_hidden > ul.accounts > div.account > section.display ul > li > p.value > span.password {
+    display: none;
+}
+div.tab.all_accounts:not(.passwords_hidden) > ul.accounts > div.account > section.display ul > li > p.value > span.hidden {
+    display: none;
+}
