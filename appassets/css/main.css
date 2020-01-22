@@ -1,4 +1,5 @@
 /* Includes all necessary CSS files */
+@import "abstracts/topbar_draggable.css";
 @import "abstracts/default_style_btn.css";
 @import "abstracts/default_style_code.css";
 @import "abstracts/fontfaces.css";

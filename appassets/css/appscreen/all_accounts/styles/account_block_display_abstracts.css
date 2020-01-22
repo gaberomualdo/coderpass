@@ -6,6 +6,7 @@ div.tab.all_accounts > ul.accounts > div.account > section.display > h1.account_
     width: calc(100% - 6rem);
     user-select: none;
     cursor: pointer;
+    box-sizing: border-box;
 
     /* show expand btn/icon */
     padding-left: 2rem;

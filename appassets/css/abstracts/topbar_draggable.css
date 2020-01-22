@@ -1,0 +1,10 @@
+div.topbar_draggable {
+    -webkit-app-region: drag;
+
+    height: 2.5rem;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--submedium-color);
+}

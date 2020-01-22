@@ -4,6 +4,9 @@
     such as creation of app windows, and file system actions.
 */
 
+// set constant global variables for application
+global.APP_VERSION = "0.1.0";
+
 // get required modules from electron
 const { app, BrowserWindow, ipcMain } = require("electron");
 

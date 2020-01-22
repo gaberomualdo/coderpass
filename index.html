@@ -28,7 +28,9 @@
 </head>
 <body>
     <!-- topbar, draggable area (for macOS/darwin ONLY) -->
-    <div class="topbar_draggable"></div>
+    <div class="topbar_draggable">
+        <p class="sidetext"></p>
+    </div>
 
     <!-- container DIV — contains entire app (doesn't display until document is fully loaded and JavaScript is working) -->
     <div class="container" style="display: none;">
@@ -160,6 +162,8 @@
         <script src="appassets/js/abstracts/fs_functions.js"></script>
         <script src="appassets/js/abstracts/encryption.js"></script>
         <script src="appassets/js/abstracts/encryption_with_fs.js"></script>
+        <script src="appassets/js/abstracts/set_topbar_draggable_sidetext.js"></script>
+        <script src="appassets/js/abstracts/topbar_draggable_type_on_mac.js"></script>
         <script src="appassets/js/abstracts/on_win_load.js"></script>
     
     <!-- authscreen -->
