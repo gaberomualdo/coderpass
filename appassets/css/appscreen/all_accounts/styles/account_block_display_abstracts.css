@@ -9,7 +9,7 @@ div.tab.all_accounts > ul.accounts > div.account > section.display > h1.account_
 
     /* show expand btn/icon */
     padding-left: 2rem;
-    background-image: url("../img/arrowright.png"), url("../img/arrowdown.png");
+    background-image: url("../../../../img/arrowright.png"), url("../../../../img/arrowdown.png");
     background-position: 0 center;
     background-repeat: no-repeat;
 }

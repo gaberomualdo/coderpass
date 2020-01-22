@@ -1,0 +1,5 @@
+/* Includes stylesheets for the appscreen. */
+@import "abstracts/main.css";
+@import "all_accounts/main.css";
+@import "pwd_generator/main.css";
+@import "settings/main.css";

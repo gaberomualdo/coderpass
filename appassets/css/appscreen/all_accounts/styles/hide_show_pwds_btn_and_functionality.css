@@ -1,6 +1,6 @@
 /* hide/show pwd btn */
 div.tab.all_accounts > nav > div.row > button.hide_show_pwds > svg {
-    transform: scale(1.∂15);
+    transform: scale(1.15);
 }
 
 /* hide/show pwd btn functionality (within btn itself) */

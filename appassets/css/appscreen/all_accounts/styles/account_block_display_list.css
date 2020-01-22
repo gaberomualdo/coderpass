@@ -31,7 +31,7 @@ div.tab.all_accounts > ul.accounts > div.account > section.display ul > li.subob
     cursor: pointer;
 
     /* add expand btn/icon */
-    background-image: url("../img/arrowright.png"), url("../img/arrowdown.png");
+    background-image: url("../../../../img/arrowright.png"), url("../../../../img/arrowdown.png");
     background-size: 1.25rem, 0;
     background-position: 0 center;
     background-repeat: no-repeat;
@@ -58,7 +58,7 @@ div.tab.all_accounts > ul.accounts > div.account > section.display ul > li > p.n
     user-select: none;
 
     /* left padding to compensate for expand btns */
-    padding-left: 1.75rem;
+    padding-left: 2rem;
 }
 
 /* list item value */

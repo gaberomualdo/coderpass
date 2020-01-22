@@ -1,5 +1,6 @@
 /* Includes all necessary CSS files */
-
+@import "abstracts/default_style_btn.css";
+@import "abstracts/default_style_code.css";
 @import "abstracts/fontfaces.css";
 @import "abstracts/global.css";
 @import "abstracts/variables.css";
@@ -9,5 +10,3 @@
 @import "authscreen/main.css";
 
 @import "appscreen/main.css";
-@import "oldappscreen.css";
-
