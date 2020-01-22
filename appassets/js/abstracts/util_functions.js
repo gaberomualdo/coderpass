@@ -1,13 +1,5 @@
-// function to generate random ID
-// some code taken from user csharptest.net on https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript
-const generateRandomID = (length) => {
-    let result = "";
-    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    for (let i = 0; i < length; i++ ) {
-        result += characters.charAt(Math.floor(Math.random() * characters.length));
-    }
-    return result;
-}
+// function to generate random ID --> currently acts as a referral to the uuidv4 function
+const generateRandomID = uuid.v4;
 
 // function to check for valid JSON
 // some code taken from user Gumbo on https://stackoverflow.com/questions/3710204/how-to-check-if-a-string-is-a-valid-json-string-in-javascript-without-using-try/3710226

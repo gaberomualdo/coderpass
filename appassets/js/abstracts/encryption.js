@@ -1,12 +1,3 @@
-// get crypto module from remote module for generating random cipher IV
-const crypto = remote.require("crypto");
-
-// get aes-js module from remote module for encryption
-const aesjs = remote.require("aes-js");
-
-// get pbkdf2 module from remote module for key derivation
-const pbkdf2 = remote.require("pbkdf2");
-
 // create encrypt and decrypt functions using modules for ease of use
 
 // encrypt text with AES-256 (CBC) using key derived from password argument

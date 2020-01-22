@@ -3,7 +3,7 @@ const addAccountToDatabase = (obj) => {
     // generate random ID that is not taken yet
     let randomAccountID;
     do {
-        randomAccountID = generateRandomID(32);
+        randomAccountID = generateRandomID();
     } while(vaultContents.accounts[randomAccountID]);
 
     // add obj to generated random ID

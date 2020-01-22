@@ -1,6 +1,3 @@
-// get fs module from remote module to read and write from filesystem
-const fs = remote.require("fs");
-
 // create functions that utilize fs module for ease of use
 
 // read file
