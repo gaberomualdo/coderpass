@@ -1,8 +1,10 @@
-/* account blocks */
+/* account block list */
 div.tab.all_accounts > ul.accounts {
     overflow: hidden;
     height: auto;
 }
+
+/* account block */
 div.tab.all_accounts > ul.accounts > div.account {
     padding: 2rem 0;
     position: relative;

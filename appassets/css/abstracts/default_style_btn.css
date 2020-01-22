@@ -11,12 +11,16 @@
     cursor: pointer;
     border: 1px solid var(--submedium-color);
 }
+
+/* with hover effect */
 .default_style_button.with_hover {
     transition: background-color 0.2s ease-in-out;
 }
 .default_style_button.with_hover:hover {
     background-color: var(--submedium-color);
 }
+
+/* with icon (svg) in the middle */
 .default_style_button.with_icon {
     fill: var(--dark-color);
     box-sizing: border-box;

@@ -1,5 +1,5 @@
-/* appscreen main area */
-div.tab.all_accounts {
+/* tabs */
+div.tab {
     background-color: #fff;
     padding: 2.5rem;
     box-shadow: 0 0 2rem var(--shadow-color);

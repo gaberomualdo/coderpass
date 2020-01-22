@@ -1,4 +1,6 @@
 /* edit btn functionality */
+
+/* display correct section accordingly */
 div.tab.all_accounts > ul.accounts > div.account.editing > section.display {
     display: none;
 }
@@ -6,6 +8,7 @@ div.tab.all_accounts > ul.accounts > div.account:not(.editing) > section.edit {
     display: none;
 }
 
+/* show correct edit btn icon accordingly */
 div.tab.all_accounts > ul.accounts > div.account:not(.editing) > div.buttons > button.edit > svg.done_editing {
     opacity: 0;
 }
@@ -13,6 +16,7 @@ div.tab.all_accounts > ul.accounts > div.account.editing > div.buttons > button.
     opacity: 0;
 }
 
+/* edit btn color and background */
 div.tab.all_accounts > ul.accounts > div.account.editing > div.buttons > button.edit {
     fill: #fff;
     background-color: var(--dark-color);

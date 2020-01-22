@@ -1,13 +1,17 @@
-/* btns */
+/* account btns set */
 div.tab.all_accounts > ul.accounts > div.account > div.buttons {
     position: absolute;
     right: 0;
     top: 2rem;
 }
+
+/* account btn */
 div.tab.all_accounts > ul.accounts > div.account > div.buttons > button {
     padding: 0.5rem;
     position: relative;
 }
+
+/* edit btn, transitions, and icon styles */
 div.tab.all_accounts > ul.accounts > div.account > div.buttons > button.edit {
     transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out, fill 0.2s ease-in-out;
 }

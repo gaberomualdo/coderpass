@@ -13,6 +13,8 @@
     -webkit-font-smoothing: antialiased;
     vertical-align: text-bottom;
 }
+
+/* with code container (as in longer code block) */
 .default_style_code_container > .default_style_code {
     display: block;
     padding: 1rem 1rem;

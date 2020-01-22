@@ -12,10 +12,6 @@ div.tab > nav {
     transition: padding 0.25s, margin-bottom 0.25s;
     margin-bottom: 0;
 }
-div.tab > nav.not_top {
-    padding: 0.25rem 0;
-    margin-bottom: 1.5rem;
-}
 
 /* nav left area with title */
 div.tab > nav > h1.title {
@@ -26,9 +22,6 @@ div.tab > nav > h1.title {
     transition: transform 0.25s;
     transform-origin: 0 center;
 }
-div.tab > nav.not_top > h1.title {
-    transform: scale(0.7);
-}
 
 /* nav right side w/e.g. buttons, etc. */
 div.tab > nav > div.row {
@@ -36,4 +29,14 @@ div.tab > nav > div.row {
     padding: 0.25rem 0;
     box-sizing: border-box;
     height: 3rem;
+}
+
+/* nav not top (toggled with JS) styles */
+div.tab > nav.not_top {
+    padding: 0.25rem 0;
+    margin-bottom: 1.5rem;
+}
+
+div.tab > nav.not_top > h1.title {
+    transform: scale(0.7);
 }

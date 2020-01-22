@@ -1,23 +1,29 @@
-/* input */
+/* screen navbar input, assumes icon with input (styled separately in the input:not(:focus) selector) */
 div.tab > nav > div.row > input[type=text] {
     font-size: 0.95rem;
     box-sizing: border-box;
     transition: width 0.375s, padding-left 0.375s, padding-right 0.375s, border-color 0.375s ease-in-out, background-image 0.375s;
 }
-div.tab > nav > div.row > input[type=text]::placeholder, div.tab > nav > div.row > input[type=text]:not(:focus) {
-    color: var(--medium-color);
-}
+
+/* placeholder and color styles */
+div.tab > nav > div.row > input[type=text]::placeholder,
 div.tab > nav > div.row > input[type=text]:not(:focus) {
-    padding-right: 0;
-    padding-left: 2.5rem;
-    background-image: url(../img/search_icon.png);
-    background-size: 1.2rem;
-    background-position: 0.65rem;
-    background-repeat: no-repeat;
+    color: var(--medium-color);
 }
 div.tab > nav > div.row > input[type=text]:focus::placeholder {
     color: var(--supermedium-color);
 }
+
+/* show icon when not focused */
+div.tab > nav > div.row > input[type=text]:not(:focus) {
+    padding-right: 0;
+    padding-left: 2.5rem;
+    background-size: 1.2rem;
+    background-position: 0.65rem;
+    background-repeat: no-repeat;
+}
+
+/* longer, without icon when focused */
 div.tab > nav > div.row > input[type=text]:focus {
     padding-left: 0.7rem;
     padding-right: 0.7rem;

@@ -29,11 +29,15 @@ div.tab.all_accounts > ul.accounts > div.account > section.display ul > li {
 /* sub-object label within list item and functionality */
 div.tab.all_accounts > ul.accounts > div.account > section.display ul > li.subobj_label {
     cursor: pointer;
+
+    /* add expand btn/icon */
     background-image: url("../img/arrowright.png"), url("../img/arrowdown.png");
     background-size: 1.25rem, 0;
     background-position: 0 center;
     background-repeat: no-repeat;
 }
+
+/* expand btn functionality */
 div.tab.all_accounts > ul.accounts > div.account > section.display ul > li.subobj_label.open {
     background-size: 0, 1.25rem;
 }
@@ -47,12 +51,14 @@ div.tab.all_accounts > ul.accounts > div.account > section.display ul > li > p {
 /* list item name (key) */
 div.tab.all_accounts > ul.accounts > div.account > section.display ul > li > p.name {
     padding: 0 1rem;
-    padding-left: 1.75rem;
     box-sizing: border-box;
     text-align: right;
     vertical-align: text-bottom;
     line-height: 2rem;
     user-select: none;
+
+    /* left padding to compensate for expand btns */
+    padding-left: 1.75rem;
 }
 
 /* list item value */

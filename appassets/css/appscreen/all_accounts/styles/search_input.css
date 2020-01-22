@@ -1,0 +1,4 @@
+/* include search icon within nav searchbar */
+div.tab.all_accounts > nav > div.row > input[type=text]:not(:focus) {
+    background-image: url(../img/search_icon.png);
+}
