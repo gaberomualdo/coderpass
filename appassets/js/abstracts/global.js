@@ -1,7 +1,10 @@
-// get IPC renderer module for communication with main process, and get remote
-// module for direct usage of main process functions within render process,
-// and get dialog for using dialogs.
+// get remote from electron
 const { remote } = require("electron");
+
+// ipc renderer for communicating with main process
+const { ipcRenderer } = require("electron");
+
+// dialog module for dialogs
 const { dialog } = remote;
 
 // get used modules and store in vars

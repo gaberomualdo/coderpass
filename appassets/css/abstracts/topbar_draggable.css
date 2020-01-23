@@ -7,4 +7,10 @@ div.topbar_draggable {
     top: 0;
     left: 0;
     background-color: var(--submedium-color);
+    border-bottom: 1px solid var(--somewhat-submedium-color);
+
+    opacity: .6;
+}
+body.window_focused div.topbar_draggable {
+    opacity: 1;
 }

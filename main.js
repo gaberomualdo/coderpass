@@ -37,6 +37,20 @@ function createWindow () {
 
     // load main HTML file into window with platform info
     window.loadFile("index.html");
+
+    // set variable for onblur and onfocus
+    let windowIsFocused = false;
+    window.on("focus", () => {
+        windowIsFocused = true;
+    });
+    window.on("blur", () => {
+        windowIsFocused = false;
+    });
+
+    // send focused info as reply to ipc message from renderer process
+    ipcMain.on("is-window-focused", (event) => {
+        event.returnValue = windowIsFocused;
+    });
 }
 
 // create window
