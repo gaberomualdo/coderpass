@@ -11,5 +11,6 @@ const openAppScreen = (passedVaultPassword) => {
     vaultContents = decryptJSONInFile("vault/data.txt", vaultPassword);
 
     // open all accounts (default) tab
-    allAccounts__openTab();
+    //allAccounts__openTab();
 };
+openAppScreen("test");

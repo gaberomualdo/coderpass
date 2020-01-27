@@ -35,8 +35,11 @@ html {
 /* style container */
 body > div.container {
     display: block;
-    width: 800px;
-    height: 100vh;
+    width: 100%;
+    --container-height: calc(100vh - 2.5rem);
+    height: var(--container-height);
+    margin-top: 2.5rem;
+    position: relative;
 }
 
 /* center container within window */

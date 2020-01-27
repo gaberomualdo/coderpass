@@ -1,9 +1,5 @@
 /* tabs */
 div.tab {
-    background-color: #fff;
-    padding: 2.5rem;
-    box-shadow: 0 0 2rem var(--shadow-color);
     width: 100%;
     box-sizing: border-box;
-    min-height: 100vh;
 }

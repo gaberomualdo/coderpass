@@ -5,6 +5,6 @@ div.auth {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: var(--container-height);
     user-select: none;
 }
