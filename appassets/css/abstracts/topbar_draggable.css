@@ -1,16 +1,33 @@
+/* draggable topbar area */
 div.topbar_draggable {
     -webkit-app-region: drag;
 
     height: 2.5rem;
+    box-sizing: border-box;
+    padding: .5rem 1rem;
     width: 100%;
     position: fixed;
     top: 0;
     left: 0;
     background-color: var(--submedium-color);
     border-bottom: 1px solid var(--somewhat-submedium-color);
+    cursor: default;
 
     opacity: .6;
 }
 body.window_focused div.topbar_draggable {
     opacity: 1;
+}
+
+div.topbar_draggable > p.sidetext {
+    float: right;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    font-size: 1rem;
+    cursor: default;
+    user-select: none;
+}
+div.topbar_draggable > p.sidetext > span.version {
+    opacity: .5;
+    margin-left: .25rem;
 }
