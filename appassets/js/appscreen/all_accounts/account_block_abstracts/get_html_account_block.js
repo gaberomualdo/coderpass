@@ -1,49 +1,82 @@
 // function for getting properties HTML for a given properties object
 const getHTMLOfPropertiesSection = (properties) => {
-    let propertiesHTML = "";
+  let propertiesHTML = '';
 
-    const addPropertyToPropertiesHTML = (propertyName, propertyValue) => {
-        propertiesHTML += "<li><p class='name'>" + propertyName + ":</p><p class='value default_style_code'><span class='password'>" + propertyValue + "</span><span class='hidden'>" + "&bull;".repeat(propertyValue.length) +  "</span></p><button class='copy_property_btn' onclick='eventCopyPropertyValueBtn(this);' aria-label='Copied!' data-balloon-pos='right'>" + copyClipboardSVG + "</button></li>";
+  const addPropertyToPropertiesHTML = (propertyName, propertyValue, options = {}) => {
+    propertyValue = propertyValue.toString();
+    propertyName = propertyName.toString();
+
+    let nameHTML = "<p class='name'>" + propertyName + ':</p>';
+    if ('withName' in options && !options.withName) {
+      nameHTML = '';
+    }
+    if (options.isArraySubobjLabel) {
+      nameHTML = "<p class='name italic'>Object</p>";
     }
 
-    let copyClipboardSVG = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M21 2h-19v19h-2v-21h21v2zm3 2v20h-20v-20h20zm-2 2h-1.93c-.669 0-1.293.334-1.664.891l-1.406 2.109h-6l-1.406-2.109c-.371-.557-.995-.891-1.664-.891h-1.93v16h16v-16zm-3 6h-10v1h10v-1zm0 3h-10v1h10v-1zm0 3h-10v1h10v-1z"/></svg>';
-    Object.keys(properties).forEach((propertyName) => {
-        const propertyValue = properties[propertyName];
-        if(typeof propertyValue == "object") {
-            propertiesHTML += "<li class='subobj_label' onclick='this.classList.toggle(\"open\"); this.nextSibling.classList.toggle(\"open\");'><p class='name'>" + propertyName + ":</p></li>";
-            propertiesHTML += "<ul>";
-            propertiesHTML += getHTMLOfPropertiesSection(propertyValue);
-            propertiesHTML += "</ul>";
-        }else {
-            addPropertyToPropertiesHTML(propertyName, propertyValue);
-        }
-    });
+    propertiesHTML +=
+      '<li>' +
+      nameHTML +
+      "<p class='value default_style_code'><span class='password'>" +
+      propertyValue +
+      "</span><span class='hidden'>" +
+      '&bull;'.repeat(propertyValue.length) +
+      "</span></p><button class='copy_property_btn' onclick='eventCopyPropertyValueBtn(this);' aria-label='Copied!' data-balloon-pos='right'>" +
+      copyClipboardSVG +
+      '</button></li>';
+  };
 
-    return propertiesHTML;
-}
+  let copyClipboardSVG =
+    '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M21 2h-19v19h-2v-21h21v2zm3 2v20h-20v-20h20zm-2 2h-1.93c-.669 0-1.293.334-1.664.891l-1.406 2.109h-6l-1.406-2.109c-.371-.557-.995-.891-1.664-.891h-1.93v16h16v-16zm-3 6h-10v1h10v-1zm0 3h-10v1h10v-1zm0 3h-10v1h10v-1z"/></svg>';
+  Object.keys(properties).forEach((propertyName) => {
+    const propertyValue = properties[propertyName];
+    if (typeof propertyValue == 'object') {
+      nameHTML = "<p class='name'>" + propertyName + ':</p>';
+      if (Array.isArray(properties)) {
+        nameHTML = "<p class='name italic'>{...}</p>";
+      }
+
+      propertiesHTML +=
+        '<li class=\'subobj_label\' onclick=\'this.classList.toggle("open"); this.nextSibling.classList.toggle("open");\'>' + nameHTML + '</li>';
+      propertiesHTML += '<ul>';
+      propertiesHTML += getHTMLOfPropertiesSection(propertyValue);
+      propertiesHTML += '</ul>';
+    } else {
+      if (Array.isArray(properties)) {
+        addPropertyToPropertiesHTML(propertyName, propertyValue, { withName: false });
+      } else {
+        addPropertyToPropertiesHTML(propertyName, propertyValue);
+      }
+    }
+  });
+
+  return propertiesHTML;
+};
 
 // function for getting the HTML for the block of a given account object
 const getHTMLOfAccountBlock = (accountID, justDisplayHTML) => {
-    // account obj
-    const accountObj = vaultContents.accounts[accountID];
+  // account obj
+  const accountObj = vaultContents.accounts[accountID];
 
-    // display HTML
-    const displayHTML = `
+  // display HTML
+  const displayHTML = `
     <section class="display">
-        <h1 class="account_name open" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open');">${accountObj.name}</h1>
+        <h1 class="account_name open" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open');">${
+          accountObj.name
+        }</h1>
         <ul class="account_properties open">
             ${getHTMLOfPropertiesSection(accountObj.properties)}
         </ul>
     </section>
     `;
 
-    // if just display HTML, return just display HTML
-    if(justDisplayHTML) {
-        return displayHTML;
-    }
+  // if just display HTML, return just display HTML
+  if (justDisplayHTML) {
+    return displayHTML;
+  }
 
-    // return HTML
-    return `
+  // return HTML
+  return `
     <div class="account" id="accountid_${accountID}">
         <div class="buttons">
             <button class="edit default_style_button with_icon" onclick="eventEditBtn('${accountID}')">

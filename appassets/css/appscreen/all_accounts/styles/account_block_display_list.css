@@ -1,70 +1,81 @@
 /* account block display section list of keys+values */
 div.tab.all_accounts > ul.accounts > div.account > section.display ul {
-    list-style: none;
-    margin-left: .625rem;
-    padding-left: 2.5rem;
-    overflow: hidden;
-    clear: both;
-    font-size: 1.2rem;
+  list-style: none;
+  margin-left: 0.625rem;
+  padding-left: 2rem;
+  overflow: hidden;
+  clear: both;
+  font-size: 1.2rem;
 }
 
 /* expand/retract functionality */
 div.tab.all_accounts > ul.accounts > div.account > section.display ul:not(.open) {
-    display: none;
+  display: none;
 }
 
 /* list within list styles */
 div.tab.all_accounts > ul.accounts > div.account > section.display ul ul {
-    border-left: 1px solid #E1E1E1;
+  border-left: 1px solid #e1e1e1;
 }
 
 /* key+value list item */
 div.tab.all_accounts > ul.accounts > div.account > section.display ul > li {
-    display: block;
-    clear: both;
-    float: left;
-    min-height: 2rem;
-    padding: 0.375rem 0;
+  display: block;
+  clear: both;
+  float: left;
+  min-height: 2rem;
+  padding: 0.375rem 0;
+
+  /* left padding for bullet point and subobj expand icons */
+  padding-left: 2rem;
+
+  /* bullet point */
+  --bullet-size: 0.4rem;
+  background-image: url('../../../../img/bulletpoint.png');
+  background-size: var(--bullet-size);
+  background-position: calc((1rem - var(--bullet-size))) center;
+  background-repeat: no-repeat;
 }
 
 /* sub-object label within list item and functionality */
 div.tab.all_accounts > ul.accounts > div.account > section.display ul > li.subobj_label {
-    cursor: pointer;
+  cursor: pointer;
 
-    /* add expand btn/icon */
-    background-image: url("../../../../img/arrowright.png"), url("../../../../img/arrowdown.png");
-    background-size: 1.25rem, 0;
-    background-position: 0 center;
-    background-repeat: no-repeat;
+  /* add expand btn icon */
+  background-image: url('../../../../img/arrowright.png'), url('../../../../img/arrowdown.png');
+  background-position: 0 center;
+  background-size: 1.15rem, 0;
 }
 
 /* expand btn functionality */
 div.tab.all_accounts > ul.accounts > div.account > section.display ul > li.subobj_label.open {
-    background-size: 0, 1.25rem;
+  background-size: 0, 1.15rem;
 }
 
 /* both parts of list item */
 div.tab.all_accounts > ul.accounts > div.account > section.display ul > li > p {
-    display: block;
-    float: left;
+  display: block;
+  float: left;
 }
 
 /* list item name (key) */
 div.tab.all_accounts > ul.accounts > div.account > section.display ul > li > p.name {
-    padding: 0 1rem;
-    box-sizing: border-box;
-    text-align: right;
-    vertical-align: text-bottom;
-    line-height: 2rem;
-    user-select: none;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  text-align: right;
+  vertical-align: text-bottom;
+  line-height: 2rem;
+  user-select: none;
 
-    /* left padding to compensate for expand btns */
-    padding-left: 2rem;
+  padding-left: 0;
+}
+div.tab.all_accounts > ul.accounts > div.account > section.display ul > li > p.name.italic {
+  font-style: italic;
 }
 
 /* list item value */
 div.tab.all_accounts > ul.accounts > div.account > section.display ul > li > p.value {
-    line-height: 2rem;
-    min-height: 2rem;
-    padding: 0 .5rem;
+  line-height: 2rem;
+  min-height: 2rem;
+  padding: 0 0.5rem;
 }

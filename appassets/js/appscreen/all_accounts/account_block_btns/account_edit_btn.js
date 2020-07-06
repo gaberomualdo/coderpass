@@ -23,12 +23,7 @@ const eventEditBtn = (accountID) => {
         typeof newAccountContent.properties == 'object'
       ) {
         // save new value in vault
-
-        console.log(vaultContents);
-
         vaultContents.accounts[accountID] = newAccountContent;
-
-        console.log(newAccountContent);
 
         // refresh database
         refreshVaultDatabase();
@@ -38,9 +33,9 @@ const eventEditBtn = (accountID) => {
       } else {
         // throw error, and revert back to editing
         if (newAccountContent.name == undefined) {
-          alert('Include property "name" of type String in JSON');
+          alert('Include property "name" in JSON');
         } else if (!newAccountContent.properties == undefined) {
-          alert('Include property "properties" of type Object in JSON');
+          alert('Include property "properties" in JSON');
         } else if (!(typeof newAccountContent.name == 'string')) {
           alert('Property "name" must be of type String');
         } else if (!(typeof newAccountContent.properties == 'object')) {
