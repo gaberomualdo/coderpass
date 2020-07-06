@@ -1,0 +1,2 @@
+let vaultContents;
+let vaultPassword;

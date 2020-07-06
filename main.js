@@ -21,11 +21,11 @@ function createWindow () {
     let windowOptions = {
         width: 1000,
         height: 700,
-        minWidth: 800,
+        minWidth: 975,
         minHeight: 600,
         webPreferences: {
             nodeIntegration: true
-        },
+        }
     };
 
     if(process.platform === "darwin") {
