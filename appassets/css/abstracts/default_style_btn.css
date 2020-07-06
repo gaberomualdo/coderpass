@@ -1,32 +1,32 @@
 /* button default style */
 .default_style_button {
-    float: right;
-    height: 2.5rem;
-    width: 2.5rem;
-    box-sizing: border-box;
-    border: none;
-    background-color: transparent;
-    border-radius: 4px;
-    margin-left: 0.5rem;
-    cursor: pointer;
-    border: 1px solid var(--submedium-color);
+  float: right;
+  height: 2.5rem;
+  width: 2.5rem;
+  box-sizing: border-box;
+  border: none;
+  background-color: transparent;
+  border-radius: 4px;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  border: 1px solid var(--submedium-color);
 }
 
 /* with hover effect */
 .default_style_button.with_hover {
-    transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
 }
 .default_style_button.with_hover:hover {
-    background-color: var(--submedium-color);
+  background-color: var(--submedium-color);
 }
 
 /* with icon (svg) in the middle */
 .default_style_button.with_icon {
-    fill: var(--dark-color);
-    box-sizing: border-box;
-    padding: 0.65rem;
+  fill: var(--dark-color);
+  box-sizing: border-box;
+  padding: 0.65rem;
 }
 .default_style_button.with_icon > svg {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }

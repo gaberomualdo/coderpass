@@ -1,14 +1,16 @@
 // function when app is opened
 const openAppScreen = (passedVaultPassword) => {
   // display app screen and hide auth screen
-  document.querySelector('body > div.container > div.auth').style.display = 'none';
-  document.querySelector('body > div.container > div.app').style.display = 'block';
+  document.querySelector("body > div.container > div.auth").style.display =
+    "none";
+  document.querySelector("body > div.container > div.app").style.display =
+    "block";
 
   // put vault password into global variable
   vaultPassword = passedVaultPassword;
 
   // get vault contents and put in variable
-  vaultContents = decryptJSONInFile('vault/data.txt', vaultPassword);
+  vaultContents = decryptJSONInFile("vault/data.txt", vaultPassword);
 
   vaultContents.accounts = vaultContents.accounts || {};
 

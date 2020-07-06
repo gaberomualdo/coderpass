@@ -1,19 +1,36 @@
 /* Styles for functionality of the form with JS validation (e.g. passwords match), etc. */
 
 /* make color of "X" icon red */
-div.auth > div.form.create_vault > div.input_container:nth-child(3) button > svg.no_match {
-    fill: var(--red-color);
+div.auth
+  > div.form.create_vault
+  > div.input_container:nth-child(3)
+  button
+  > svg.no_match {
+  fill: var(--red-color);
 }
-div.auth > div.form > div.input_container:nth-child(3) > input:not(:focus) ~ button > svg.no_match {
-    fill: var(--red-medium-color);
+div.auth
+  > div.form
+  > div.input_container:nth-child(3)
+  > input:not(:focus)
+  ~ button
+  > svg.no_match {
+  fill: var(--red-medium-color);
 }
 
 /* display correct icon within confirm password field in vault creation form
    (either an "X" if passwords don't match, or an arrow for creating new vault) */
 
-div.auth > div.form.create_vault > div.input_container:nth-child(3) button:disabled > svg.match {
-    display: none;
+div.auth
+  > div.form.create_vault
+  > div.input_container:nth-child(3)
+  button:disabled
+  > svg.match {
+  display: none;
 }
-div.auth > div.form.create_vault > div.input_container:nth-child(3) button:not(:disabled) > svg.no_match {
-    display: none;
+div.auth
+  > div.form.create_vault
+  > div.input_container:nth-child(3)
+  button:not(:disabled)
+  > svg.no_match {
+  display: none;
 }

@@ -2,25 +2,25 @@
 
 /* show correct nav title ("All Accounts" or "Search Results") */
 div.tab.all_accounts > nav > h1.title > span {
-    display: none;
+  display: none;
 }
 div.tab.all_accounts.searching > nav > h1.title > span.searching {
-    display: inline;
+  display: inline;
 }
 div.tab.all_accounts:not(.searching) > nav > h1.title > span.all {
-    display: inline;
+  display: inline;
 }
 
 /* only show correct search results with classname (toggled with JS) */
 div.tab.all_accounts.searching > ul.accounts > div.account:not(.displayed) {
-    display: none;
+  display: none;
 }
 
 /* show "no results found" message with classname (toggled with JS) */
 div.tab.all_accounts > p.no_results_found {
-    display: none;
-    margin-top: 2rem;
+  display: none;
+  margin-top: 2rem;
 }
 div.tab.all_accounts.searching.no_results > p.no_results_found {
-    display: block;
+  display: block;
 }

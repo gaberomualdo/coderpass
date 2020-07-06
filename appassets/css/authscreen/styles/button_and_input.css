@@ -1,34 +1,36 @@
 /* Styles that apply to both the input and button, and how they work together. */
 
 /* form input and button */
-div.auth > div.form input, div.auth > div.form button {
-    box-sizing: border-box;
-    border: 2px solid var(--light-color);
-    display: block;
-    float: left;
-    height: 3rem;
-    transition: border-color 0.25s ease-in-out;
+div.auth > div.form input,
+div.auth > div.form button {
+  box-sizing: border-box;
+  border: 2px solid var(--light-color);
+  display: block;
+  float: left;
+  height: 3rem;
+  transition: border-color 0.25s ease-in-out;
 }
 
 /* input with button attached on right side */
 div.auth > div.form > div.input_container input {
-    border-right: none;
-    width: calc(100% - 2.5rem);
-    padding-right: 0.5rem;
+  border-right: none;
+  width: calc(100% - 2.5rem);
+  padding-right: 0.5rem;
 }
 
 /* input with no button attached */
 div.auth > div.form input {
-    width: 100%;
+  width: 100%;
 }
 
 /* input and button container */
 div.auth > div.form > div.input_container {
-    width: 100%;
-    float: left;
+  width: 100%;
+  float: left;
 }
 
 /* add space between inputs */
-div.auth > div.form > input, div.auth > div.form > div.input_container {
-    margin-top: 1rem;
+div.auth > div.form > input,
+div.auth > div.form > div.input_container {
+  margin-top: 1rem;
 }
