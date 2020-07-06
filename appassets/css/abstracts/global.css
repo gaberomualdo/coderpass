@@ -2,48 +2,49 @@
 
 /* selection */
 ::selection {
-    background-color: var(--submedium-color);
+  background-color: var(--submedium-color);
 }
 
 /* global styles */
 
 * {
-    margin: 0;
-    padding: 0;
-    outline: none;
+  margin: 0;
+  padding: 0;
+  outline: none;
 }
 
 body,
 input,
 button {
-    font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: var(--dark-color);
-    outline: none;
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: var(--dark-color);
+  outline: none;
 }
 body {
-    background-color: var(--light-color);
-    min-width: 100%;
-    min-height: 100vh;
+  background-color: var(--light-color);
+  min-width: 100%;
+  min-height: 100vh;
 }
 
 /* default font size */
 body,
 html {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 /* style container */
 body > div.container {
-    display: block;
-    width: 100%;
-    --container-height: calc(100vh - 2.5rem);
-    height: var(--container-height);
-    margin-top: 2.5rem;
-    position: relative;
+  display: block;
+  width: 100%;
+  --container-height: calc(100vh - 2.5rem);
+  height: var(--container-height);
+  margin-top: 2.5rem;
+  position: relative;
 }
 
 /* center container within window */
 body {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }

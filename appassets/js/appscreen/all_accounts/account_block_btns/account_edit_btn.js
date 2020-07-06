@@ -1,11 +1,17 @@
 // edit btn on account blocks
 const eventEditBtn = (accountID) => {
   // toggle "editing" class on account element of given account ID
-  const accountElement = document.querySelector('div.tab.all_accounts > ul.accounts > div.account#accountid_' + accountID);
-  accountElement.classList.toggle('editing');
+  const accountElement = document.querySelector(
+    "div.tab.all_accounts > ul.accounts > div.account#accountid_" + accountID
+  );
+  accountElement.classList.toggle("editing");
 
-  if (accountElement.classList.contains('editing')) {
-    const JSONAsString = JSON.stringify(vaultContents.accounts[accountID], null, '    ');
+  if (accountElement.classList.contains("editing")) {
+    const JSONAsString = JSON.stringify(
+      vaultContents.accounts[accountID],
+      null,
+      "    "
+    );
     refreshAceEditor(accountID, JSONAsString);
 
     //autoResizeTextarea(accountElement.querySelector("section.edit textarea"));
@@ -19,8 +25,8 @@ const eventEditBtn = (accountID) => {
       if (
         newAccountContent.name != undefined &&
         newAccountContent.properties != undefined &&
-        typeof newAccountContent.name == 'string' &&
-        typeof newAccountContent.properties == 'object'
+        typeof newAccountContent.name == "string" &&
+        typeof newAccountContent.properties == "object"
       ) {
         // save new value in vault
 
@@ -41,17 +47,17 @@ const eventEditBtn = (accountID) => {
           alert('Include property "name" of type String in JSON');
         } else if (!newAccountContent.properties == undefined) {
           alert('Include property "properties" of type Object in JSON');
-        } else if (!(typeof newAccountContent.name == 'string')) {
+        } else if (!(typeof newAccountContent.name == "string")) {
           alert('Property "name" must be of type String');
-        } else if (!(typeof newAccountContent.properties == 'object')) {
+        } else if (!(typeof newAccountContent.properties == "object")) {
           alert('Property "properties" must be of type Object');
         }
-        accountElement.classList.toggle('editing');
+        accountElement.classList.toggle("editing");
       }
     } else {
       // throw error and revert back to editing
-      alert('Invalid JSON');
-      accountElement.classList.toggle('editing');
+      alert("Invalid JSON");
+      accountElement.classList.toggle("editing");
     }
   }
 };

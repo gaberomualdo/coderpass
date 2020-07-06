@@ -1,20 +1,20 @@
 /* root CSS variables */
 :root {
-    --regular-color: #78909C;
-    
-    --dark-color: #37474F;
-    
-    --light-color: #ECEFF1;
+  --regular-color: #78909c;
 
-    --medium-color: #B0BEC5;
-    --somewhat-submedium-color: #D5DBDE;
-    --submedium-color: #dde3e6;
-    --supermedium-color: #90A4AE;
-    
-    --red-color: #E74C3C;
-    --red-medium-color: #F5B6AF;
-    
-    --blue-color: #28f;
-    
-    --shadow-color: rgba(55, 71, 79, 0.225);
+  --dark-color: #37474f;
+
+  --light-color: #eceff1;
+
+  --medium-color: #b0bec5;
+  --somewhat-submedium-color: #d5dbde;
+  --submedium-color: #dde3e6;
+  --supermedium-color: #90a4ae;
+
+  --red-color: #e74c3c;
+  --red-medium-color: #f5b6af;
+
+  --blue-color: #28f;
+
+  --shadow-color: rgba(55, 71, 79, 0.225);
 }

@@ -1,22 +1,23 @@
 /* code default styles (some code here taken from Dave Gamache in Skeleton CSS at http://getskeleton.com/ */
 .default_style_code {
-    box-sizing: border-box;
-    height: 1.5rem;
-    line-height: 1.5rem;
-    padding: 0 .35rem;
-    font-size: 75%;
-    white-space: nowrap;
-    /*background: #F1F1F1;*/
-    border: 1px solid #E1E1E1;
-    border-radius: 4px;
-    font-family: Menlo, 'Bitstream Vera Sans Mono', 'DejaVu Sans Mono', Monaco, Consolas, monospace;
-    -webkit-font-smoothing: antialiased;
-    vertical-align: text-bottom;
+  box-sizing: border-box;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  padding: 0 0.35rem;
+  font-size: 75%;
+  white-space: nowrap;
+  /*background: #F1F1F1;*/
+  border: 1px solid #e1e1e1;
+  border-radius: 4px;
+  font-family: Menlo, "Bitstream Vera Sans Mono", "DejaVu Sans Mono", Monaco,
+    Consolas, monospace;
+  -webkit-font-smoothing: antialiased;
+  vertical-align: text-bottom;
 }
 
 /* with code container (as in longer code block) */
 .default_style_code_container > .default_style_code {
-    display: block;
-    padding: 1rem 1rem;
-    white-space: pre;
+  display: block;
+  padding: 1rem 1rem;
+  white-space: pre;
 }

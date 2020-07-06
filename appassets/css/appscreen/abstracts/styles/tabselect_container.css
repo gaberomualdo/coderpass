@@ -1,7 +1,7 @@
 .tab_select {
-    width: 25rem;
-    height: var(--container-height);
-    background-color: var(--lighter-color);
-    display: block;
-    float: left;
+  width: 25rem;
+  height: var(--container-height);
+  background-color: var(--lighter-color);
+  display: block;
+  float: left;
 }

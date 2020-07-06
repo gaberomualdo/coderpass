@@ -2,9 +2,9 @@
 
 /* auth container */
 div.auth {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: var(--container-height);
-    user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--container-height);
+  user-select: none;
 }

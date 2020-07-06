@@ -1,36 +1,49 @@
 /* edit section */
-div.tab.all_accounts > ul.accounts > div.account > section.edit > div.editor_container {
-    width: 100%;
-    height: 25rem;
-    padding: 2rem;
-    box-sizing: border-box;
-    position: relative;
-    margin: 0;
-    box-sizing: border-box;
-    border: 1px solid #E1E1E1;
-    border-radius: 4px;
-    font-size: 1.5rem;
-    overflow: hidden;
-    transition: border-color .15s;
+div.tab.all_accounts
+  > ul.accounts
+  > div.account
+  > section.edit
+  > div.editor_container {
+  width: 100%;
+  height: 25rem;
+  padding: 2rem;
+  box-sizing: border-box;
+  position: relative;
+  margin: 0;
+  box-sizing: border-box;
+  border: 1px solid #e1e1e1;
+  border-radius: 4px;
+  font-size: 1.5rem;
+  overflow: hidden;
+  transition: border-color 0.15s;
 
-    /* width to compensate for account btns width */
-    width: calc(100% - 6.5rem);
-    max-width: calc(100% - 6.5rem);
+  /* width to compensate for account btns width */
+  width: calc(100% - 6.5rem);
+  max-width: calc(100% - 6.5rem);
 }
 
 /* focused style, .focused class toggled with JS */
-div.tab.all_accounts > ul.accounts > div.account > section.edit > div.editor_container.focused {
-    border-color: var(--dark-color);
+div.tab.all_accounts
+  > ul.accounts
+  > div.account
+  > section.edit
+  > div.editor_container.focused {
+  border-color: var(--dark-color);
 }
 
 /* editor styles */
-div.tab.all_accounts > ul.accounts > div.account > section.edit > div.editor_container > div.editor {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    border-radius: 4px;
+div.tab.all_accounts
+  > ul.accounts
+  > div.account
+  > section.edit
+  > div.editor_container
+  > div.editor {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 4px;
 }
