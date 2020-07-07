@@ -12,7 +12,7 @@ const encryptJSONToFile = (filename, password, obj) => {
 // decrypt
 const decryptJSONInFile = (filename, password) => {
   // get encrypted text from file and store in variable
-  const encryptedText = readFile(filename);
+  const encryptedText = readFile(filename).trim();
 
   // variable for decrypted JSON
   const decryptedJSON = decryptJSON(encryptedText, password);

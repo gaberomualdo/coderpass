@@ -82,11 +82,21 @@ const getHTMLOfAccountBlock = (accountID, justDisplayHTML) => {
   // account obj
   const accountObj = vaultContents.accounts[accountID];
 
+  // check if account properties has a subobject at the first level
+  let hasSubobj = false;
+
+  Object.keys(accountObj.properties).forEach((propertyName) => {
+    const propertyValue = accountObj.properties[propertyName];
+    if (typeof propertyValue === 'object') {
+      hasSubobj = true;
+    }
+  });
+
   // display HTML
   const displayHTML = `
     <section class="display">
         <h1 class="account_name open" onclick="toggleListExpansion(this);">${accountObj.name}</h1>
-        <ul class="account_properties open">
+        <ul class="account_properties open ${hasSubobj ? 'has_subobj' : ''}">
             ${getHTMLOfPropertiesSection(accountObj.properties)}
         </ul>
     </section>

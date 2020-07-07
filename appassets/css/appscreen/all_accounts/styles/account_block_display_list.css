@@ -8,6 +8,11 @@ div.tab.all_accounts > ul.accounts > div.account > section.display ul {
   font-size: 1.2rem;
 }
 
+/* left border for the original list only if that list contains subobject(s) */
+div.tab.all_accounts > ul.accounts > div.account > section.display > ul.has_subobj {
+  border-left: 1px solid #e1e1e1;
+}
+
 /* expand/retract functionality */
 div.tab.all_accounts > ul.accounts > div.account > section.display ul:not(.open) {
   display: none;
