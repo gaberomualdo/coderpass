@@ -1,22 +1,22 @@
 /* screen navbar input, assumes icon with input (styled separately in the input:not(:focus) selector) */
-div.tab > nav > div.row > input[type="text"] {
+div.tab > nav > div.row > input[type='text'] {
   font-size: 0.95rem;
   box-sizing: border-box;
-  transition: width 0.375s, padding-left 0.375s, padding-right 0.375s,
-    border-color 0.375s ease-in-out, background-image 0.375s;
+  transition: width 0.375s, padding-left 0.375s, padding-right 0.375s, border-color 0.375s ease-in-out, background-image 0.375s,
+    color 0.375s ease-in-out;
 }
 
-/* placeholder and color styles */
-div.tab > nav > div.row > input[type="text"]::placeholder,
-div.tab > nav > div.row > input[type="text"]:not(:focus) {
+/* placeholder and input text color styles */
+div.tab > nav > div.row > input[type='text']::placeholder,
+div.tab > nav > div.row > input[type='text']:not(:focus):placeholder-shown {
   color: var(--medium-color);
 }
-div.tab > nav > div.row > input[type="text"]:focus::placeholder {
+div.tab > nav > div.row > input[type='text']:focus::placeholder {
   color: var(--supermedium-color);
 }
 
-/* show icon when not focused */
-div.tab > nav > div.row > input[type="text"]:not(:focus) {
+/* show icon when not focused and with no text */
+div.tab > nav > div.row > input[type='text']:not(:focus):placeholder-shown {
   padding-right: 0;
   padding-left: 2.5rem;
   background-size: 1.2rem;
@@ -24,11 +24,18 @@ div.tab > nav > div.row > input[type="text"]:not(:focus) {
   background-repeat: no-repeat;
 }
 
-/* longer, without icon when focused */
-div.tab > nav > div.row > input[type="text"]:focus {
+/* longer, without icon when focused or with text */
+div.tab > nav > div.row > input[type='text']:focus,
+div.tab > nav > div.row > input[type='text']:not(:placeholder-shown) {
   padding-left: 0.7rem;
   padding-right: 0.7rem;
   width: 12.5rem;
   cursor: text;
   border-color: var(--text-color);
+}
+
+/* when not focused and with text */
+div.tab > nav > div.row > input[type='text']:not(:focus):not(:placeholder-shown) {
+  border-color: var(--submedium-color);
+  color: var(--medium-color);
 }
