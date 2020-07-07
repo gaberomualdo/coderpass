@@ -1,69 +1,35 @@
 /* copy btn */
-div.tab.all_accounts
-  > ul.accounts
-  > div.account
-  > section.display
-  ul
-  > li
-  > button.copy_property_btn {
+div.tab.all_accounts > ul.accounts > div.account > section.display ul > li > button.copy_property_btn {
   height: 1rem;
+  width: 1rem;
   margin: 0.5rem;
   margin-left: 0.75rem;
-  width: 1rem;
   border: none;
   background-color: transparent;
   fill: var(--medium-color);
   transition: fill 0.1s ease-in-out;
   user-select: none;
+
+  flex-basis: 1rem;
+  flex-shrink: 0;
 }
 
 /* hover & active effects */
-div.tab.all_accounts
-  > ul.accounts
-  > div.account
-  > section.display
-  ul
-  > li
-  > button.copy_property_btn:hover {
+div.tab.all_accounts > ul.accounts > div.account > section.display ul > li > button.copy_property_btn:hover {
   fill: var(--regular-color);
 }
-div.tab.all_accounts
-  > ul.accounts
-  > div.account
-  > section.display
-  ul
-  > li
-  > button.copy_property_btn:active {
+div.tab.all_accounts > ul.accounts > div.account > section.display ul > li > button.copy_property_btn:active {
   fill: var(--dark-color);
 }
 
 /* icon */
-div.tab.all_accounts
-  > ul.accounts
-  > div.account
-  > section.display
-  ul
-  > li
-  > button.copy_property_btn
-  > svg {
+div.tab.all_accounts > ul.accounts > div.account > section.display ul > li > button.copy_property_btn > svg {
   width: 100%;
   height: 100%;
 }
 
 /* tooltip bug fixes */
-div.tab.all_accounts
-  > ul.accounts
-  > div.account
-  > section.display
-  ul
-  > li
-  > button.copy_property_btn:not(.active_tooltip):before,
-div.tab.all_accounts
-  > ul.accounts
-  > div.account
-  > section.display
-  ul
-  > li
-  > button.copy_property_btn:not(.active_tooltip):after {
+div.tab.all_accounts > ul.accounts > div.account > section.display ul > li > button.copy_property_btn:not(.active_tooltip):before,
+div.tab.all_accounts > ul.accounts > div.account > section.display ul > li > button.copy_property_btn:not(.active_tooltip):after {
   opacity: 0;
 }

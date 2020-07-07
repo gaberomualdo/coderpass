@@ -5,12 +5,10 @@
   line-height: 1.5rem;
   padding: 0 0.35rem;
   font-size: 75%;
-  white-space: nowrap;
-  /*background: #F1F1F1;*/
+  /* background: #F1F1F1; */
   border: 1px solid #e1e1e1;
   border-radius: 4px;
-  font-family: Menlo, "Bitstream Vera Sans Mono", "DejaVu Sans Mono", Monaco,
-    Consolas, monospace;
+  font-family: Menlo, 'Bitstream Vera Sans Mono', 'DejaVu Sans Mono', Monaco, Consolas, monospace;
   -webkit-font-smoothing: antialiased;
   vertical-align: text-bottom;
 }

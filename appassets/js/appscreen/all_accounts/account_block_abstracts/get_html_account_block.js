@@ -7,8 +7,11 @@ const getHTMLOfPropertiesSection = (properties) => {
     propertyName = propertyName.toString();
 
     let nameHTML = "<p class='name'>" + propertyName + ':</p>';
+
+    let nameClassname = '';
     if ('withName' in options && !options.withName) {
       nameHTML = '';
+      nameClassname = 'no_name';
     }
 
     // less left padding if there is no subobj property
@@ -20,6 +23,8 @@ const getHTMLOfPropertiesSection = (properties) => {
     propertiesHTML +=
       '<li class="' +
       subobjClassname +
+      ' ' +
+      nameClassname +
       '">' +
       nameHTML +
       "<p class='value default_style_code'><span class='password'>" +
@@ -47,6 +52,7 @@ const getHTMLOfPropertiesSection = (properties) => {
     const propertyValue = properties[propertyName];
     if (typeof propertyValue == 'object') {
       nameHTML = "<p class='name'>" + propertyName + ':</p>';
+
       if (Array.isArray(properties)) {
         let nameInner = '{...}';
         if (Array.isArray(propertyValue)) {
