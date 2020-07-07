@@ -87,7 +87,7 @@ div.tab.all_accounts > ul.accounts > div.account > section.display ul > li > p.n
   padding-left: 0;
 
   line-height: 1.8rem;
-  padding: 0.15rem 0.5rem;
+  padding: 0.15rem 0.5rem 0.15rem 0;
 
   max-width: calc(100% - 10rem);
 }
