@@ -10,12 +10,17 @@ const getHTMLOfPropertiesSection = (properties) => {
     if ('withName' in options && !options.withName) {
       nameHTML = '';
     }
-    if (options.isArraySubobjLabel) {
-      nameHTML = "<p class='name italic'>Object</p>";
+
+    // less left padding if there is no subobj property
+    let subobjClassname = '';
+    if ('hasSubobj' in options && !options.hasSubobj) {
+      subobjClassname = 'less_left_padding';
     }
 
     propertiesHTML +=
-      '<li>' +
+      '<li class="' +
+      subobjClassname +
+      '">' +
       nameHTML +
       "<p class='value default_style_code'><span class='password'>" +
       propertyValue +
@@ -28,24 +33,37 @@ const getHTMLOfPropertiesSection = (properties) => {
 
   let copyClipboardSVG =
     '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M21 2h-19v19h-2v-21h21v2zm3 2v20h-20v-20h20zm-2 2h-1.93c-.669 0-1.293.334-1.664.891l-1.406 2.109h-6l-1.406-2.109c-.371-.557-.995-.891-1.664-.891h-1.93v16h16v-16zm-3 6h-10v1h10v-1zm0 3h-10v1h10v-1zm0 3h-10v1h10v-1z"/></svg>';
+
+  let hasSubobj = false;
+
+  Object.keys(properties).forEach((propertyName) => {
+    const propertyValue = properties[propertyName];
+    if (typeof propertyValue === 'object') {
+      hasSubobj = true;
+    }
+  });
+
   Object.keys(properties).forEach((propertyName) => {
     const propertyValue = properties[propertyName];
     if (typeof propertyValue == 'object') {
       nameHTML = "<p class='name'>" + propertyName + ':</p>';
       if (Array.isArray(properties)) {
-        nameHTML = "<p class='name italic'>{...}</p>";
+        let nameInner = '{...}';
+        if (Array.isArray(propertyValue)) {
+          nameInner = '[...]';
+        }
+        nameHTML = `<p class='name italic'>${nameInner}</p>`;
       }
 
-      propertiesHTML +=
-        '<li class=\'subobj_label\' onclick=\'this.classList.toggle("open"); this.nextSibling.classList.toggle("open");\'>' + nameHTML + '</li>';
+      propertiesHTML += "<li class='subobj_label' onclick='toggleListExpansion(this);'>" + nameHTML + '</li>';
       propertiesHTML += '<ul>';
       propertiesHTML += getHTMLOfPropertiesSection(propertyValue);
       propertiesHTML += '</ul>';
     } else {
       if (Array.isArray(properties)) {
-        addPropertyToPropertiesHTML(propertyName, propertyValue, { withName: false });
+        addPropertyToPropertiesHTML(propertyName, propertyValue, { withName: false, hasSubobj });
       } else {
-        addPropertyToPropertiesHTML(propertyName, propertyValue);
+        addPropertyToPropertiesHTML(propertyName, propertyValue, { hasSubobj });
       }
     }
   });
@@ -61,9 +79,7 @@ const getHTMLOfAccountBlock = (accountID, justDisplayHTML) => {
   // display HTML
   const displayHTML = `
     <section class="display">
-        <h1 class="account_name open" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open');">${
-          accountObj.name
-        }</h1>
+        <h1 class="account_name open" onclick="toggleListExpansion(this);">${accountObj.name}</h1>
         <ul class="account_properties open">
             ${getHTMLOfPropertiesSection(accountObj.properties)}
         </ul>

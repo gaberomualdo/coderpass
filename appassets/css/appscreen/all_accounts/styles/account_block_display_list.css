@@ -22,7 +22,6 @@ div.tab.all_accounts > ul.accounts > div.account > section.display ul ul {
 div.tab.all_accounts > ul.accounts > div.account > section.display ul > li {
   display: block;
   clear: both;
-  float: left;
   min-height: 2rem;
   padding: 0.375rem 0;
 
@@ -30,11 +29,17 @@ div.tab.all_accounts > ul.accounts > div.account > section.display ul > li {
   padding-left: 2rem;
 
   /* bullet point */
+  /* uncomment the below code to include bullet points for each item */
+  /*
   --bullet-size: 0.4rem;
   background-image: url('../../../../img/bulletpoint.png');
   background-size: var(--bullet-size);
   background-position: calc((1rem - var(--bullet-size))) center;
   background-repeat: no-repeat;
+  */
+}
+div.tab.all_accounts > ul.accounts > div.account > section.display ul > li.less_left_padding {
+  padding-left: 0.5rem;
 }
 
 /* sub-object label within list item and functionality */
@@ -45,6 +50,7 @@ div.tab.all_accounts > ul.accounts > div.account > section.display ul > li.subob
   background-image: url('../../../../img/arrowright.png'), url('../../../../img/arrowdown.png');
   background-position: 0 center;
   background-size: 1.15rem, 0;
+  background-repeat: no-repeat;
 }
 
 /* expand btn functionality */
