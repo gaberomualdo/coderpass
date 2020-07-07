@@ -1,11 +1,12 @@
 /* Includes stylesheets for the all accounts tab (in appscreen) screen. */
-@import "styles/account_btns.css";
-@import "styles/account_edit_btn_functionality.css";
-@import "styles/hide_show_pwds_btn_and_functionality.css";
-@import "styles/search_input.css";
-@import "styles/search_functionality.css";
-@import "styles/account_blocks.css";
-@import "styles/account_block_display_abstracts.css";
-@import "styles/account_block_display_list.css";
-@import "styles/copy_property_btn.css";
-@import "styles/account_block_edit.css";
+@import 'styles/account_btns.css';
+@import 'styles/account_edit_btn_functionality.css';
+@import 'styles/hide_show_pwds_btn_and_functionality.css';
+@import 'styles/search_abstracts.css';
+@import 'styles/search_input.css';
+@import 'styles/search_functionality.css';
+@import 'styles/account_blocks.css';
+@import 'styles/account_block_display_abstracts.css';
+@import 'styles/account_block_display_list.css';
+@import 'styles/copy_property_btn.css';
+@import 'styles/account_block_edit.css';
