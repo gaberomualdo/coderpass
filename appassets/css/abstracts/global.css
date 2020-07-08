@@ -1,5 +1,3 @@
-/* Global styles for the app. */
-
 /* selection */
 ::selection {
   background-color: var(--submedium-color);
@@ -43,7 +41,7 @@ body > div.container {
   position: relative;
 
   /* tabs width */
-  --tabselect-width: 20rem;
+  --tabselect-width: 17.5rem;
 }
 body > div.container.loading {
   display: none;
