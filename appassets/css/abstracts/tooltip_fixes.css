@@ -1,0 +1,5 @@
+/* tooltip bug fixes */
+[data-balloon-pos]:after,
+[data-balloon-pos]:before {
+  backface-visibility: hidden;
+}

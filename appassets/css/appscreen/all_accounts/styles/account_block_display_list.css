@@ -3,7 +3,6 @@ div.tab.all_accounts > ul.accounts > div.account > section.display ul {
   list-style: none;
   margin-left: 0.625rem;
   padding-left: 2rem;
-  overflow: hidden;
   clear: both;
   font-size: 1.2rem;
 }

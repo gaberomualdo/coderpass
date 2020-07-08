@@ -1,5 +1,5 @@
 .tabs {
-  width: calc(100% - 25rem);
+  width: calc(100% - var(--tabselect-width));
   height: var(--container-height);
   background-color: #ffffff;
   display: block;

@@ -1,6 +1,5 @@
 /* account block list */
 div.tab.all_accounts > ul.accounts {
-  overflow: hidden;
   height: auto;
 }
 

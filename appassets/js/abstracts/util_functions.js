@@ -33,3 +33,6 @@ const getListOfObjValsRecursively = (obj) => {
 
   return listOfObjVals;
 };
+
+// function to convert REM to px
+const remToPx = (rem) => rem * parseFloat(getComputedStyle(document.documentElement).fontSize);

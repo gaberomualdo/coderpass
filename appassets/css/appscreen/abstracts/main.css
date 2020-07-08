@@ -1,7 +1,8 @@
 /* Includes abstract stylesheets and styles for appscreen. */
-@import "styles/nav.css";
-@import "styles/nav_input.css";
-@import "styles/tab.css";
-@import "styles/tabs.css";
-@import "styles/tabselect_container.css";
-@import "styles/tabselect_btn.css";
+@import 'styles/nav.css';
+@import 'styles/nav_input.css';
+@import 'styles/tab.css';
+@import 'styles/tabs.css';
+@import 'styles/tab_resize.css';
+@import 'styles/tabselect_container.css';
+@import 'styles/tabselect_btn.css';

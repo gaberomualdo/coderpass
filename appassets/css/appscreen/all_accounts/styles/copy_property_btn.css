@@ -12,6 +12,8 @@ div.tab.all_accounts > ul.accounts > div.account > section.display ul > li > but
 
   flex-basis: 1rem;
   flex-shrink: 0;
+
+  cursor: pointer;
 }
 
 /* hover & active effects */
@@ -29,11 +31,6 @@ div.tab.all_accounts > ul.accounts > div.account > section.display ul > li > but
 }
 
 /* tooltip bug fixes */
-div.tab.all_accounts > ul.accounts > div.account > section.display ul > li > button.copy_property_btn:before,
-div.tab.all_accounts > ul.accounts > div.account > section.display ul > li > button.copy_property_btn:after {
-  backface-visibility: hidden;
-}
-
 div.tab.all_accounts > ul.accounts > div.account > section.display ul > li > button.copy_property_btn:not(.active_tooltip):before,
 div.tab.all_accounts > ul.accounts > div.account > section.display ul > li > button.copy_property_btn:not(.active_tooltip):after {
   opacity: 0;
