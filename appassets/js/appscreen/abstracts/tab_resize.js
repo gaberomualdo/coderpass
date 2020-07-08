@@ -17,7 +17,7 @@
   const minTabselectWidth = remToPx(5);
   document.addEventListener('mousemove', (e) => {
     if (isResizing) {
-      document.documentElement.style.cursor = 'ew-resize';
+      document.documentElement.style.cursor = 'col-resize';
 
       let newTabselectWidth = e.clientX;
 
