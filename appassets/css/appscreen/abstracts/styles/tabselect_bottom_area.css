@@ -43,7 +43,6 @@
 .tab_select > .bottom_area > div.links > a {
   flex-basis: 100%;
   flex-shrink: 1;
-  box-sizing: border-box;
   padding: 0.5rem 0.25rem;
   background-color: #ffffff;
   text-align: center;
@@ -51,7 +50,8 @@
   letter-spacing: 0.02rem;
   color: var(--dark-color);
   font-size: 0.9rem;
-  line-height: 1;
+  height: 0.9rem;
+  line-height: 1rem;
 
   border-radius: 4px;
   border: 1px solid var(--submedium-color);
@@ -65,4 +65,16 @@
 
 .tab_select > .bottom_area > div.links > a:not(:last-child) {
   margin-right: 0.5rem;
+}
+
+.tab_select > .bottom_area > div.links > a > * {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.tab_select > .bottom_area > div.links > a > svg {
+  fill: var(--dark-color);
+  height: 0.9rem;
+  width: auto;
+  margin-right: 0.325rem;
 }
