@@ -10,4 +10,5 @@
 .tab_select > .exit_vault_container > button {
   display: inline-block;
   float: none;
+  margin: 0;
 }

@@ -1,2 +1,46 @@
 .tab_select > li {
+  --tabselect-btn-height: 2.5rem;
+  --tabselect-btn-vertical-padding: 0.25rem;
+  --icon-width: 2.5rem;
+  --icon-margin: 0.25rem;
+
+  display: block;
+  float: left;
+  box-sizing: border-box;
+  height: calc(var(--tabselect-btn-height) + (2 * var(--tabselect-btn-vertical-padding)));
+  width: 100%;
+  overflow: hidden;
+  padding: var(--tabselect-btn-vertical-padding) 1.4rem var(--tabselect-btn-vertical-padding) 0.75rem;
+}
+.tab_select > li > * {
+  display: block;
+  float: left;
+  box-sizing: border-box;
+
+  height: var(--tabselect-btn-height);
+  line-height: var(--tabselect-btn-height);
+}
+
+/* icon */
+.tab_select > li > div.icon {
+  width: var(--icon-width);
+  padding: 0.65rem;
+  margin-right: var(--icon-margin);
+}
+.tab_select > li > div.icon > svg {
+  height: 100%;
+  width: 100%;
+  float: left;
+  fill: var(--dark-color);
+}
+
+.tab_select > li > h2 {
+  width: calc(100% - var(--icon-width) - var(--icon-margin));
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 1.3rem;
+  letter-spacing: -0.01rem;
+
+  font-weight: 600;
 }
