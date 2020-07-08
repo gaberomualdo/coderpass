@@ -6,4 +6,63 @@
   bottom: 0;
 
   padding: 0.5rem;
+
+  zoom: 95%;
+}
+
+.tab_select > .bottom_area > p {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.tab_select > .bottom_area a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.tab_select > .bottom_area > p > a {
+  --link-color: #41a8ff;
+
+  color: var(--link-color);
+  border-bottom: 1px dotted var(--link-color);
+  user-select: text;
+}
+.tab_select > .bottom_area > p > a:hover::selection {
+  border-bottom-style: solid;
+  background-color: var(--link-color);
+  color: #ffffff;
+}
+.tab_select > .bottom_area > p > a:hover {
+  border-bottom-style: solid;
+}
+
+.tab_select > .bottom_area > div.links {
+  display: flex;
+}
+.tab_select > .bottom_area > div.links > a {
+  flex-basis: 100%;
+  flex-shrink: 1;
+  box-sizing: border-box;
+  padding: 0.5rem 0.25rem;
+  background-color: #ffffff;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.02rem;
+  color: var(--dark-color);
+  font-size: 0.9rem;
+  line-height: 1;
+
+  border-radius: 4px;
+  border: 1px solid var(--submedium-color);
+}
+.tab_select > .bottom_area > div.links > a {
+  transition: background-color 0.2s ease-in-out;
+}
+.tab_select > .bottom_area > div.links > a:hover {
+  background-color: var(--submedium-color);
+}
+
+.tab_select > .bottom_area > div.links > a:not(:last-child) {
+  margin-right: 0.5rem;
 }

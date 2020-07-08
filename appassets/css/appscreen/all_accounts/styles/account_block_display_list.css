@@ -9,7 +9,7 @@ div.tab.all_accounts > ul.accounts > div.account > section.display ul {
 
 /* left border for the original list only if that list contains subobject(s) */
 div.tab.all_accounts > ul.accounts > div.account > section.display > ul.has_subobj {
-  border-left: 1px solid #e1e1e1;
+  border-left: 1px solid #e2e7e9;
 }
 
 /* expand/retract functionality */
@@ -19,7 +19,7 @@ div.tab.all_accounts > ul.accounts > div.account > section.display ul:not(.open)
 
 /* list within list styles */
 div.tab.all_accounts > ul.accounts > div.account > section.display ul ul {
-  border-left: 1px solid #e1e1e1;
+  border-left: 1px solid #e2e7e9;
 }
 
 /* key+value list item */
