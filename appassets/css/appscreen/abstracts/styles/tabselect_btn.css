@@ -1,3 +1,4 @@
+/* tab select buttons */
 .tab_select > li {
   --tabselect-btn-height: 2.5rem;
   --tabselect-btn-vertical-padding: 0.25rem;
@@ -11,7 +12,15 @@
   width: 100%;
   overflow: hidden;
   padding: var(--tabselect-btn-vertical-padding) 1.4rem var(--tabselect-btn-vertical-padding) 0.75rem;
+  cursor: default;
 }
+
+/* button when active */
+.tab_select > li.active {
+  background-color: var(--submedium-color);
+}
+
+/* button icon and text */
 .tab_select > li > * {
   display: block;
   float: left;
@@ -21,7 +30,7 @@
   line-height: var(--tabselect-btn-height);
 }
 
-/* icon */
+/* button icon */
 .tab_select > li > div.icon {
   width: var(--icon-width);
   padding: 0.65rem;
@@ -34,6 +43,7 @@
   fill: var(--dark-color);
 }
 
+/* button text */
 .tab_select > li > h2 {
   width: calc(100% - var(--icon-width) - var(--icon-margin));
   white-space: nowrap;

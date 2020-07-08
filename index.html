@@ -35,7 +35,7 @@
     <!-- container DIV — contains entire app (doesn't display until document is fully loaded and JavaScript is working) -->
     <div class="container loading">
       <!-- authentication screen to enter master password and open password vault, or create one -->
-      <div class="auth">
+      <div class="auth active">
         <!-- form for entering vault (vault already created) -->
         <div class="form enter_vault">
           <h1>Enter Vault</h1>
@@ -91,7 +91,7 @@
       </div>
 
       <!-- app screen to view, edit, and save passwords in password vault -->
-      <div class="app" style="display: none;">
+      <div class="app">
         <!-- tab select btns -->
         <ul class="tab_select">
           <!-- exit vault container and button -->
@@ -152,7 +152,7 @@
         <!-- tabs -->
         <div class="tabs">
           <!-- all accounts tab -->
-          <div class="tab all_accounts active">
+          <div class="tab all_accounts">
             <!-- navbar — top area with description and search bar -->
             <nav>
               <h1 class="title"><span class="all">Accounts</span><span class="searching">Search Results</span></h1>
@@ -227,6 +227,7 @@
     <!-- appscreen -->
     <script src="appassets/js/appscreen/abstracts/vault_vars.js"></script>
     <script src="appassets/js/appscreen/abstracts/open_appscreen.js"></script>
+    <script src="appassets/js/appscreen/abstracts/tabs_functionality.js"></script>
     <script src="appassets/js/appscreen/abstracts/tab_resize.js"></script>
 
     <!-- all accounts tab -->

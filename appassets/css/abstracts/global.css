@@ -57,3 +57,9 @@ body {
   display: flex;
   justify-content: center;
 }
+
+/* screen active */
+body > div.container > .auth:not(.active),
+body > div.container > .app:not(.active) {
+  display: none;
+}
