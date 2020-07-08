@@ -1,5 +1,5 @@
 /* cursor resize area to resize tabselect width */
-.tab_resize {
+div.tab_resize {
   --resize-width: 0.375rem;
 
   height: 100%;

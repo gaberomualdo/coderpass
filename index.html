@@ -94,17 +94,19 @@
       <div class="app" style="display: none;">
         <!-- tab select btns -->
         <ul class="tab_select">
-          <!-- exit vault button -->
-          <button
-            class="exit_vault default_style_button with_hover with_icon"
-            aria-label="Exit Vault"
-            data-balloon-pos="right"
-            onclick="window.location.reload();"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-              <path d="M0 12l9-8v6h15v4h-15v6z" />
-            </svg>
-          </button>
+          <!-- exit vault container and button -->
+          <div class="exit_vault_container">
+            <button
+              class="exit_vault default_style_button with_hover with_icon"
+              aria-label="Exit Vault"
+              data-balloon-pos="right"
+              onclick="window.location.reload();"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M0 12l9-8v6h15v4h-15v6z" />
+              </svg>
+            </button>
+          </div>
 
           <!-- tab buttons -->
           <li class="tab_btn all_accounts">
@@ -135,6 +137,11 @@
             </div>
             <h2>Settings</h2>
           </li>
+
+          <!-- bottom area with contributors, social links, etc. -->
+          <div class="bottom_area">
+            <p>fdsafdsafdsa</p>
+          </div>
         </ul>
 
         <!-- resize width of tabselect container -->

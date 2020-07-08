@@ -1,0 +1,9 @@
+div.tab_select > .bottom_area {
+  box-sizing: border-box;
+
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+
+  padding: 0.5rem;
+}
