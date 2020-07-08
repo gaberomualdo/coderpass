@@ -2,7 +2,7 @@
 div.tab.all_accounts > ul.accounts > div.account > div.buttons {
   position: absolute;
   right: 0;
-  top: 2rem;
+  top: 1.5rem;
 }
 
 /* account btn */
@@ -13,15 +13,9 @@ div.tab.all_accounts > ul.accounts > div.account > div.buttons > button {
 
 /* edit btn, transitions, and icon styles */
 div.tab.all_accounts > ul.accounts > div.account > div.buttons > button.edit {
-  transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out,
-    fill 0.2s ease-in-out;
+  transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out, fill 0.2s ease-in-out;
 }
-div.tab.all_accounts
-  > ul.accounts
-  > div.account
-  > div.buttons
-  > button.edit
-  > svg {
+div.tab.all_accounts > ul.accounts > div.account > div.buttons > button.edit > svg {
   transition: opacity 0.2s ease-in-out;
   opacity: 1;
   position: absolute;
