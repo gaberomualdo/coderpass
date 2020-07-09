@@ -4,7 +4,6 @@
 }
 
 /* global styles */
-
 * {
   margin: 0;
   padding: 0;
@@ -30,12 +29,16 @@ body,
 html {
   font-size: 16px;
 }
+html,
+body {
+  font-size: 14px;
+}
 
 /* style container */
 body > div.container {
   display: block;
   width: 100%;
-  --container-height: calc(100vh - 2.5rem);
+  --container-height: calc((100vh - 2.5rem));
   height: var(--container-height);
   margin-top: 2.5rem;
   position: relative;

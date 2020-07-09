@@ -20,7 +20,7 @@ div.tab.all_accounts > ul.accounts > div.account > section.edit > div.editor_con
 
 /* focused style, .focused class toggled with JS */
 div.tab.all_accounts > ul.accounts > div.account > section.edit > div.editor_container.focused {
-  border-color: var(--dark-color);
+  border-color: var(--medium-color);
 }
 
 /* editor styles */
