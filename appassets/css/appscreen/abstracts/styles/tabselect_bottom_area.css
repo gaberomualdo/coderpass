@@ -1,6 +1,8 @@
 .tab_select > .bottom_area {
   box-sizing: border-box;
 
+  user-select: none;
+
   width: 100%;
   position: absolute;
   bottom: 0;
@@ -22,19 +24,15 @@
 }
 
 .tab_select > .bottom_area > p > a {
-  --link-color: #41a8ff;
+  --link-color: #2d9fff;
+  --link-light-color: #5bb4ff;
 
-  color: var(--link-color);
-  border-bottom: 1px dotted var(--link-color);
-  user-select: text;
-}
-.tab_select > .bottom_area > p > a:hover::selection {
-  border-bottom-style: solid;
-  background-color: var(--link-color);
-  color: #ffffff;
+  color: var(--link-light-color);
+  border-bottom: 1px solid #b7deff;
 }
 .tab_select > .bottom_area > p > a:hover {
-  border-bottom-style: solid;
+  color: var(--link-color);
+  border-color: var(--link-light-color);
 }
 
 .tab_select > .bottom_area > div.links {
@@ -61,6 +59,13 @@
 }
 .tab_select > .bottom_area > div.links > a:hover {
   background-color: var(--submedium-color);
+}
+
+div.auth > div.form > p:last-child > a {
+  color: var(--regular-color);
+  text-decoration: none;
+  cursor: pointer;
+  border-bottom: 1px solid var(--light-color);
 }
 
 .tab_select > .bottom_area > div.links > a:not(:last-child) {
