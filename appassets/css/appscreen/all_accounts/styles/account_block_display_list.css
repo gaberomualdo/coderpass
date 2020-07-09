@@ -50,6 +50,7 @@ div.tab.all_accounts > ul.accounts > div.account > section.display ul > li.less_
 /* sub-object label within list item and functionality */
 div.tab.all_accounts > ul.accounts > div.account > section.display ul > li.subobj_label {
   cursor: pointer;
+  user-select: none;
 
   /* add expand btn icon */
   background-image: url('../../../../img/arrowright.png'), url('../../../../img/arrowdown.png');
