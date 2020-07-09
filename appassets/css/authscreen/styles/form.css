@@ -7,6 +7,8 @@ div.auth > div.form {
   box-shadow: 0 0.75rem 2rem var(--shadow-color);
   width: 350px;
   border-radius: 4px;
+  margin-bottom: calc((100vh - var(--container-height)) / 2 + 1.5vh);
+  transform: scale(1.05);
 }
 
 /* form header */
