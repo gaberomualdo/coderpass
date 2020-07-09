@@ -5,7 +5,7 @@ div.tab.all_accounts > ul.accounts {
 
 /* account block */
 div.tab.all_accounts > ul.accounts > div.account {
-  padding: 1.5rem 0;
+  padding: 2rem 0;
   position: relative;
   border-bottom: 1px solid var(--light-color);
 }
