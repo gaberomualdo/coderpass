@@ -1,8 +1,4 @@
 /* tooltip fixes */
-[data-balloon-pos] {
-  zoom: 100%;
-}
-
 [data-balloon-pos]:after,
 [data-balloon-pos]:before {
   backface-visibility: hidden;
