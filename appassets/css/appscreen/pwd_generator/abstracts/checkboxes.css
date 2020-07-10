@@ -1,0 +1,79 @@
+div.tab.pwd_generator .main .checkboxes {
+  list-style: none;
+  overflow: hidden;
+}
+
+div.tab.pwd_generator .main .checkboxes .col {
+  display: block;
+  float: left;
+  width: 50%;
+}
+
+div.tab.pwd_generator .main .checkboxes .col:first-child li:last-child,
+div.tab.pwd_generator .main .checkboxes .col:last-child li:first-child {
+  text-align: center;
+}
+
+div.tab.pwd_generator .main .checkboxes .col:last-child li:last-child {
+  text-align: right;
+}
+
+div.tab.pwd_generator .main .checkboxes li {
+  --checkboxes-height: 1.85rem;
+  padding: 0.5rem 0;
+  box-sizing: border-box;
+  height: calc(var(--checkboxes-height) + 1rem);
+  font-size: 0;
+  display: block;
+  float: left;
+  width: 50%;
+}
+
+@media only screen and (max-width: 1400px) {
+  div.tab.pwd_generator .main .checkboxes .col {
+    display: block;
+    float: left;
+    width: auto;
+  }
+  div.tab.pwd_generator .main .checkboxes .col:last-child {
+    float: right;
+  }
+  div.tab.pwd_generator .main .checkboxes li {
+    display: block;
+    text-align: left !important;
+    clear: both;
+    width: auto;
+  }
+}
+
+div.tab.pwd_generator .main .checkboxes li > * {
+  display: inline-block;
+  vertical-align: top;
+}
+
+div.tab.pwd_generator .main .checkboxes li div.checkbox {
+  box-sizing: border-box;
+  height: var(--checkboxes-height);
+  width: var(--checkboxes-height);
+  border-radius: 4px;
+  border: 2px solid var(--submedium-color);
+  transition: border-color 0.2s ease-in-out, background-image 0.2s ease-in-out;
+  cursor: pointer;
+  user-select: none;
+}
+div.tab.pwd_generator .main .checkboxes li div.checkbox:hover,
+div.tab.pwd_generator .main .checkboxes li div.checkbox.checked {
+  border-color: var(--dark-color);
+}
+div.tab.pwd_generator .main .checkboxes li div.checkbox.checked {
+  background-image: url(../../../../img/check.png), linear-gradient(var(--dark-color), var(--dark-color));
+  background-size: calc(var(--checkboxes-height) * 0.6) auto, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, repeat;
+}
+
+div.tab.pwd_generator .main .checkboxes li span {
+  font-size: 1.2rem;
+  line-height: var(--checkboxes-height);
+  margin-left: 0.75rem;
+}

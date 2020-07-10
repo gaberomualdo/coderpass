@@ -51,7 +51,7 @@ const getHTMLOfPropertiesSection = (properties) => {
   Object.keys(properties).forEach((propertyName) => {
     const propertyValue = properties[propertyName];
     if (typeof propertyValue == 'object') {
-      nameHTML = "<p class='name'>" + propertyName + ':</p>';
+      let nameHTML = "<p class='name'>" + propertyName + ':</p>';
 
       if (Array.isArray(properties)) {
         let nameInner = '{...}';
