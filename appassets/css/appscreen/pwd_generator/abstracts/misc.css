@@ -3,7 +3,7 @@ div.tab.pwd_generator .main {
 }
 
 div.tab.pwd_generator .main .row {
-  display: block;
+  display: flex;
   clear: both;
   margin-top: 3rem;
 }
