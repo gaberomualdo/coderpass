@@ -31,7 +31,7 @@ const getHTMLOfPropertiesSection = (properties) => {
       propertyValue +
       "</span><span class='hidden'>" +
       '&bull;'.repeat(propertyValue.length) +
-      "</span></p><button class='copy_property_btn' onclick='updateTooltipPosForCopyPropertyBtn(this);eventCopyPropertyValueBtn(this);' aria-label='Copied!'>" +
+      "</span></p><button class='copy_property_btn default_style_copy_btn' onclick='updateTooltipPosForCopyPropertyBtn(this);eventCopyPropertyValueBtn(this);' aria-label='Copied!'>" +
       copyClipboardSVG +
       '</button></li>';
   };

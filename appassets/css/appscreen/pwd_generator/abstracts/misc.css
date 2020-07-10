@@ -1,3 +1,14 @@
 div.tab.pwd_generator .main {
   margin-top: 2rem;
 }
+
+div.tab.pwd_generator .main .row {
+  display: block;
+  clear: both;
+  margin-top: 3rem;
+}
+div.tab.pwd_generator .main .row:after {
+  content: '';
+  clear: both;
+  display: table;
+}

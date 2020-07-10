@@ -2,4 +2,5 @@
 @import 'abstracts/checkboxes.css';
 @import 'abstracts/password_length.css';
 @import 'abstracts/generate_password.css';
+@import 'abstracts/copy_password_btn.css';
 @import 'abstracts/tip.css';

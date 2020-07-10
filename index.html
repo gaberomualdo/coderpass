@@ -243,16 +243,30 @@
                 <input type="number" value="16" class="default_style_code" oninput="validatePwdLengthInput(this)" />
               </div>
 
-              <div class="generate_input">
-                <button class="generate">
+              <div class="row">
+                <div class="generate_input">
+                  <button class="generate">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                      <path
+                        d="M12.451 17.337l-2.451 2.663h-2v2h-2v2h-6v-5l6.865-6.949c1.08 2.424 3.095 4.336 5.586 5.286zm11.549-9.337c0 4.418-3.582 8-8 8s-8-3.582-8-8 3.582-8 8-8 8 3.582 8 8zm-3-3c0-1.104-.896-2-2-2s-2 .896-2 2 .896 2 2 2 2-.896 2-2z"
+                      />
+                    </svg>
+                    <span>Generate Password</span>
+                  </button>
+                  <input
+                    type="text"
+                    class="default_style_code"
+                    placeholder="Password Will Appear Here"
+                    onclick="this.setSelectionRange(0, this.value.length)"
+                  />
+                </div>
+                <button class="copy_pwd_btn default_style_copy_btn" data-balloon-pos="down" aria-label="Copied!">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                     <path
-                      d="M12.451 17.337l-2.451 2.663h-2v2h-2v2h-6v-5l6.865-6.949c1.08 2.424 3.095 4.336 5.586 5.286zm11.549-9.337c0 4.418-3.582 8-8 8s-8-3.582-8-8 3.582-8 8-8 8 3.582 8 8zm-3-3c0-1.104-.896-2-2-2s-2 .896-2 2 .896 2 2 2 2-.896 2-2z"
+                      d="M21 2h-19v19h-2v-21h21v2zm3 2v20h-20v-20h20zm-2 2h-1.93c-.669 0-1.293.334-1.664.891l-1.406 2.109h-6l-1.406-2.109c-.371-.557-.995-.891-1.664-.891h-1.93v16h16v-16zm-3 6h-10v1h10v-1zm0 3h-10v1h10v-1zm0 3h-10v1h10v-1z"
                     />
                   </svg>
-                  <span>Generate Password</span>
                 </button>
-                <input type="text" class="default_style_code" disabled="false" placeholder="Password Will Appear Here" />
               </div>
 
               <div class="tip">
@@ -330,9 +344,11 @@
 
     <!-- password generator tab -->
     <script src="appassets/js/appscreen/pwd_generator/abstracts/checkboxes.js"></script>
+    <script src="appassets/js/appscreen/pwd_generator/abstracts/validate_pwd_input.js"></script>
     <script src="appassets/js/appscreen/pwd_generator/abstracts/validate_pwd_length_input.js"></script>
     <script src="appassets/js/appscreen/pwd_generator/abstracts/generate_pwd.js"></script>
     <script src="appassets/js/appscreen/pwd_generator/abstracts/generate_pwd_btn.js"></script>
+    <script src="appassets/js/appscreen/pwd_generator/abstracts/copy_pwd_btn.js"></script>
 
     <!-- automatically open vault and switch to right tab for development purposes -->
     <script>
