@@ -1,0 +1,29 @@
+div.tab.pwd_generator .main .tip {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0;
+}
+div.tab.pwd_generator .main .tip > * {
+  display: inline-block;
+  vertical-align: top;
+  height: 2rem;
+  line-height: 2rem;
+  font-size: 1rem;
+}
+
+div.tab.pwd_generator .main .tip > svg {
+  margin-right: 0.5rem;
+  fill: #f1c40f;
+}
+
+div.tab.pwd_generator .main .tip > p {
+  opacity: 0.75;
+}
+
+div.tab.pwd_generator .main .tip code {
+  display: inline-block;
+  vertical-align: baseline;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  margin: 0 0.25rem;
+}

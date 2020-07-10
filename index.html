@@ -239,13 +239,20 @@
               </ul>
 
               <div class="password_length">
-                <p>Enter Password Length:</p>
-                <input type="number" class="default_style_code" oninput="validatePwdLength(this)" />
+                <p>Password Length:</p>
+                <input type="number" value="16" class="default_style_code" oninput="validatePwdLength(this)" />
               </div>
 
               <div class="generate_input">
-                <button class="generate">Generate Password</button>
-                <input type="text" disabled="true" placeholder="Password Will Appear Here" />
+                <button class="generate">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path
+                      d="M12.451 17.337l-2.451 2.663h-2v2h-2v2h-6v-5l6.865-6.949c1.08 2.424 3.095 4.336 5.586 5.286zm11.549-9.337c0 4.418-3.582 8-8 8s-8-3.582-8-8 3.582-8 8-8 8 3.582 8 8zm-3-3c0-1.104-.896-2-2-2s-2 .896-2 2 .896 2 2 2 2-.896 2-2z"
+                    />
+                  </svg>
+                  <span>Generate Password</span>
+                </button>
+                <input type="text" class="default_style_code" disabled="false" placeholder="Password Will Appear Here" />
               </div>
 
               <div class="tip">
@@ -255,8 +262,8 @@
                   />
                 </svg>
                 <p>
-                  Tip: Press <code class="default_style_code">CMD+SHIFT+V</code> in any tab to paste a randomly generated password with the current
-                  settings.
+                  tip:&nbsp;&nbsp;press <code class="default_style_code">CMD+SHIFT+V</code> in any tab to generate and paste a password with the
+                  current settings.
                 </p>
               </div>
             </div>
@@ -323,6 +330,7 @@
 
     <!-- password generator tab -->
     <script src="appassets/js/appscreen/pwd_generator/abstracts/checkboxes.js"></script>
+    <script src="appassets/js/appscreen/pwd_generator/abstracts/validate_pwd_length.js"></script>
 
     <!-- automatically open vault and switch to right tab for development purposes -->
     <script>
