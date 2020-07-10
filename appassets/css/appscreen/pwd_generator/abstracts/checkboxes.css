@@ -27,6 +27,7 @@ div.tab.pwd_generator .main .checkboxes li {
   display: block;
   float: left;
   width: 50%;
+  user-select: none;
 }
 
 @media only screen and (max-width: 1400px) {
@@ -57,23 +58,24 @@ div.tab.pwd_generator .main .checkboxes li div.checkbox {
   width: var(--checkboxes-height);
   border-radius: 4px;
   border: 2px solid var(--submedium-color);
-  transition: border-color 0.2s ease-in-out, background-image 0.2s ease-in-out;
+  transition: border-color 0.2s ease-in-out;
   cursor: pointer;
-  user-select: none;
-}
-div.tab.pwd_generator .main .checkboxes li div.checkbox:hover,
-div.tab.pwd_generator .main .checkboxes li div.checkbox.checked {
-  border-color: var(--dark-color);
 }
 div.tab.pwd_generator .main .checkboxes li div.checkbox.checked {
+  border: none;
+  border-color: var(--submedium-color);
   background-image: url(../../../../img/check.png), linear-gradient(var(--dark-color), var(--dark-color));
   background-size: calc(var(--checkboxes-height) * 0.6) auto, cover;
   background-position: center, center;
   background-repeat: no-repeat, repeat;
 }
+div.tab.pwd_generator .main .checkboxes li div.checkbox:hover {
+  border-color: var(--dark-color);
+}
 
 div.tab.pwd_generator .main .checkboxes li span {
   font-size: 1.2rem;
   line-height: var(--checkboxes-height);
-  margin-left: 0.75rem;
+  padding-left: 0.75rem;
+  cursor: pointer;
 }
