@@ -4,7 +4,6 @@
 
   checkboxes.concat(checkboxLabels).forEach((btn) => {
     btn.addEventListener('click', () => {
-      console.log('checkbox btn clicked');
       btn.parentElement.querySelector('.checkbox').classList.toggle('checked');
     });
   });

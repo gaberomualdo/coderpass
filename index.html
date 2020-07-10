@@ -218,21 +218,21 @@
               <ul class="checkboxes">
                 <div class="col">
                   <li>
-                    <div class="checkbox checked"></div>
+                    <div class="checkbox checked lowercase"></div>
                     <span>Include Lowercase Letters</span>
                   </li>
                   <li>
-                    <div class="checkbox checked"></div>
+                    <div class="checkbox checked uppercase"></div>
                     <span>Include Uppercase Letters</span>
                   </li>
                 </div>
                 <div class="col">
                   <li>
-                    <div class="checkbox checked"></div>
+                    <div class="checkbox checked nums"></div>
                     <span>Include Numbers</span>
                   </li>
                   <li>
-                    <div class="checkbox checked"></div>
+                    <div class="checkbox checked special_chars"></div>
                     <span>Include Special Characters</span>
                   </li>
                 </div>
@@ -240,7 +240,7 @@
 
               <div class="password_length">
                 <p>Password Length:</p>
-                <input type="number" value="16" class="default_style_code" oninput="validatePwdLength(this)" />
+                <input type="number" value="16" class="default_style_code" oninput="validatePwdLengthInput(this)" />
               </div>
 
               <div class="generate_input">
@@ -330,7 +330,9 @@
 
     <!-- password generator tab -->
     <script src="appassets/js/appscreen/pwd_generator/abstracts/checkboxes.js"></script>
-    <script src="appassets/js/appscreen/pwd_generator/abstracts/validate_pwd_length.js"></script>
+    <script src="appassets/js/appscreen/pwd_generator/abstracts/validate_pwd_length_input.js"></script>
+    <script src="appassets/js/appscreen/pwd_generator/abstracts/generate_pwd.js"></script>
+    <script src="appassets/js/appscreen/pwd_generator/abstracts/generate_pwd_btn.js"></script>
 
     <!-- automatically open vault and switch to right tab for development purposes -->
     <script>

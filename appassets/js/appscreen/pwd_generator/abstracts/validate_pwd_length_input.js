@@ -1,13 +1,10 @@
-const validatePwdLength = (input) => {
+const validatePwdLengthInput = (input) => {
   const min = 0;
   const max = 9999;
 
   const rawVal = input.value.toString();
 
   if (rawVal.includes('e')) {
-    return (input.value = min);
-  }
-  if (rawVal.length <= 0) {
     return (input.value = min);
   }
 
