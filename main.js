@@ -8,7 +8,7 @@
 global.APP_VERSION = '0.1.0';
 
 // get required modules from electron
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, Menu, BrowserWindow, ipcMain } = require('electron');
 
 // get Node.js modules used in app
 const fs = require('fs');
@@ -55,7 +55,113 @@ function createWindow() {
 }
 
 // create window
-app.on('ready', createWindow);
+app.on('ready', () => {
+  createWindow();
+
+  const isMac = process.platform === 'darwin';
+
+  const template = [
+    // { role: 'appMenu' }
+    ...(isMac
+      ? [
+          {
+            label: app.name,
+            submenu: [
+              { role: 'about', label: 'About JSON Password Manager' },
+              { type: 'separator' },
+              { role: 'hide' },
+              { role: 'hideothers' },
+              { role: 'unhide' },
+              { type: 'separator' },
+              { role: 'quit', label: 'Quit JSON Password Manager' },
+            ],
+          },
+        ]
+      : []),
+    // { role: 'fileMenu' }
+    {
+      label: 'File',
+      submenu: [isMac ? { role: 'close' } : { role: 'quit' }],
+    },
+    // { role: 'editMenu' }
+    {
+      label: 'Edit',
+      submenu: [
+        { role: 'undo' },
+        { role: 'redo' },
+        { type: 'separator' },
+        { role: 'cut' },
+        { role: 'copy' },
+        { role: 'paste' },
+        ...(isMac
+          ? [
+              { role: 'delete' },
+              { role: 'selectAll' },
+              { type: 'separator' },
+              {
+                label: 'Speech',
+                submenu: [{ role: 'startspeaking' }, { role: 'stopspeaking' }],
+              },
+            ]
+          : [{ role: 'delete' }, { type: 'separator' }, { role: 'selectAll' }]),
+      ],
+    },
+    // { role: 'viewMenu' }
+    {
+      label: 'View',
+      submenu: [
+        { role: 'toggledevtools' },
+        { type: 'separator' },
+        { role: 'resetzoom' },
+        { role: 'zoomin' },
+        { role: 'zoomout' },
+        { type: 'separator' },
+        { role: 'togglefullscreen' },
+      ],
+    },
+
+    // Vault
+    {
+      label: 'Vault',
+      submenu: [
+        { type: 'normal', label: 'Exit Vault', accelerator: 'CmdOrCtrl+E' },
+        { type: 'normal', label: 'Download Vault Datafile', accelerator: 'CmdOrCtrl+D' },
+      ],
+    },
+
+    // Accounts
+    {
+      label: 'Accounts',
+      submenu: [
+        { type: 'normal', label: 'Add Account', accelerator: 'CmdOrCtrl+N' },
+        { type: 'checkbox', label: 'Hide Passwords', checked: true, accelerator: 'CmdOrCtrl+Shift+H' },
+      ],
+    },
+
+    // Password Generator
+    {
+      label: 'Password Generator',
+      submenu: [{ type: 'normal', label: 'Generate and Paste Password', accelerator: 'CmdOrCtrl+Shift+V' }],
+    },
+
+    // { role: 'windowMenu' }
+    {
+      label: 'Window',
+      submenu: [
+        { role: 'minimize' },
+        { role: 'zoom' },
+        ...(isMac ? [{ type: 'separator' }, { role: 'front' }, { type: 'separator' }, { role: 'window' }] : [{ role: 'close' }]),
+      ],
+    },
+    {
+      role: 'help',
+      submenu: [],
+    },
+  ];
+
+  const menu = Menu.buildFromTemplate(template);
+  Menu.setApplicationMenu(menu);
+});
 
 // quit when all windows are closed
 app.on('window-all-closed', () => {

@@ -14,7 +14,7 @@
   });
 
   const maxTabselectWidth = remToPx(25);
-  const minTabselectWidth = remToPx(10);
+  const minTabselectWidth = remToPx(12.5);
   document.addEventListener('mousemove', (e) => {
     if (isResizing) {
       document.documentElement.style.cursor = 'col-resize';
