@@ -10,6 +10,9 @@ const { dialog } = remote;
 // get shell module for opening URLs with default browser, etc.
 const { shell } = require('electron');
 
+// get Menu class for setting application menu
+const { Menu } = remote.require('electron');
+
 // get used modules and store in vars
 
 // get fs module from remote module to read and write from filesystem

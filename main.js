@@ -1,3 +1,8 @@
+// useful functions
+const toRawData = function (obj) {
+  return JSON.parse(JSON.stringify(obj));
+};
+
 /*
     This is the JS entry point file for the application.
     It handles the Node.js and server-side parts of the app,
@@ -8,7 +13,7 @@
 global.APP_VERSION = '0.1.0';
 
 // get required modules from electron
-const { app, Menu, BrowserWindow, ipcMain } = require('electron');
+const { app, Menu, MenuItem, BrowserWindow, ipcMain } = require('electron');
 
 // get Node.js modules used in app
 const fs = require('fs');
@@ -55,12 +60,15 @@ function createWindow() {
 }
 
 // create window
+let curAppMenuTemplate;
+let defaultAppMenuTemplate;
 app.on('ready', () => {
   createWindow();
 
   const isMac = process.platform === 'darwin';
+  const isInDevelopment = process.mainModule.filename.indexOf('app.asar') === -1;
 
-  const template = [
+  curAppMenuTemplate = [
     // { role: 'appMenu' }
     ...(isMac
       ? [
@@ -120,6 +128,20 @@ app.on('ready', () => {
       ],
     },
 
+    // Developer Tools (only in development mode)
+    ...(isInDevelopment
+      ? [
+          {
+            label: 'Developer',
+            submenu: [
+              { type: 'normal', label: 'Note: this tab will not be displayed in production', enabled: false },
+              { role: 'toggledevtools' },
+              { role: 'reload' },
+            ],
+          },
+        ]
+      : []),
+
     // Vault
     {
       label: 'Vault',
@@ -135,6 +157,8 @@ app.on('ready', () => {
       submenu: [
         { type: 'normal', label: 'Add Account', accelerator: 'CmdOrCtrl+N' },
         { type: 'checkbox', label: 'Hide Passwords', checked: true, accelerator: 'CmdOrCtrl+Shift+H' },
+        { type: 'separator' },
+        { type: 'normal', label: 'Your Accounts', enabled: false },
       ],
     },
 
@@ -159,8 +183,11 @@ app.on('ready', () => {
     },
   ];
 
-  const menu = Menu.buildFromTemplate(template);
-  Menu.setApplicationMenu(menu);
+  const appMenu = Menu.buildFromTemplate(curAppMenuTemplate);
+  Menu.setApplicationMenu(appMenu);
+
+  // remove any object references
+  defaultAppMenuTemplate = toRawData(curAppMenuTemplate);
 });
 
 // quit when all windows are closed
@@ -176,4 +203,29 @@ app.on('activate', () => {
   if (window === null) {
     createWindow();
   }
+});
+
+// send default application menu when requested
+ipcMain.on('set-accounts-menu', (e, { accountNames }) => {
+  let tabIdx = 0;
+  curAppMenuTemplate.forEach((curTab, curTabIdx) => {
+    if (curTab.label && curTab.label === 'Accounts') {
+      tabIdx = curTabIdx;
+    }
+  });
+
+  // set Accounts tab to original state
+  curAppMenuTemplate[tabIdx] = toRawData(defaultAppMenuTemplate[tabIdx]);
+
+  // add account names to tab
+  accountNames.forEach((name) => {
+    curAppMenuTemplate[tabIdx].submenu.push({ label: name });
+  });
+
+  // set app menu
+  let appMenu = Menu.buildFromTemplate(curAppMenuTemplate);
+  Menu.setApplicationMenu(appMenu);
+
+  // send IPC response
+  e.returnValue = true;
 });
