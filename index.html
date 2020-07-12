@@ -285,13 +285,16 @@
       </div>
     </div>
 
-    <!-- ACE.js Script for Code (JSON) Editor -->
-    <script src="appassets/vendors/acejs/ace.js" type="text/javascript" charset="utf-8"></script>
-
     <!-- scripts -->
 
     <!-- abstracts -->
     <script src="appassets/js/abstracts/global.js"></script>
+
+    <!-- Monaco Editor Script for Code (JSON) Editor -->
+    <script src="node_modules/monaco-editor/min/vs/loader.js"></script>
+
+    <script src="appassets/js/abstracts/require_monaco.js"></script>
+
     <script src="appassets/js/abstracts/util_functions.js"></script>
     <script src="appassets/js/abstracts/fs_functions.js"></script>
     <script src="appassets/js/abstracts/encryption_with_fs.js"></script>
@@ -335,7 +338,7 @@
     <script src="appassets/js/appscreen/all_accounts/account_block_abstracts/refresh_account_block.js"></script>
     <script src="appassets/js/appscreen/all_accounts/account_block_abstracts/add_account_block.js"></script>
     <script src="appassets/js/appscreen/all_accounts/account_block_abstracts/copy_property_btn.js"></script>
-    <script src="appassets/js/appscreen/all_accounts/account_block_abstracts/ace_editors.js"></script>
+    <script src="appassets/js/appscreen/all_accounts/account_block_abstracts/code_editors.js"></script>
 
     <script src="appassets/js/appscreen/all_accounts/account_block_btns/account_edit_btn.js"></script>
     <script src="appassets/js/appscreen/all_accounts/account_block_btns/account_remove_btn.js"></script>
@@ -349,20 +352,8 @@
 
     <!-- automatically open vault and switch to right tab for development purposes -->
     <script>
-      // openAppScreen('test');
-      // (() => {
-      //   const activeTabselectBtn = document.querySelector('.tab_select > li.active');
-      //   const activeTab = document.querySelector('.tabs > .tab.active');
-
-      //   if (activeTabselectBtn) {
-      //     activeTabselectBtn.classList.remove('active');
-      //   }
-      //   if (activeTab) {
-      //     activeTab.classList.remove('active');
-      //   }
-      //   document.querySelectorAll('.tab_select > li')[1].classList.add('active');
-      //   document.querySelectorAll('.tabs > .tab')[1].classList.add('active');
-      // })();
+      openAppScreen('test');
+      openTab(0);
     </script>
   </body>
 </html>

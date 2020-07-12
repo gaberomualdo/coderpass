@@ -7,7 +7,8 @@
     "postinstall": "install-app-deps",
     "start": "electron .",
     "pack": "build --dir",
-    "dist": "build"
+    "dist": "build",
+    "build": "cd node_modules/monaco-json/ && npm run compile && npm run prepublishOnly"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,8 @@
     "encrypt-with-password": "^1.0.0",
     "lodash": "^4.17.19",
     "monaco-editor": "^0.20.0",
+    "monaco-json": "^2.9.0",
+    "monaco-languages": "^1.10.0",
     "uuid": "^3.4.0"
   }
 }

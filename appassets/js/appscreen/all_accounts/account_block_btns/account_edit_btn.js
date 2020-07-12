@@ -6,12 +6,12 @@ const eventEditBtn = (accountID) => {
 
   if (accountElement.classList.contains('editing')) {
     const JSONAsString = JSON.stringify(vaultContents.accounts[accountID], null, '    ');
-    refreshAceEditor(accountID, JSONAsString);
+    refreshCodeEditor(accountID, JSONAsString);
 
     //autoResizeTextarea(accountElement.querySelector("section.edit textarea"));
   } else {
     // if not editing, save new value of account JSON from textarea
-    const newAccountContentInJSON = aceeditors[accountID].getValue();
+    const newAccountContentInJSON = codeEditors[accountID].getValue();
     if (isValidJSONString(newAccountContentInJSON)) {
       // new value
       const newAccountContent = JSON.parse(newAccountContentInJSON);

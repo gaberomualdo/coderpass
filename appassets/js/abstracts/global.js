@@ -4,6 +4,13 @@ const { remote } = require('electron');
 // ipc renderer for communicating with main process
 const { ipcRenderer } = require('electron');
 
+// move require to 'nodeRequire' temporarily
+// this is due to an issue with the Monaco editor which
+// overwrites the 'require' variable. The require
+// variable will be restore to the typical Node.js
+// require in require_monaco.js
+global.nodeRequire = require;
+
 // dialog module for dialogs
 const { dialog } = remote;
 

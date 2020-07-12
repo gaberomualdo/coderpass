@@ -7,7 +7,7 @@ const refreshAccountBlock = (accountID) => {
   if (vaultContents.accounts[accountID]) {
     accountElement.querySelector('section.display').outerHTML = getHTMLOfAccountBlock(accountID, true);
   } else {
-    delete aceeditors[accountID];
+    delete codeEditors[accountID];
     accountElement.outerHTML = '';
   }
 

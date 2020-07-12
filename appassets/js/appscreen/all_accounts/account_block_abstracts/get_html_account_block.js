@@ -122,7 +122,7 @@ const getHTMLOfAccountBlock = (accountID, justDisplayHTML) => {
         ${displayHTML}
         <section class="edit">
             <div class="editor_container">
-                <div class="editor" id='aceeditor__${accountID}'></div>
+                <div class="editor" id='codeeditor__${accountID}'></div>
             </div>
         </section>
     </div>
