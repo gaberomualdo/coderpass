@@ -5,7 +5,7 @@ const generatePwd = (options) => {
 
   const lowercaseLetters = 'abcdefghijklmnopqrstuvwxyz'.split('');
   const uppercaseLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-  const specialChars = '!@#$%^&*()_+-=[]\\{}|\'";:,.<>/?'.split('');
+  const specialChars = "!@#$%^&*()_+-=[]{}|';:,.<>/?".split('');
   const nums = '1234567890'.split('');
 
   let availableChars = [];

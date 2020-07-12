@@ -1,7 +1,5 @@
 // useful functions
-const toRawData = function (obj) {
-  return JSON.parse(JSON.stringify(obj));
-};
+const clonedeep = require('lodash/clonedeep');
 
 /*
     This is the JS entry point file for the application.
@@ -13,7 +11,7 @@ const toRawData = function (obj) {
 global.APP_VERSION = '0.1.0';
 
 // get required modules from electron
-const { app, Menu, MenuItem, BrowserWindow, ipcMain } = require('electron');
+const { app, Menu, BrowserWindow, ipcMain } = require('electron');
 
 // get Node.js modules used in app
 const fs = require('fs');
@@ -21,6 +19,7 @@ const fs = require('fs');
 // global window object
 let window;
 
+let updateWindowFocus;
 function createWindow() {
   // window options
   let windowOptions = {
@@ -45,17 +44,20 @@ function createWindow() {
   window.loadFile('index.html');
 
   // set variable for onblur and onfocus
-  let windowIsFocused = false;
+  updateWindowFocus = () => {
+    window.webContents.send('window-focus-change', window.isFocused());
+  };
+
   window.on('focus', () => {
-    windowIsFocused = true;
+    updateWindowFocus();
   });
   window.on('blur', () => {
-    windowIsFocused = false;
+    updateWindowFocus();
   });
 
-  // send focused info as reply to ipc message from renderer process
-  ipcMain.on('is-window-focused', (event) => {
-    event.returnValue = windowIsFocused;
+  ipcMain.on('update-window-focus', (e) => {
+    updateWindowFocus();
+    e.returnValue = '';
   });
 }
 
@@ -77,7 +79,7 @@ app.on('ready', () => {
             submenu: [
               { role: 'about', label: 'About JSON Password Manager' },
               { type: 'separator' },
-              { role: 'hide' },
+              { role: 'hide', label: 'Hide JSON Password Manager' },
               { role: 'hideothers' },
               { role: 'unhide' },
               { type: 'separator' },
@@ -118,7 +120,6 @@ app.on('ready', () => {
     {
       label: 'View',
       submenu: [
-        { role: 'toggledevtools' },
         { type: 'separator' },
         { role: 'resetzoom' },
         { role: 'zoomin' },
@@ -146,8 +147,13 @@ app.on('ready', () => {
     {
       label: 'Vault',
       submenu: [
-        { type: 'normal', label: 'Exit Vault', accelerator: 'CmdOrCtrl+E' },
-        { type: 'normal', label: 'Download Vault Datafile', accelerator: 'CmdOrCtrl+D' },
+        { type: 'normal', label: 'Exit Vault', accelerator: 'CmdOrCtrl+E', click: () => window.webContents.send('menu-exit-vault', '') },
+        {
+          type: 'normal',
+          label: 'Download Vault Datafile',
+          accelerator: 'CmdOrCtrl+D',
+          click: () => window.webContents.send('menu-download-vault-datafile', ''),
+        },
       ],
     },
 
@@ -155,8 +161,14 @@ app.on('ready', () => {
     {
       label: 'Accounts',
       submenu: [
-        { type: 'normal', label: 'Add Account', accelerator: 'CmdOrCtrl+N' },
-        { type: 'checkbox', label: 'Hide Passwords', checked: true, accelerator: 'CmdOrCtrl+Shift+H' },
+        { type: 'normal', label: 'Add Account', accelerator: 'CmdOrCtrl+N', click: () => window.webContents.send('menu-add-account', '') },
+        {
+          type: 'checkbox',
+          label: 'Hide Passwords',
+          checked: false,
+          accelerator: 'CmdOrCtrl+Shift+H',
+          click: () => window.webContents.send('menu-toggle-hide-pwd', ''),
+        },
         { type: 'separator' },
         { type: 'normal', label: 'Your Accounts', enabled: false },
       ],
@@ -165,7 +177,14 @@ app.on('ready', () => {
     // Password Generator
     {
       label: 'Password Generator',
-      submenu: [{ type: 'normal', label: 'Generate and Paste Password', accelerator: 'CmdOrCtrl+Shift+V' }],
+      submenu: [
+        {
+          type: 'normal',
+          label: 'Generate and Paste Password',
+          accelerator: 'CmdOrCtrl+Shift+V',
+          click: () => window.webContents.send('menu-generate-and-paste-pwd', ''),
+        },
+      ],
     },
 
     // { role: 'windowMenu' }
@@ -187,7 +206,7 @@ app.on('ready', () => {
   Menu.setApplicationMenu(appMenu);
 
   // remove any object references
-  defaultAppMenuTemplate = toRawData(curAppMenuTemplate);
+  defaultAppMenuTemplate = clonedeep(curAppMenuTemplate);
 });
 
 // quit when all windows are closed
@@ -205,21 +224,26 @@ app.on('activate', () => {
   }
 });
 
-// send default application menu when requested
-ipcMain.on('set-accounts-menu', (e, { accountNames }) => {
+const getMenuTabIdxForName = (name) => {
   let tabIdx = 0;
   curAppMenuTemplate.forEach((curTab, curTabIdx) => {
-    if (curTab.label && curTab.label === 'Accounts') {
+    if (curTab.label && curTab.label === name) {
       tabIdx = curTabIdx;
     }
   });
+  return tabIdx;
+};
+
+// set accounts tab in app menu to add given accounts items
+ipcMain.on('set-accounts-menu', (e, accounts) => {
+  const tabIdx = getMenuTabIdxForName('Accounts');
 
   // set Accounts tab to original state
-  curAppMenuTemplate[tabIdx] = toRawData(defaultAppMenuTemplate[tabIdx]);
+  curAppMenuTemplate[tabIdx] = clonedeep(defaultAppMenuTemplate[tabIdx]);
 
   // add account names to tab
-  accountNames.forEach((name) => {
-    curAppMenuTemplate[tabIdx].submenu.push({ label: name });
+  accounts.forEach(({ name, id }) => {
+    curAppMenuTemplate[tabIdx].submenu.push({ label: name, click: () => window.webContents.send('menu-show-account', id) });
   });
 
   // set app menu
@@ -227,5 +251,25 @@ ipcMain.on('set-accounts-menu', (e, { accountNames }) => {
   Menu.setApplicationMenu(appMenu);
 
   // send IPC response
-  e.returnValue = true;
+  e.returnValue = '';
+});
+
+// update 'Hide Passwords' checkbox menu item
+ipcMain.on('menu-toggle-hide-pwd', (e) => {
+  const tabIdx = getMenuTabIdxForName('Accounts');
+
+  Menu.getApplicationMenu().items[tabIdx].submenu.items[1].checked = !Menu.getApplicationMenu().items[tabIdx].submenu.items[1].checked;
+
+  e.returnValue = '';
+});
+
+// write text to window web contents
+ipcMain.on('write-text-to-page', (e, text) => {
+  text.split('').forEach((char) => {
+    window.webContents.sendInputEvent({
+      type: 'char',
+      keyCode: char,
+    });
+  });
+  e.returnValue = '';
 });

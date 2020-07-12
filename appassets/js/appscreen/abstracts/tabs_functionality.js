@@ -18,13 +18,17 @@
     document.querySelectorAll('.tabs > .tab')[tabIdx].classList.add('active');
   };
 
+  window.openTab = (tabIdx) => {
+    resetActiveElms();
+    setActive(tabIdx);
+  };
+
   tabSelectBtns.forEach((btn, btnIdx) => {
     btn.addEventListener('click', () => {
-      resetActiveElms();
-      setActive(btnIdx);
+      openTab(btnIdx);
     });
   });
 
   // default is first tab
-  setActive(0);
+  openTab(0);
 })();

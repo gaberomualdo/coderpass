@@ -1,8 +1,11 @@
-setInterval(() => {
-  const windowFocused = ipcRenderer.sendSync("is-window-focused");
+ipcRenderer.on('window-focus-change', (e, windowFocused) => {
   if (windowFocused) {
-    document.body.classList.add("window_focused");
+    document.body.classList.add('window_focused');
   } else {
-    document.body.classList.remove("window_focused");
+    document.body.classList.remove('window_focused');
   }
-}, 16);
+});
+
+window.addEventListener('load', () => {
+  ipcRenderer.send('update-window-focus', '');
+});

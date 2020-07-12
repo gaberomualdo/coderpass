@@ -3,7 +3,7 @@
 // read file
 const readFile = (filename) => {
   // read file using Node.js fs module
-  return fs.readFileSync(filename, "UTF-8", (err, data) => {
+  return fs.readFileSync(filename, 'UTF-8', (err, data) => {
     // log error if error exists
     if (err) console.error(err);
 
@@ -15,7 +15,7 @@ const readFile = (filename) => {
 // write file
 const writeFile = (filename, filedata) => {
   // write file using Node.js fs module
-  fs.writeFile(filename, filedata, "UTF-8", (err) => {
+  fs.writeFile(filename, filedata, 'UTF-8', (err) => {
     // log error if error exists
     if (err) console.error(err);
   });

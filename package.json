@@ -30,6 +30,8 @@
   },
   "dependencies": {
     "encrypt-with-password": "^1.0.0",
+    "lodash": "^4.17.19",
+    "monaco-editor": "^0.20.0",
     "uuid": "^3.4.0"
   }
 }
