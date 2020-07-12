@@ -66,6 +66,75 @@ const refreshCodeEditor = (accountID, value) => {
             .querySelector('section.edit div.editor_container')
             .classList.remove('focused');
         });
+
+        // on change, check for any errors in JSON and show them as tooltip in done editing icon
+        codeEditors[accountID].onDidChangeModelContent(() => {
+          const editorContent = codeEditors[accountID].getValue();
+
+          const errors = [];
+
+          if (!isValidJSONString(editorContent)) {
+            errors.push('Invalid JSON');
+          } else {
+            const parsedEditorContent = JSON.parse(editorContent);
+            if (
+              parsedEditorContent.name != undefined &&
+              parsedEditorContent.properties != undefined &&
+              typeof parsedEditorContent.name == 'string' &&
+              typeof parsedEditorContent.properties == 'object'
+            ) {
+              // save new value in vault
+              vaultContents.accounts[accountID] = parsedEditorContent;
+
+              // refresh database
+              refreshVaultDatabase();
+
+              // refresh account block
+              refreshAccountBlock(accountID);
+            } else {
+              // throw error, and revert back to editing
+              if (parsedEditorContent.name == undefined) {
+                errors.push("Missing: 'name'");
+              } else if (parsedEditorContent.properties == undefined) {
+                errors.push("Missing: 'properties'");
+              } else if (!(typeof parsedEditorContent.name == 'string')) {
+                errors.push("'name' must be a String");
+              } else if (!(typeof parsedEditorContent.properties == 'object')) {
+                errors.push("'properties' must an Object");
+              }
+            }
+          }
+
+          if (errors.length > 0) {
+            document.getElementById('accountid_' + accountID).classList.add('editing_error');
+            document
+              .getElementById('accountid_' + accountID)
+              .querySelector('div.buttons > button.edit')
+              .setAttribute('aria-label', errors.join('\n'));
+            document
+              .getElementById('accountid_' + accountID)
+              .querySelector('div.buttons > button.edit')
+              .setAttribute('data-balloon-pos', 'left');
+            document
+              .getElementById('accountid_' + accountID)
+              .querySelector('div.buttons > button.edit')
+              .setAttribute('disabled', 'true');
+          } else {
+            document.getElementById('accountid_' + accountID).classList.remove('editing_error');
+            document
+              .getElementById('accountid_' + accountID)
+              .querySelector('div.buttons > button.edit')
+              .removeAttribute('aria-label');
+            document
+              .getElementById('accountid_' + accountID)
+              .querySelector('div.buttons > button.edit')
+              .removeAttribute('data-balloon-pos');
+            document
+              .getElementById('accountid_' + accountID)
+              .querySelector('div.buttons > button.edit')
+              .removeAttribute('disabled');
+          }
+        });
       });
     });
   }

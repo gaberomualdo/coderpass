@@ -6,6 +6,10 @@ div.tab {
   scroll-behavior: smooth;
   box-sizing: border-box;
   padding: 1.75rem 3rem;
+  position: relative;
+
+  /* padding is made up for in the nav */
+  padding-top: 0;
 }
 
 div.tab:not(.active) {

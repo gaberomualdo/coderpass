@@ -3,13 +3,14 @@ div.tab > nav {
   border-bottom: 1px solid var(--light-color);
   user-select: none;
   height: 3rem;
-  position: sticky;
   width: 100%;
-  top: 0;
   background-color: #fff;
   z-index: 9999;
   padding: 1rem 0;
-  transition: padding 0.25s, margin-bottom 0.25s;
+  padding-top: 2.75rem;
+  position: sticky;
+  top: 0;
+  transition: padding 0.25s, margin-bottom 0.25s, border-color 0.25s;
   margin-bottom: 0;
 }
 
@@ -28,13 +29,15 @@ div.tab > nav > div.row {
   float: right;
   padding: 0.25rem 0;
   box-sizing: border-box;
-  height: 3rem;
+  height: 2rem;
 }
 
 /* nav not top (toggled with JS) styles */
 div.tab > nav.not_top {
   padding: 0.25rem 0;
-  margin-bottom: 1.5rem;
+  padding-top: 1.5rem;
+  margin-bottom: 2rem;
+  border-bottom-color: var(--submedium-color);
 }
 
 div.tab > nav.not_top > h1.title {
