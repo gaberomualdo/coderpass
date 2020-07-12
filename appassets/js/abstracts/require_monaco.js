@@ -1,6 +1,26 @@
-// move AMD require to new variable
-const amdRequire = global.require;
-global.require = nodeRequire;
+(function () {
+  // some code used from github.com/microsoft/monaco-editor-samples
+  const path = require('path');
+  const amdLoader = require('./node_modules/monaco-editor/min/vs/loader.js');
+  const amdRequire = amdLoader.require;
 
-// configure AMD loader to monaco editor paths
-amdRequire.config({ paths: { vs: 'node_modules/monaco-editor/min/vs' } });
+  function uriFromPath(_path) {
+    var pathName = path.resolve(_path).replace(/\\/g, '/');
+    if (pathName.length > 0 && pathName.charAt(0) !== '/') {
+      pathName = '/' + pathName;
+    }
+    return encodeURI('file://' + pathName);
+  }
+
+  amdRequire.config({
+    baseUrl: uriFromPath(path.join(__dirname, './node_modules/monaco-editor/min')),
+  });
+
+  self.module = undefined;
+
+  window.monacoSandbox = (func) => {
+    amdRequire(['vs/editor/editor.main'], () => {
+      func(amdRequire);
+    });
+  };
+})();

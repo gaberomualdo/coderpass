@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container" style="width: 100%; height: 100vh;"></div>
+    <!-- abstracts -->
+    <script>
+      (function () {
+        const path = require('path');
+        const amdLoader = require('./node_modules/monaco-editor/min/vs/loader.js');
+        const amdRequire = amdLoader.require;
+        const amdDefine = amdLoader.require.define;
+
+        function uriFromPath(_path) {
+          var pathName = path.resolve(_path).replace(/\\/g, '/');
+          if (pathName.length > 0 && pathName.charAt(0) !== '/') {
+            pathName = '/' + pathName;
+          }
+          return encodeURI('file://' + pathName);
+        }
+
+        amdRequire.config({
+          baseUrl: uriFromPath(path.join(__dirname, './node_modules/monaco-editor/min')),
+        });
+
+        // workaround monaco-css not understanding the environment
+        self.module = undefined;
+
+        window.monacoSandbox = (func) => {
+          amdRequire(['vs/editor/editor.main'], func);
+        };
+      })();
+      monacoSandbox(function () {
+        monaco.editor.create(document.querySelector('.container'), {
+          value: JSON.stringify({ test: 'test2' }, null, '\t'),
+          scrollBeyondLastLine: false,
+          theme: 'vs-light',
+          lineNumbers: 'off',
+          roundedSelection: true,
+          fontSize: '15px',
+          automaticLayout: true,
+          dragAndDrop: true,
+          formatOnType: true,
+          copyWithSyntaxHighlighting: false,
+
+          language: 'json',
+
+          scrollbar: {
+            verticalScrollbarSize: 8,
+            horizontalScrollbarSize: 8,
+          },
+
+          // no minimap
+          minimap: {
+            enabled: false,
+          },
+
+          // no context menu
+          contextmenu: false,
+
+          // no overview ruler
+          hideCursorInOverviewRuler: true,
+          overviewRulerBorder: false,
+          overviewRulerLanes: 0,
+        });
+      });
+    </script>
+  </body>
+</html>
