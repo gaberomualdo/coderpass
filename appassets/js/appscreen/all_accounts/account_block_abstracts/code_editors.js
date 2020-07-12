@@ -20,10 +20,10 @@ const refreshCodeEditor = (accountID, value) => {
         codeEditors[accountID] = monaco.editor.create(document.getElementById('codeeditor_' + accountID), {
           value,
           scrollBeyondLastLine: false,
-          theme: 'vs-light',
+          theme: 'vs-dark',
           lineNumbers: 'off',
           roundedSelection: true,
-          fontSize: '15px',
+          fontSize: '14px',
           automaticLayout: true,
           dragAndDrop: true,
           formatOnType: true,
@@ -50,17 +50,20 @@ const refreshCodeEditor = (accountID, value) => {
           overviewRulerLanes: 0,
         });
 
+        // loaded set add loaded attributeto editor
+        document.getElementById('codeeditor_' + accountID).classList.add('loaded');
+
         // add/remove focused attribute of editor container when editor is focused or blurred accordingly
         codeEditors[accountID].onDidFocusEditorWidget(() => {
           document
             .getElementById('accountid_' + accountID)
-            .querySelector('section.edit > div.editor_container')
+            .querySelector('section.edit div.editor_container')
             .classList.add('focused');
         });
         codeEditors[accountID].onDidBlurEditorWidget(() => {
           document
             .getElementById('accountid_' + accountID)
-            .querySelector('section.edit > div.editor_container')
+            .querySelector('section.edit div.editor_container')
             .classList.remove('focused');
         });
       });
