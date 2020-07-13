@@ -34,3 +34,8 @@ div.tab.all_accounts > ul.accounts > div.account.editing.editing_error > div.but
   border-color: var(--red-color);
   cursor: default;
 }
+
+/* any other functionality */
+div.tab.all_accounts > ul.accounts > div.account.editing.editing_error > div.buttons > button.edit {
+  --balloon-color: var(--red-color);
+}

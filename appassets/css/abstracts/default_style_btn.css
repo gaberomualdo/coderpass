@@ -10,14 +10,21 @@
   margin-left: 0.5rem;
   cursor: pointer;
   border: 1px solid var(--submedium-color);
+  --icon-hover-color: var(--dark-color);
 }
 
 /* with hover effect */
 .default_style_button.with_hover {
   transition: background-color 0.2s ease-in-out;
 }
+.default_style_button.with_hover.with_icon > svg {
+  transition: background-color 0.2s ease-in-out, fill 0.2s ease-in-out;
+}
 .default_style_button.with_hover:hover {
   background-color: var(--submedium-color);
+}
+.default_style_button.with_hover.with_icon:hover {
+  fill: var(--icon-hover-color);
 }
 
 /* with icon (svg) in the middle */

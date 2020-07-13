@@ -1,0 +1,5 @@
+div.tab.all_accounts > nav > div.row > button.add_account {
+  fill: #fff !important;
+  background-color: var(--green-color);
+  border-color: var(--green-color);
+}

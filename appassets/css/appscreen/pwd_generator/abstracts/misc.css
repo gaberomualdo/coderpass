@@ -1,3 +1,7 @@
+div.tab.pwd_generator {
+  --balloon-color: var(--blue-color);
+  --icon-hover-color: var(--blue-color);
+}
 div.tab.pwd_generator .main {
   margin-top: 2rem;
 }

@@ -64,13 +64,13 @@ div.tab.pwd_generator .main .checkboxes li div.checkbox {
 div.tab.pwd_generator .main .checkboxes li div.checkbox.checked {
   border: none;
   border-color: var(--submedium-color);
-  background-image: url(../../../../img/check.png), linear-gradient(var(--dark-color), var(--dark-color));
+  background-image: url(../../../../img/check.png), linear-gradient(var(--blue-color), var(--blue-color));
   background-size: calc(var(--checkboxes-height) * 0.6) auto, cover;
   background-position: center, center;
   background-repeat: no-repeat, repeat;
 }
 div.tab.pwd_generator .main .checkboxes li div.checkbox:hover {
-  border-color: var(--dark-color);
+  border-color: var(--blue-color);
 }
 
 div.tab.pwd_generator .main .checkboxes li span {
