@@ -38,6 +38,7 @@ div.topbar_draggable > button.toggle_tabselect {
   position: absolute;
   top: calc((2.65rem - 1rem) / 2);
   left: calc(((2.65rem - 1rem) / 2) + var(--tabselect-width));
+  cursor: default;
 }
 
 div.topbar_draggable > button.toggle_tabselect.tab_select_not_shown {
