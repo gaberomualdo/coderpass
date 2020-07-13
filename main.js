@@ -181,7 +181,7 @@ app.on('ready', () => {
         {
           type: 'normal',
           label: 'Generate and Paste Password',
-          accelerator: 'CmdOrCtrl+Shift+V',
+          accelerator: 'CmdOrCtrl+G',
           click: () => window.webContents.send('menu-generate-and-paste-pwd', ''),
         },
       ],
