@@ -30,8 +30,8 @@ div.tab.all_accounts > ul.accounts > div.account.editing:not(.editing_error) > d
 }
 div.tab.all_accounts > ul.accounts > div.account.editing.editing_error > div.buttons > button.edit {
   fill: #fff;
-  background-color: var(--red-color);
-  border-color: var(--red-color);
+  background-color: var(--red-medium-color);
+  border-color: var(--red-medium-color);
   cursor: default;
 }
 

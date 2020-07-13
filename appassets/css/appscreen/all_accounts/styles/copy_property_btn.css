@@ -2,6 +2,7 @@
 div.tab.all_accounts > ul.accounts > div.account > section.display ul > li > button.copy_property_btn {
   flex-basis: 1rem;
   flex-shrink: 0;
+  --balloon-color: var(--green-color);
 }
 
 /* tooltip fixes */

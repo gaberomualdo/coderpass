@@ -1,3 +1,15 @@
+// encode string by replacing things like '>' with '&gt;'
+const encodeString = (str) => {
+  const replacements = {
+    '>': '&gt;',
+    '<': '&lt;',
+  };
+  for (const [toReplace, replacement] of Object.entries(replacements)) {
+    str = str.split(toReplace).join(replacement);
+  }
+  return str;
+};
+
 // function for getting properties HTML for a given properties object
 const getHTMLOfPropertiesSection = (properties) => {
   let propertiesHTML = '';
@@ -6,7 +18,7 @@ const getHTMLOfPropertiesSection = (properties) => {
     propertyValue = propertyValue.toString();
     propertyName = propertyName.toString();
 
-    let nameHTML = "<p class='name'>" + propertyName + ':</p>';
+    let nameHTML = "<p class='name'>" + encodeString(propertyName) + ':</p>';
 
     let nameClassname = '';
     if ('withName' in options && !options.withName) {
@@ -28,7 +40,7 @@ const getHTMLOfPropertiesSection = (properties) => {
       '">' +
       nameHTML +
       "<p class='value default_style_code'><span class='password'>" +
-      propertyValue +
+      encodeString(propertyValue) +
       "</span><span class='hidden'>" +
       '&bull;'.repeat(propertyValue.length) +
       "</span></p><button class='copy_property_btn default_style_copy_btn' onclick='updateTooltipPosForCopyPropertyBtn(this);eventCopyPropertyValueBtn(this);' aria-label='Copied!'>" +
@@ -51,7 +63,7 @@ const getHTMLOfPropertiesSection = (properties) => {
   Object.keys(properties).forEach((propertyName) => {
     const propertyValue = properties[propertyName];
     if (typeof propertyValue == 'object') {
-      let nameHTML = "<p class='name'>" + propertyName + ':</p>';
+      let nameHTML = "<p class='name'>" + encodeString(propertyName) + ':</p>';
 
       if (Array.isArray(properties)) {
         let nameInner = '{...}';
@@ -116,7 +128,7 @@ const getHTMLOfAccountBlock = (accountID, justDisplayHTML) => {
                 <svg class="done_editing" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
                 <svg class="editing_error" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/></svg>
             </button>
-            <button class="remove default_style_button with_hover with_icon" onclick="eventRemoveBtn('${accountID}', this)" aria-label="Delete Account" data-balloon-pos="down">
+            <button class="remove default_style_button with_hover with_icon" onclick="eventRemoveBtn('${accountID}', this)" aria-label="Delete Account" data-balloon-pos="left">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 6v18h18v-18h-18zm5 14c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm4-18v2h-20v-2h5.711c.9 0 1.631-1.099 1.631-2h5.315c0 .901.73 2 1.631 2h5.712z"/></svg>
             </button>
         </div>

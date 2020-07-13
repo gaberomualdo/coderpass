@@ -13,7 +13,7 @@ div.tab.all_accounts > ul.accounts > div.account > section.edit div.editor_conta
   box-shadow: 0 0.1rem 0.4rem var(--supermedium-color);
   background-color: #1e1e1e;
   transition: box-shadow 0.25s, margin 0.25s;
-  margin-top: 0.25rem;
+  margin-top: 0.15rem;
 
   /* width to compensate for account btns width */
   width: calc(100% - 6.5rem);
@@ -25,7 +25,7 @@ div.tab.all_accounts > ul.accounts > div.account > section.edit div.editor_conta
   border-color: var(--medium-color);
   box-shadow: 0 0.1rem 0.6rem var(--regular-color);
   margin-top: 0;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.15rem;
 }
 
 /* container to add padding to editor */
