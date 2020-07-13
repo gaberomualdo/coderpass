@@ -4,7 +4,9 @@ const createVaultBtnElement = document.querySelector(
 );
 
 const eventCreateVaultBtn = () => {
-  if (!createVaultBtnElement.disabled) {
+  if (createVaultBtnElement.hasAttribute('click-disabled')) {
+    document.querySelector('body > div.container > div.auth > div.form.create_vault > div.input_container:nth-child(3) > input:first-child').focus();
+  } else {
     // value of password input
     const password = document.querySelector(
       'body > div.container > div.auth > div.form.create_vault > div.input_container:nth-child(3) > input:first-child'
@@ -23,9 +25,7 @@ const eventCreateVaultBtn = () => {
     // trigger enter vault button event
     (() => {
       const clickEvent = new CustomEvent('click');
-      document
-        .querySelector('body > div.container > div.auth > div.form.enter_vault > div.input_container:nth-child(2) > button:nth-child(2)')
-        .dispatchEvent(clickEvent);
+      eventEnterVaultBtn(true);
     })();
   }
 };

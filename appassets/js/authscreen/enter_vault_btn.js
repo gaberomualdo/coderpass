@@ -3,8 +3,10 @@ const enterVaultBtnElement = document.querySelector(
   'body > div.container > div.auth > div.form.enter_vault > div.input_container:nth-child(2) > button:nth-child(2)'
 );
 
-const eventEnterVaultBtn = () => {
-  if (!enterVaultBtnElement.disabled) {
+const eventEnterVaultBtn = (enterVaultOverride = false) => {
+  if (enterVaultBtnElement.hasAttribute('click-disabled') && !enterVaultOverride) {
+    document.querySelector('body > div.container > div.auth > div.form.enter_vault > div.input_container:nth-child(2) > input:first-child').focus();
+  } else {
     // value of password input
     const password = document.querySelector(
       'body > div.container > div.auth > div.form.enter_vault > div.input_container:nth-child(2) > input:first-child'

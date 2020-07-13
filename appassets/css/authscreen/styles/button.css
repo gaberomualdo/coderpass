@@ -5,7 +5,7 @@ div.auth > div.form > div.input_container button {
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: default;
+  cursor: text;
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
 }

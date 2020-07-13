@@ -50,8 +50,6 @@ const refreshCodeEditor = (accountID, value) => {
           overviewRulerLanes: 0,
         });
 
-        console.log(codeEditors[accountID].getSupportedActions());
-
         codeEditors[accountID]._standaloneKeybindingService.addDynamicKeybinding('-editor.action.nextMatchFindAction');
 
         // loaded set add loaded attributeto editor
