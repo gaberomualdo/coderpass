@@ -86,7 +86,6 @@ div.tab.all_accounts > ul.accounts > div.account > section.display ul > li > p.n
   box-sizing: border-box;
   text-align: left;
   vertical-align: text-bottom;
-  user-select: none;
   flex-shrink: 0;
 
   padding-left: 0;

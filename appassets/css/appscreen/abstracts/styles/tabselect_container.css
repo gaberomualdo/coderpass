@@ -1,4 +1,6 @@
 .tab_select {
+  box-sizing: border-box;
+  padding-top: 2.65rem;
   width: var(--tabselect-width);
   height: var(--container-height);
   background-color: var(--lighter-color);
@@ -8,4 +10,8 @@
   position: relative;
 
   user-select: none;
+
+  transform: translate3d(0, 0, 0) !important;
+  transition: transform cubic-bezier(0.7, 0, 0.3, 1) 0.4s;
+  will-change: transform;
 }

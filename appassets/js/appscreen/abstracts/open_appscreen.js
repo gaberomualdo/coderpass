@@ -4,6 +4,8 @@ const openAppScreen = (passedVaultPassword) => {
   document.querySelector('body > div.container > div.auth').classList.remove('active');
   document.querySelector('body > div.container > div.app').classList.add('active');
 
+  document.body.classList.add('appscreen_shown');
+
   // put vault password into global variable
   vaultPassword = passedVaultPassword;
 

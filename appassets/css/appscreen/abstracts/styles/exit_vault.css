@@ -1,0 +1,9 @@
+.exit_vault_container {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 0.5rem;
+}
+button.exit_vault {
+  display: block;
+  margin-left: 0;
+}

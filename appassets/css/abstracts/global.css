@@ -22,6 +22,9 @@ body {
   background-color: var(--light-color);
   min-width: 100%;
   min-height: 100vh;
+
+  /* tabs width */
+  --tabselect-width: 17.5rem;
 }
 
 /* default font size */
@@ -38,13 +41,11 @@ body {
 body > div.container {
   display: block;
   width: 100%;
-  --container-height: calc((100vh - 2.5rem));
+  /* --container-height: calc((100vh - 2.5rem));
+  margin-top: 2.5rem; */
+  --container-height: 100vh;
   height: var(--container-height);
-  margin-top: 2.5rem;
   position: relative;
-
-  /* tabs width */
-  --tabselect-width: 17.5rem;
 }
 body > div.container.loading {
   display: none;

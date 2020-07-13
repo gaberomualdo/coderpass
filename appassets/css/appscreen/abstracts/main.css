@@ -5,6 +5,7 @@
 @import 'styles/tabs.css';
 @import 'styles/tab_resize.css';
 @import 'styles/tabselect_container.css';
-@import 'styles/tabselect_exit_vault.css';
+@import 'styles/exit_vault.css';
 @import 'styles/tabselect_btn.css';
 @import 'styles/tabselect_bottom_area.css';
+@import 'styles/toggle_tabselect_functionality.css';

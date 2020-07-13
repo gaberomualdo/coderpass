@@ -1,0 +1,7 @@
+div.app.tab_select_not_shown .tab_select {
+  --offset-left: calc(-1 * var(--tabselect-width) - 1px);
+  transform: translate3d(var(--offset-left), 0, 0) !important;
+}
+div.app.tab_select_not_shown .tabs {
+  width: 100%;
+}

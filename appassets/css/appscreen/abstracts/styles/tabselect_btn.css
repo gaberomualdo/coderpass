@@ -54,3 +54,21 @@
 
   font-weight: 600;
 }
+
+/* selected tabs */
+.tab_select > li:nth-child(1) {
+  --active-color: var(--green-color);
+}
+.tab_select > li:nth-child(2) {
+  --active-color: var(--blue-color);
+}
+.tab_select > li:nth-child(3) {
+  --active-color: var(--red-color);
+}
+
+.tab_select > li.active > div.icon > svg {
+  fill: var(--active-color);
+}
+.tab_select > li.active > h2 {
+  color: var(--active-color);
+}

@@ -3,5 +3,11 @@ div.tabs {
   height: var(--container-height);
   background-color: #ffffff;
   display: block;
-  float: left;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+div.container:not(.resizing) div.tabs {
+  transition: width cubic-bezier(0.7, 0, 0.3, 1) 0.4s;
 }

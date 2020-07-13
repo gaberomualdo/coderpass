@@ -29,6 +29,12 @@
   <body>
     <!-- topbar, draggable area (for macOS/darwin ONLY) -->
     <div class="topbar_draggable">
+      <!-- toggle tabselect button -->
+      <button class="toggle_tabselect default_style_copy_btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <path d="M0 0v24h24v-24h-24zm2 6h9v16h-9v-16zm20 16h-9v-16h9v16z" />
+        </svg>
+      </button>
       <p class="sidetext"></p>
     </div>
 
@@ -94,15 +100,6 @@
       <div class="app">
         <!-- tab select btns -->
         <ul class="tab_select">
-          <!-- exit vault container and button -->
-          <div class="exit_vault_container">
-            <button class="exit_vault default_style_button with_hover with_icon" aria-label="Exit Vault" data-balloon-pos="right">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                <path d="M0 12l9-8v6h15v4h-15v6z" />
-              </svg>
-            </button>
-          </div>
-
           <!-- tab buttons -->
           <li class="tab_btn all_accounts">
             <div class="icon">
@@ -135,7 +132,8 @@
 
           <!-- bottom area with contributors, social links, etc. -->
           <div class="bottom_area">
-            <p class="credits">Created by <a onclick="openURL(this)" data-url="https://xtrp.io/">Fred Adams</a></p>
+            <!-- uncomment the following to add c<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0v24h24v-24h-24zm2 6h9v16h-9v-16zm20 16h-9v-16h9v16z"/></svg>its and links to to GitHub and Website -->
+            <!-- <p class="credits">Created by <a onclick="openURL(this)" data-url="https://xtrp.io/">Fred Adams</a></p>
             <div class="links">
               <a onclick="openURL(this)" data-url="https://github.com/xtrp/JSON-Password-Manager">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -151,9 +149,18 @@
                 </svg>
                 <span>Website</span>
               </a>
-            </div>
+            </div> -->
           </div>
         </ul>
+
+        <!-- exit vault container and button -->
+        <div class="exit_vault_container">
+          <button class="exit_vault default_style_button with_hover with_icon" aria-label="Exit Vault" data-balloon-pos="right">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path d="M0 12l9-8v6h15v4h-15v6z" />
+            </svg>
+          </button>
+        </div>
 
         <!-- resize width of tabselect container -->
         <div class="tab_resize"></div>
@@ -315,6 +322,7 @@
     <script src="appassets/js/appscreen/abstracts/vault_vars.js"></script>
     <script src="appassets/js/appscreen/abstracts/open_appscreen.js"></script>
     <script src="appassets/js/appscreen/abstracts/tabs_functionality.js"></script>
+    <script src="appassets/js/appscreen/abstracts/toggle_tabselect.js"></script>
     <script src="appassets/js/appscreen/abstracts/tab_resize.js"></script>
 
     <!-- all accounts tab -->

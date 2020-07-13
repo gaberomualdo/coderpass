@@ -2,12 +2,12 @@
 div.topbar_draggable {
   -webkit-app-region: drag;
 
-  height: 2.5rem;
+  height: 2.65rem;
   box-sizing: border-box;
   padding: 0.5rem 1rem;
   width: 100%;
-  position: fixed;
-  z-index: 9999999999999;
+  position: absolute;
+  z-index: 10000;
   top: 0;
   left: 0;
   background-color: var(--submedium-color);
@@ -31,4 +31,31 @@ div.topbar_draggable > p.sidetext {
 div.topbar_draggable > p.sidetext > span.version {
   opacity: 0.5;
   margin-left: 0.15rem;
+}
+
+div.topbar_draggable > button.toggle_tabselect {
+  margin: 0;
+  position: absolute;
+  top: calc((2.65rem - 1rem) / 2);
+  left: calc(((2.65rem - 1rem) / 2) + var(--tabselect-width));
+}
+
+div.topbar_draggable > button.toggle_tabselect.tab_select_not_shown {
+  left: calc(100% - ((2.65rem - 1rem) / 2) - 1.5rem);
+}
+div.topbar_draggable > button.toggle_tabselect:not(.resizing) {
+  transition: left cubic-bezier(0.7, 0, 0.3, 1) 0.4s;
+}
+
+body:not(.appscreen_shown) div.topbar_draggable > button.toggle_tabselect {
+  display: none;
+}
+
+/* currently disabled, except for toggle tabselect button */
+div.topbar_draggable {
+  background-color: transparent;
+  border-bottom: none;
+}
+div.topbar_draggable > *:not(.toggle_tabselect) {
+  display: none;
 }

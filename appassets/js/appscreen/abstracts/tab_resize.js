@@ -1,4 +1,5 @@
 (() => {
+  const toggletabselectElm = document.querySelector('div.topbar_draggable > button.toggle_tabselect');
   const tabResizeElm = document.querySelector('.tab_resize');
   const containerElm = document.querySelector('body > div.container');
 
@@ -6,10 +7,12 @@
   tabResizeElm.addEventListener('mousedown', () => {
     isResizing = true;
     containerElm.classList.add('resizing');
+    toggletabselectElm.classList.add('resizing');
   });
   document.addEventListener('mouseup', () => {
     isResizing = false;
     containerElm.classList.remove('resizing');
+    toggletabselectElm.classList.remove('resizing');
     document.documentElement.style.cursor = null;
   });
 
@@ -31,7 +34,7 @@
         document.documentElement.style.cursor = 'e-resize';
       }
 
-      containerElm.setAttribute('style', `--tabselect-width: ${newTabselectWidth}px`);
+      document.body.setAttribute('style', `--tabselect-width: ${newTabselectWidth}px !important`);
     }
   });
 })();
