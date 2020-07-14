@@ -7,8 +7,7 @@
     "postinstall": "install-app-deps",
     "start": "electron .",
     "pack": "build --dir",
-    "dist": "build",
-    "build": "cd node_modules/monaco-json/ && npm run compile && npm run prepublishOnly"
+    "dist": "build"
   },
   "repository": {
     "type": "git",

@@ -12,8 +12,7 @@ div.tab.all_accounts > ul.accounts > div.account > section.edit div.editor_conta
   overflow: hidden;
   box-shadow: 0 0.1rem 0.4rem var(--supermedium-color);
   background-color: #1e1e1e;
-  transition: box-shadow 0.25s, margin 0.25s;
-  margin-top: 0.15rem;
+  transition: box-shadow 0.25s;
 
   /* width to compensate for account btns width */
   width: calc(100% - 6.5rem);
@@ -24,8 +23,6 @@ div.tab.all_accounts > ul.accounts > div.account > section.edit div.editor_conta
 div.tab.all_accounts > ul.accounts > div.account > section.edit div.editor_container.focused {
   border-color: var(--medium-color);
   box-shadow: 0 0.1rem 0.6rem var(--regular-color);
-  margin-top: 0;
-  margin-bottom: 0.15rem;
 }
 
 /* container to add padding to editor */
