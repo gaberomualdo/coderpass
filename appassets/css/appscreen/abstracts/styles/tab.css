@@ -10,6 +10,13 @@ div.tab {
 
   /* padding is made up for in the nav */
   padding-top: 0;
+
+  /* background (currently disabled, uncomment lines to add) */
+  /* --white: rgba(255, 255, 255, 0.96);
+  --bg-url: url(../../../../img/accounts_bg.png);
+  background-image: linear-gradient(var(--white), var(--white)), var(--bg-url);
+  background-size: 32.5rem auto;
+  background-repeat: repeat; */
 }
 
 div.tab:not(.active) {

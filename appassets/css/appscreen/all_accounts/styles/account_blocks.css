@@ -6,6 +6,11 @@ div.tab.all_accounts > ul.accounts {
 /* account block */
 div.tab.all_accounts > ul.accounts > div.account {
   padding: 2rem 0;
+  --horizontal-padding: 3rem;
+  padding-left: var(--horizontal-padding);
+  padding-right: var(--horizontal-padding);
+  box-sizing: border-box;
   position: relative;
   border-bottom: 1px solid var(--light-color);
+  background-color: rgba(255, 255, 255, 0.5);
 }

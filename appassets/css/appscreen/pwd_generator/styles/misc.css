@@ -1,6 +1,8 @@
 div.tab.pwd_generator {
   --balloon-color: var(--blue-color);
   --icon-hover-color: var(--blue-color);
+  --white: rgba(255, 255, 255, 0.97);
+  --bg-url: url(../../../../img/pwd_generator_bg.png);
 }
 div.tab.pwd_generator .main {
   margin-top: 2rem;

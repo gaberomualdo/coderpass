@@ -1,7 +1,7 @@
 /* account btns set */
 div.tab.all_accounts > ul.accounts > div.account > div.buttons {
   position: absolute;
-  right: 0;
+  right: var(--horizontal-padding);
   top: 2rem;
 }
 

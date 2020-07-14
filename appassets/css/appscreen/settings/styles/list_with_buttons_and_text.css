@@ -1,0 +1,70 @@
+div.tab.settings ul.main {
+  list-style: none;
+}
+
+div.tab.settings ul.main li {
+  min-height: 2.5rem;
+  font-size: 0;
+  display: flex;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--light-color);
+}
+div.tab.settings ul.main li:not(:last-child) {
+  margin-bottom: 0;
+}
+div.tab.settings ul.main li > * {
+  display: inline-block;
+  float: none;
+}
+div.tab.settings ul.main li button {
+  width: auto;
+  height: 2.5rem;
+  line-height: calc(2.5rem - 2px);
+  font-size: 1.15rem;
+  padding: 0 0.75rem;
+  margin-left: 0;
+  margin-right: 1rem;
+  flex-shrink: 0;
+  font-weight: 600;
+  color: #fff;
+  background-color: var(--bg);
+  border: none;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  transform: translateY(0px);
+  backface-visibility: hidden;
+}
+div.tab.settings ul.main li button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0.15rem 0.6rem rgba(0, 0, 0, 0.15);
+}
+div.tab.settings ul.main li button:active {
+  transform: translateY(0);
+  box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.1);
+}
+div.tab.settings ul.main li p {
+  min-height: 2.5rem;
+  line-height: 1.75rem;
+  font-size: 1.1rem;
+  padding: 0.375rem 0;
+  color: var(--regular-color);
+  box-sizing: border-box;
+}
+div.tab.settings ul.main li p strong {
+  color: var(--dark-color);
+  opacity: 0.75;
+}
+
+div.tab.settings ul.main li.no_button p {
+  opacity: 1;
+  color: var(--supermedium-color);
+}
+div.tab.settings ul.main li.no_button p > * {
+  display: block;
+  width: 100%;
+}
+div.tab.settings ul.main li.no_button p strong {
+  font-size: 1.15rem;
+}
+div.tab.settings ul.main li.no_button p > *:not(:last-child) {
+  margin-bottom: 0.5rem;
+}

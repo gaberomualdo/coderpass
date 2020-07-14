@@ -287,7 +287,50 @@
           </div>
 
           <!-- settings tab -->
-          <div class="tab settings"></div>
+          <div class="tab settings">
+            <nav>
+              <h1 class="title">Settings</h1>
+            </nav>
+            <ul class="main">
+              <li>
+                <button class="default_style_button with_hover downloaded_encrypted_datafile" style="--bg: var(--green-color);">
+                  Download Encrypted Vault File
+                </button>
+                <p>Use this secure file to restore your vault <strong>with your password</strong>.</p>
+              </li>
+              <li>
+                <button class="default_style_button with_hover download_unencrypted_datafile" style="--bg: var(--blue-color);">
+                  Download Unencrypted Vault File
+                </button>
+                <p>See your accounts as a single .JSON file. This file can be used to restore your vault <strong>without your password</strong>.</p>
+              </li>
+              <li>
+                <button class="default_style_button with_hover download_unencrypted_datafile" style="--bg: var(--red-color);">Delete Vault</button>
+                <p>Delete your vault permanently. All encrypted vault data will be deleted.</p>
+              </li>
+              <li class="no_button">
+                <p>
+                  <strong>Want to change your vault password?</strong
+                  ><span>Just download vault raw JSON and create a new vault with the downloaded raw JSON and your new password.</span>
+                </p>
+              </li>
+              <li class="no_button">
+                <p>
+                  <strong>Have any questions or issues?</strong
+                  ><span
+                    >Check out the official <a onclick="openURL(this)" data-url="#">JSON Password Manager Website</a> and our
+                    <a onclick="openURL(this)" data-url="#">GitHub Repo</a>.</span
+                  >
+                </p>
+              </li>
+            </ul>
+            <div class="bottom">
+              <p>
+                JSON Password Manager is a project built by developer and student
+                <a onclick="openURL(this)" data-url="https://xtrp.io/">Fred Adams</a>.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -360,8 +403,8 @@
 
     <!-- automatically open vault and switch to right tab for development purposes -->
     <script>
-      // openAppScreen('test');
-      // openTab(0);
+      openAppScreen('test');
+      openTab(2);
     </script>
   </body>
 </html>

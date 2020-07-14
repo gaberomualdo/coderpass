@@ -1,6 +1,6 @@
-@import 'abstracts/misc.css';
-@import 'abstracts/checkboxes.css';
-@import 'abstracts/password_length.css';
-@import 'abstracts/generate_password.css';
-@import 'abstracts/copy_password_btn.css';
-@import 'abstracts/tip.css';
+@import 'styles/misc.css';
+@import 'styles/checkboxes.css';
+@import 'styles/password_length.css';
+@import 'styles/generate_password.css';
+@import 'styles/copy_password_btn.css';
+@import 'styles/tip.css';

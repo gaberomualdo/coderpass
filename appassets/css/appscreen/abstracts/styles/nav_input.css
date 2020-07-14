@@ -31,7 +31,7 @@ div.tab > nav > div.row > input[type='text']:not(:placeholder-shown) {
   padding-right: 0.7rem;
   width: 12.5rem;
   cursor: text;
-  border-color: var(--text-color);
+  border-color: var(--dark-color);
 }
 
 /* when not focused and with text */

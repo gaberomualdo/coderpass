@@ -1,0 +1,19 @@
+div.tab.settings {
+  --balloon-color: var(--red-color);
+  --icon-hover-color: var(--red-color);
+  --white: rgba(255, 255, 255, 0.98);
+  --bg-url: url(../../../../img/settings_bg.png);
+}
+
+div.tab.settings a {
+  --link-color: #2d9fff;
+  --link-light-color: #5bb4ff;
+
+  color: var(--link-light-color);
+  border-bottom: 1px solid #b7deff;
+  cursor: pointer;
+}
+div.tab.settings a:hover {
+  color: var(--link-color);
+  border-color: var(--link-light-color);
+}

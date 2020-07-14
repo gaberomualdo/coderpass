@@ -1,3 +1,14 @@
+div.tab.all_accounts {
+  --bg-url: url(../../../../img/accounts_bg.png);
+  padding: 0;
+}
+
+div.tab.all_accounts > nav {
+  width: calc(100% - 2 * (3rem));
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
 /* div.tab.all_accounts {
   --balloon-color: var(--green-color);
 }

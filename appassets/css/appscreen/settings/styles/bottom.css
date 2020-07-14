@@ -1,0 +1,11 @@
+div.tab.settings div.bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  box-sizing: border-box;
+  padding: 0.75rem;
+  text-align: center;
+  color: var(--supermedium-color);
+  font-size: 1.05rem;
+}
