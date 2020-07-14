@@ -1,3 +1,5 @@
+let initialVaultContents = { accounts: {} };
+
 // functionality for create vault button
 const createVaultBtnElement = document.querySelector(
   'body > div.container > div.auth > div.form.create_vault > div.input_container:nth-child(3) > button:nth-child(2)'
@@ -13,7 +15,7 @@ const eventCreateVaultBtn = () => {
     ).value;
 
     // encrypt empty JSON object into vault file
-    encryptJSONToFile('vault/data.txt', password, { accounts: {} });
+    encryptJSONToFile('vault/data.txt', password, JSON.parse(JSON.stringify(initialVaultContents)));
 
     // simulate enter vault with password
 
