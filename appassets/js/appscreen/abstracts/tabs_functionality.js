@@ -19,8 +19,10 @@
   };
 
   window.openTab = (tabIdx) => {
-    resetActiveElms();
-    setActive(tabIdx);
+    if (!(document.querySelectorAll('.tabs > .tab')[tabIdx] === document.querySelector('.tabs > .tab.active'))) {
+      resetActiveElms();
+      setActive(tabIdx);
+    }
   };
 
   tabSelectBtns.forEach((btn, btnIdx) => {

@@ -178,15 +178,6 @@
                     <path d="M24 9h-9v-9h-6v9h-9v6h9v9h6v-9h9z" />
                   </svg>
                 </button>
-                <button
-                  class="download_datafile default_style_button with_hover with_icon"
-                  aria-label="Download Password Datafile"
-                  data-balloon-pos="down"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <path d="M17 13h6l-11 11-11-11h6v-13h10z" />
-                  </svg>
-                </button>
                 <button class="hide_show_pwds default_style_button with_hover with_icon" aria-label="Hide Passwords" data-balloon-pos="down">
                   <svg class="hide_pwd" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                     <path
@@ -293,7 +284,7 @@
             </nav>
             <ul class="main">
               <li>
-                <button class="default_style_button with_hover downloaded_encrypted_datafile" style="--bg: var(--green-color);">
+                <button class="default_style_button with_hover download_encrypted_datafile" style="--bg: var(--green-color);">
                   Download Encrypted Vault File
                 </button>
                 <p>Use this secure file to restore your vault <strong>with your password</strong>.</p>
@@ -305,7 +296,7 @@
                 <p>See your accounts as a single .JSON file. This file can be used to restore your vault <strong>without your password</strong>.</p>
               </li>
               <li>
-                <button class="default_style_button with_hover download_unencrypted_datafile" style="--bg: var(--red-color);">Delete Vault</button>
+                <button class="default_style_button with_hover delete_vault" style="--bg: var(--red-color);">Delete Vault</button>
                 <p>Delete your vault permanently. All encrypted vault data will be deleted.</p>
               </li>
               <li class="no_button">
@@ -372,12 +363,12 @@
     <!-- all accounts tab -->
     <script src="appassets/js/appscreen/all_accounts/abstracts/allaccounts_tab.js"></script>
     <script src="appassets/js/appscreen/all_accounts/abstracts/refresh_accounts_app_menu.js"></script>
+    <script src="appassets/js/appscreen/all_accounts/abstracts/scroll_to_account.js"></script>
 
     <script src="appassets/js/appscreen/all_accounts/db_functionality/refresh_db.js"></script>
     <script src="appassets/js/appscreen/all_accounts/db_functionality/add_account_to_db.js"></script>
 
     <script src="appassets/js/appscreen/all_accounts/nav_components/add_account_btn.js"></script>
-    <script src="appassets/js/appscreen/all_accounts/nav_components/download_pwd_datafile_btn.js"></script>
     <script src="appassets/js/appscreen/all_accounts/nav_components/hideshow_pwd_btn.js"></script>
     <script src="appassets/js/appscreen/all_accounts/nav_components/searchbar_input.js"></script>
 
@@ -401,10 +392,9 @@
     <script src="appassets/js/appscreen/pwd_generator/abstracts/generate_pwd_btn.js"></script>
     <script src="appassets/js/appscreen/pwd_generator/abstracts/copy_pwd_btn.js"></script>
 
-    <!-- automatically open vault and switch to right tab for development purposes -->
-    <script>
-      openAppScreen('test');
-      openTab(2);
-    </script>
+    <!-- settings tab -->
+    <script src="appassets/js/appscreen/settings/abstracts/download_encrypted_vault_file.js"></script>
+    <script src="appassets/js/appscreen/settings/abstracts/download_unencrypted_vault_file.js"></script>
+    <script src="appassets/js/appscreen/settings/abstracts/delete_vault.js"></script>
   </body>
 </html>

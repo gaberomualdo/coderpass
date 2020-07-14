@@ -26,7 +26,7 @@ function createWindow() {
     width: 1000,
     height: 700,
     minWidth: 975,
-    minHeight: 600,
+    minHeight: 650,
     webPreferences: {
       nodeIntegration: true,
     },
@@ -150,9 +150,20 @@ app.on('ready', () => {
         { type: 'normal', label: 'Exit Vault', accelerator: 'CmdOrCtrl+E', click: () => window.webContents.send('menu-exit-vault', '') },
         {
           type: 'normal',
-          label: 'Download Vault Datafile',
+          label: 'Download Encrypted Vault File',
           accelerator: 'CmdOrCtrl+D',
           click: () => window.webContents.send('menu-download-vault-datafile', ''),
+        },
+        {
+          type: 'normal',
+          label: 'Download Unencrypted Vault File',
+          accelerator: 'CmdOrCtrl+Shift+D',
+          click: () => window.webContents.send('menu-download-unencrypted-vault-datafile', ''),
+        },
+        {
+          type: 'normal',
+          label: 'Delete Vault',
+          click: () => window.webContents.send('menu-delete-vault', ''),
         },
       ],
     },
