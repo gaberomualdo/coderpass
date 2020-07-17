@@ -20,7 +20,7 @@ const eventDownloadPasswordDatafileBtn = () => {
   };
 
   // download password datafile
-  downloadURI('vault/data.txt', 'encrypted_vault.txt');
+  downloadURI(getPathOfAppDataFile('vault/data.txt'), 'encrypted_vault.txt');
 };
 
 // map download password datafile button onclick to event function

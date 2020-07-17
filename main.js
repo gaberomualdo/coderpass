@@ -1,5 +1,5 @@
 // useful functions
-const clonedeep = require('lodash/clonedeep');
+const clonedeep = require('lodash.clonedeep');
 
 /*
     This is the JS entry point file for the application.
@@ -15,6 +15,7 @@ const { app, Menu, BrowserWindow, ipcMain } = require('electron');
 
 // get Node.js modules used in app
 const fs = require('fs');
+const path = require('path');
 
 // global window object
 let window;
@@ -68,7 +69,7 @@ app.on('ready', () => {
   createWindow();
 
   const isMac = process.platform === 'darwin';
-  const isInDevelopment = process.mainModule.filename.indexOf('app.asar') === -1;
+  const isInDevelopment = true; //process.mainModule.filename.indexOf('app.asar') === -1;
 
   curAppMenuTemplate = [
     // { role: 'appMenu' }
@@ -283,4 +284,9 @@ ipcMain.on('write-text-to-page', (e, text) => {
     });
   });
   e.returnValue = '';
+});
+
+// get appdata directory
+ipcMain.on('get-appdata-dir', (e, text) => {
+  e.returnValue = path.join(app.getPath('appData'), '/json-password-manager/') || './';
 });

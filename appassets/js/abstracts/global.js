@@ -18,6 +18,9 @@ const { Menu } = remote.require('electron');
 // get fs module from remote module to read and write from filesystem
 const fs = remote.require('fs');
 
+// path for working with paths
+const path = remote.require('path');
+
 // get encrypt-with-password module for encryption
 const { encryptJSON, decryptJSON } = remote.require('encrypt-with-password');
 

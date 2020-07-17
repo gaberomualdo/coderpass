@@ -6,8 +6,11 @@
   "scripts": {
     "postinstall": "install-app-deps",
     "start": "electron .",
-    "pack": "build --dir",
-    "dist": "build"
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "productName": "JSON Password Manager"
   },
   "repository": {
     "type": "git",
@@ -31,6 +34,7 @@
   "dependencies": {
     "encrypt-with-password": "^1.0.0",
     "lodash": "^4.17.19",
+    "lodash.clonedeep": "^4.5.0",
     "monaco-editor": "^0.20.0",
     "monaco-json": "^2.9.0",
     "monaco-languages": "^1.10.0",
