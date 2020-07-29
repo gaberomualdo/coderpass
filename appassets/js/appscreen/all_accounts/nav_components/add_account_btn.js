@@ -15,7 +15,7 @@ const eventAddAccountBtn = () => {
   document.documentElement.scrollTop = 0;
 
   if (amountOfAccountsBeingEdited > 0) {
-    alert(`Cannot Add New Account: Finish Editing ${amountOfAccountsBeingEdited === 1 ? 'An Account' : 'Accounts'} First`);
+    alert(`Finish Editing ${amountOfAccountsBeingEdited === 1 ? 'An Account' : 'Accounts'} First`);
     return;
   }
 
