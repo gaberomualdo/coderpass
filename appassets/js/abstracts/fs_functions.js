@@ -7,8 +7,8 @@ const getPathOfAppDataFile = (filename) => {
 };
 
 // read file
-const readFile = (filename) => {
-  const filePath = getPathOfAppDataFile(filename);
+const readFile = (filename, absolute = false) => {
+  const filePath = absolute ? filename : getPathOfAppDataFile(filename);
   // read file using Node.js fs module
   try {
     return fs.readFileSync(filePath, 'UTF-8', (err, data) => {

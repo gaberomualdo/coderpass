@@ -10,9 +10,10 @@ document
     // if file was found, write file contents to data text file, and reload page
     if (filePaths && filePaths[0]) {
       // get contents of opened file
-      const fileContents = readFile(filePaths[0]);
+      const fileContents = readFile(filePaths[0], true);
 
-      console.log(fileContents);
+      // For debugging purposes:
+      // console.log(fileContents);
 
       // if file has contents, write file contents to vault file
       if (fileContents.length > 0) {
