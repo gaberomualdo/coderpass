@@ -25,9 +25,9 @@ function createWindow() {
   // window options
   let windowOptions = {
     width: 1000,
-    height: 700,
+    height: 750,
     minWidth: 975,
-    minHeight: 650,
+    minHeight: 725,
     webPreferences: {
       nodeIntegration: true,
     },
@@ -160,6 +160,11 @@ app.on('ready', () => {
           label: 'Download Unencrypted Vault File',
           accelerator: 'CmdOrCtrl+Shift+D',
           click: () => window.webContents.send('menu-download-unencrypted-vault-datafile', ''),
+        },
+        {
+          type: 'normal',
+          label: 'Open Encrypted Vault Folder',
+          click: () => window.webContents.send('menu-open-encrypted-vault-folder', ''),
         },
         {
           type: 'normal',

@@ -276,13 +276,21 @@
                 <p>See your accounts as a single .JSON file. This file can be used to restore your vault <strong>without your password</strong>.</p>
               </li>
               <li>
+                <button class="default_style_button with_hover open_encrypted_vault_folder" style="--bg: #9b59b6;">
+                  Open Replaced Vaults Folder
+                </button>
+                <p>
+                  Encrypted files of any replaced vaults are stored here.
+                </p>
+              </li>
+              <li>
                 <button class="default_style_button with_hover delete_vault" style="--bg: var(--red-color);">Delete Vault</button>
                 <p>Delete your vault permanently. All encrypted vault data will be deleted.</p>
               </li>
               <li class="no_button">
                 <p>
                   <strong>Want to change your vault password?</strong
-                  ><span>Just download vault raw JSON and create a new vault with the downloaded raw JSON and your new password.</span>
+                  ><span>Download unencrypted vault file and create a new vault by uploading the file and entering your new password.</span>
                 </p>
               </li>
               <li class="no_button">
@@ -376,6 +384,7 @@
     <!-- settings tab -->
     <script src="appassets/js/appscreen/settings/abstracts/download_encrypted_vault_file.js"></script>
     <script src="appassets/js/appscreen/settings/abstracts/download_unencrypted_vault_file.js"></script>
+    <script src="appassets/js/appscreen/settings/abstracts/open_vault_folder.js"></script>
     <script src="appassets/js/appscreen/settings/abstracts/delete_vault.js"></script>
   </body>
 </html>
