@@ -21,7 +21,7 @@
     "Manager",
     "JSON"
   ],
-  "author": "Fred Adams <xtrp@xtrp.io>",
+  "author": "Gabriel Romualdo <xtrp@xtrp.io>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/xtrp/JSON-Password-Manager/issues"
