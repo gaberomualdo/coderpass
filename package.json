@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "encrypt-with-password": "^1.0.0",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "lodash.clonedeep": "^4.5.0",
     "monaco-editor": "^0.20.0",
     "monaco-json": "^2.9.0",
