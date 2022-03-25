@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/xtrp/JSON-Password-Manager#readme",
   "devDependencies": {
-    "electron": "^11.5.0",
+    "electron": "^13.6.6",
     "electron-builder": "^22.7.0"
   },
   "dependencies": {
