@@ -1,4 +1,4 @@
-# 👋 Welcome to JSON Password Manager
+# 👋 Welcome to CoderPass
 
 <p>
   <a href="https://github.com/xtrp/JSON-Password-Manager#readme" target="_blank">
