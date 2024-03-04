@@ -29,7 +29,7 @@
   "homepage": "https://github.com/xtrp/JSON-Password-Manager#readme",
   "devDependencies": {
     "electron": "^11.5.0",
-    "electron-builder": "^22.7.0"
+    "electron-builder": "^24.13.3"
   },
   "dependencies": {
     "encrypt-with-password": "^1.0.0",
